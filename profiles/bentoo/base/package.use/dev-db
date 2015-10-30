@@ -1,0 +1,2 @@
+dev-db/freetds mssql odbc
+dev-db/mariadb extraengine

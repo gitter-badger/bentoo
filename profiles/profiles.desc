@@ -1,0 +1,27 @@
+amd64           bentoo/default/linux/amd64			stable
+amd64           bentoo/default/linux/amd64/systemd		stable
+amd64           bentoo/default/linux/amd64/binary		dev
+amd64           bentoo/default/linux/amd64/bleeding_edge	dev
+amd64           bentoo/hardened/linux/amd64			stable
+amd64           bentoo/hardened/linux/amd64/systemd		stable
+amd64           bentoo/hardened/linux/amd64/binary		dev
+amd64           bentoo/hardened/linux/amd64/bleeding_edge	dev
+
+x86             bentoo/default/linux/x86			stable
+x86             bentoo/default/linux/x86/systemd		stable
+x86             bentoo/default/linux/x86/binary			dev
+x86             bentoo/default/linux/x86/bleeding_edge		dev
+x86             bentoo/hardened/linux/x86			stable
+x86             bentoo/hardened/linux/x86/systemd		stable
+x86             bentoo/hardened/linux/x86/binary		dev
+x86             bentoo/hardened/linux/x86/bleeding_edge		dev
+
+arm             bentoo/default/linux/arm/armv7a			stable
+arm             bentoo/default/linux/arm/armv7a/bleeding_edge		dev
+arm             bentoo/hardened/linux/arm/armv7a			stable
+arm             bentoo/hardened/linux/arm/armv7a/bleeding_edge		dev
+arm             bentoo/default/linux/arm/armv6j			stable
+arm             bentoo/default/linux/arm/armv6j/bleeding_edge		dev
+
+#arm             bentoo/hardened/linux/uclibc/arm		dev
+#arm             bentoo/hardened/linux/uclibc/arm/bleeding_edge	dev

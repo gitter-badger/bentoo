@@ -1,0 +1,8 @@
+dev-db/absinthe ~amd64
+dev-db/mssqlscan ~amd64
+dev-db/oat ~amd64
+dev-db/sqlbf ~amd64
+dev-db/sqlmap ~amd64
+~dev-db/sqlitebrowser-3.6.0 ~amd64
+~dev-db/sqlsus-0.7.2 ~amd64
+~dev-db/themole-0.3 ~amd64

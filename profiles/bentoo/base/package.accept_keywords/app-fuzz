@@ -1,0 +1,11 @@
+app-fuzz/Peach ~amd64
+app-fuzz/bed ~amd64
+app-fuzz/bss ~amd64
+app-fuzz/fuzzer-server ~amd64
+app-fuzz/http-fuzz ~amd64
+app-fuzz/ohrwurm ~amd64
+app-fuzz/protos ~amd64
+app-fuzz/smtp-fuzz ~amd64
+app-fuzz/smudge ~amd64
+app-fuzz/snmp-fuzzer ~amd64
+~app-fuzz/fuzzdb-1.09 ~amd64

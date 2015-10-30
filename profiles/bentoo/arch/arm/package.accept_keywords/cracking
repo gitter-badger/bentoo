@@ -1,0 +1,16 @@
+=app-crypt/ophcrack-3.4.0 **
+=app-crypt/ophcrack-tables-1.0-r1 **
+=app-dicts/raft-wordlists-20110803 **
+=app-text/cewl-4.1 **
+=app-text/cewl-5.0 **
+=dev-ruby/http_configuration-1.0.2-r1 **
+=dev-ruby/mini_exiftool-1.0.1-r1 **
+=dev-ruby/rubyzip-0.9.9 **
+=dev-ruby/spider-0.4.4-r1 **
+=net-analyzer/hydra-7.4.2 **
+=net-analyzer/medusa-2.1.1 **
+=net-analyzer/ncrack-0.4_alpha **
+=net-analyzer/thc-pptp-bruter-0.1.4 **
+=net-libs/netwib-5.39.0 **
+=net-misc/rdesktop-brute-1.5.0 **
+media-libs/exiftool amd64

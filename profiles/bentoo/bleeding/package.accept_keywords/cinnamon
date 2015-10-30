@@ -1,0 +1,10 @@
+~app-admin/openrc-settingsd-1.0.1 ~amd64
+~dev-python/pycairo-1.10.0 ~amd64
+~dev-util/fix-la-relink-command-0.1.1 ~amd64
+~gnome-base/gconf-3.2.6 ~amd64
+~gnome-base/gdm-3.6.2 ~amd64
+~gnome-base/gsettings-desktop-schemas-3.6.1 ~amd64
+~gnome-base/libgnomekbd-3.6.0 ~amd64
+~sys-auth/nss-myhostname-0.3 ~amd64
+~x11-libs/mx-1.4.7 ~amd64
+~x11-themes/gtk-engines-unico-1.0.3_pre20121212 ~amd64

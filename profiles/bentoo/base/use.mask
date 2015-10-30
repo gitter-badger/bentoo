@@ -1,0 +1,2 @@
+#users should never enable this
+livecd-stage1

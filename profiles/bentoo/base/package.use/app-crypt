@@ -1,0 +1,4 @@
+app-crypt/gnupg smartcard
+app-crypt/johntheripper mpi custom-cflags
+app-crypt/ophcrack -tables
+app-crypt/pinentry gnome-keyring

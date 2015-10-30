@@ -1,0 +1,5 @@
+<sys-auth/yubikey-personalization-gui-9999 **
+sys-auth/libyubikey ~amd64
+sys-auth/pam_yubico ~amd64
+sys-auth/ykclient ~amd64
+sys-auth/ykpers ~amd64

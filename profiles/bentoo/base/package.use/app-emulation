@@ -1,0 +1,4 @@
+app-emulation/libvirt fuse virt-network pcap parted
+app-emulation/libvirt-glib python
+app-emulation/qemu vde spice
+app-emulation/wine fontconfig

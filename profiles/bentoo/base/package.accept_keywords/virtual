@@ -1,0 +1,4 @@
+=virtual/jdk-1.7.0 ~amd64
+=virtual/jre-1.7.0 ~amd64
+~virtual/ruby-ssl-7 ~amd64
+~virtual/rubygems-10 ~amd64

@@ -1,0 +1,13 @@
+=net-libs/gupnp-igd-0.2.2-r1 ~amd64
+=net-libs/nodejs-0.12.7-r1 ~amd64
+net-libs/cppzmq ~amd64
+net-libs/libbtbb ~amd64
+net-libs/libhackrf ~amd64
+net-libs/libosmocore ~amd64
+~net-libs/daq-2.0.2 ~amd64
+~net-libs/libndpi-1.5.1 ~amd64
+~net-libs/libosmo-dsp-0.3 ~amd64
+~net-libs/libvidcap-0.2.1 ~amd64
+~net-libs/libwhisker-2.5 ~amd64
+~net-libs/netwib-5.39.0 ~amd64
+~net-libs/nfqueue-bindings-0.5 ~amd64
