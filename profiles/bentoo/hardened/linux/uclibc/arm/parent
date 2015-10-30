@@ -1,0 +1,4 @@
+gentoo:hardened/linux/uclibc/arm/armv7a
+bentoo:bentoo/arch/arm
+../../base
+bentoo:bentoo/base

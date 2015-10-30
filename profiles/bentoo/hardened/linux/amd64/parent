@@ -1,0 +1,4 @@
+gentoo:hardened/linux/amd64
+bentoo:bentoo/arch/amd64
+../base
+bentoo:bentoo/base

@@ -1,0 +1,3 @@
+media-plugins/alsa-plugins pulseaudio
+media-plugins/audacious-plugins wavpack
+media-plugins/gst-plugins-meta dvd mpeg wavpack

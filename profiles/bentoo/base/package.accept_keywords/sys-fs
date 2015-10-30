@@ -1,0 +1,4 @@
+=sys-fs/dmraid-1.0.0_rc16-r3 ~amd64
+sys-fs/zfs ~amd64
+sys-fs/zfs-kmod ~amd64
+~net-fs/curlftpfs-0.9.2 ~amd64

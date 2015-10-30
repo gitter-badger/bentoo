@@ -1,0 +1,4 @@
+x11-base/xorg-server
+x11-base/xorg-x11
+
+@x11-module-rebuild

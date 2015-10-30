@@ -1,0 +1,15 @@
+=sys-libs/db-4.8.30-r1 ~amd64
+dev-java/ecj-gcj ~amd64
+dev-java/gcj-jdk ~amd64
+dev-java/icedtea:6 amd64
+dev-java/icedtea:7 ~amd64
+dev-libs/hidapi ~arm
+dev-util/reswrap ~arm
+sys-auth/libyubikey ~amd64
+sys-auth/ykpers ~amd64
+sys-process/acct amd64
+sys-process/atop amd64
+x11-libs/fox ~arm
+x11-libs/fox-wrapper ~arm
+~gnome-extra/nm-applet-0.9.8.10 ~amd64
+~sys-devel/gcc-4.8.3 ~amd64

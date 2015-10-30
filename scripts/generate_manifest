@@ -1,0 +1,45 @@
+#!/bin/sh
+
+#if [ -e /etc/portage/make.conf ] ; then
+#	if [ -z "${PORTDIR}" ] ; then
+#		PORTDIR=$(source /etc/portage/make.conf 2>/dev/null ; echo ${PORTDIR})
+#	fi
+#fi
+
+ROOT="$(portageq envvar ROOT)"
+REPO_ROOT="$(portageq get_repo_path ${ROOT} bentoo)"
+
+cd ..
+
+cd "${REPO_ROOT}"
+echo "${REPO_ROOT}"
+
+#chmod 0750 *
+chown -R portage:portage *
+
+echo "Prepare ebuild\`s and ChangeLog"
+# for file in $(find `pwd` \( -name "*.ebuild" -o -name "ChangeLog" -o -name "*.eblit" -o -name "*.eclass" \)); do
+for file in $(find `pwd` \( -name "*.ebuild" -o -name "ChangeLog" \)); do
+#	echo "${file}";
+	cp "${file}" "${file}~";
+#	echo "`cat ${PORTDIR}/header.txt`" > "${file}";
+	echo "`cat ${REPO_ROOT}/header.txt`" > "${file}";
+	echo "" >> "${file}";
+	echo "`sed '1,4d' "${file}~"`" >> "${file}";
+	rm -rf "${file}~";
+done;
+
+#echo "Delete all current Manifest"
+#find `pwd` -name Manifest -type f -exec rm {} \;
+
+echo "Make all digest"
+find `pwd` -name \*.ebuild -type f -exec ebuild {} digest \; #> /dev/null 2>&1 \;
+
+#echo "Sign all Manifest"
+#printf "Enter the passphrase for gpg key:\n"
+#read "PASSPHRASE"
+#for file in $(find `pwd` -iname Manifest); do
+#	gpg --yes --batch --passphrase="${PASSPHRASE}" --clearsign "${file}";
+#	mv "${file}".asc "${file}"
+#done;
+

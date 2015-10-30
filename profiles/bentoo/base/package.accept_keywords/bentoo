@@ -1,0 +1,17 @@
+bentoo/bentoo-analyzer **
+bentoo/bentoo-bluetooth **
+bentoo/bentoo-cracking **
+bentoo/bentoo-database **
+bentoo/bentoo-exploit **
+bentoo/bentoo-footprint **
+bentoo/bentoo-forensics **
+bentoo/bentoo-forging **
+bentoo/bentoo-fuzzers **
+bentoo/bentoo-installer **
+bentoo/bentoo-livecd **
+bentoo/bentoo-mitm **
+bentoo/bentoo-proxies **
+bentoo/bentoo-rce **
+bentoo/bentoo-scanner **
+bentoo/bentoo-voip ~amd64
+bentoo/bentoo-wireless **

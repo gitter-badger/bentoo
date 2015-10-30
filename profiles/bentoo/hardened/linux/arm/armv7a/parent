@@ -1,0 +1,4 @@
+gentoo:hardened/linux/arm/armv7a
+../../base
+bentoo:bentoo/base
+bentoo:bentoo/arch/arm/armv7a

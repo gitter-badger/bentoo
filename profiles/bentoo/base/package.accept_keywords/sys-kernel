@@ -1,0 +1,4 @@
+sys-kernel/ax88179_178a ~amd64
+sys-kernel/linux-firmware ~amd64
+sys-kernel/spl ~amd64
+~sys-kernel/pf_ring-kmod-5.6.1 ~amd64

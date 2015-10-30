@@ -1,0 +1,9 @@
+# The Gentoo toolchain
+sys-devel/binutils # Essential utilities for handling binaries
+sys-devel/binutils-config
+sys-devel/gcc #  The GNU Compiler Collection
+sys-devel/gcc-config
+sys-libs/glibc # The GNU C Library
+# sys-libs/uclibc # A lean drop-in replacement for glibc optimized for embedded systems
+sys-kernel/linux-headers # Kernel headers needed by system libc
+# sys-devel/gdb # Optional, for debugging binaries
