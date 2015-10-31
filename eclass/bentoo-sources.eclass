@@ -15,21 +15,17 @@
 # linux kernel.
 
 # The latest version of this software can be obtained here:
-# https://github.com/init6/init_6/blob/master/eclass/bentoo-sources.eclass
-# Bugs: https://github.com/init6/init_6/issues
-# Wiki: https://github.com/init6/init_6/wiki/geek-sources
+# https://bitbucket.org/redeyeteam/bentoo
+# Bugs: https://bitbucket.org/redeyeteam/bentoo/issues
+# Wiki: https://bitbucket.org/redeyeteam/bentoo/wiki
 
-case ${EAPI} in
-	5)	: ;;
-	*)	die "bentoo-sources.eclass: unsupported EAPI=${EAPI:-0}" ;;
+case ${EAPI:-0} in
+	[01234])
+		die "EAPI ${EAPI:-0} is not supported"
 esac
 
 if [[ ${___ECLASS_ONCE_SRC_BENTOO} != "recur -_+^+_- spank" ]]; then
 ___ECLASS_ONCE_SRC_BENTOO="recur -_+^+_- spank"
-
-PYTHON_COMPAT=( python{2_6,2_7} )
-
-inherit python-any-r1
 
 EXPORT_FUNCTIONS src_unpack src_prepare src_compile src_install pkg_postinst
 
@@ -73,25 +69,20 @@ if [ "${SUBLEVEL}" = "0" ] || [ "${PV}" = "${KMV}" ] ; then
 fi
 
 # ebuild default values setup settings
-EXTRAVERSION=${EXTRAVERSION:-"-geek"}
+EXTRAVERSION=${EXTRAVERSION:-"-bentoo"}
 KV_FULL="${PVR}${EXTRAVERSION}"
 S="${WORKDIR}"/linux-"${KV_FULL}"
 
-DEPEND="!build? (
-	sys-apps/sed
-	>=sys-devel/binutils-2.11.90.0.31
-)"
-RDEPEND="!build? (
-	>=sys-libs/ncurses-5.2
-	sys-devel/make
-	dev-lang/perl
-	sys-devel/bc
-	brand?	( media-fonts/iso_latin_1 )
-)"
-PDEPEND="!build? ( virtual/dev-manager )"
-
 SLOT=${SLOT:-${KMV}}
-IUSE="symlink build brand"
+IUSE="brand"
+
+DEPEND="app-arch/xz-utils
+	sys-apps/sed
+	sys-devel/autoconf
+	sys-devel/make
+	sys-devel/bc
+	brand? ( media-fonts/iso_latin_1 )"
+RDEPEND="sys-apps/sed"
 
 case "${PR}" in
 	r0)	case "${VERSION}" in
@@ -184,8 +175,6 @@ if [[ ${DEBLOB_AVAILABLE} == "1" ]]; then
 	# stripped
 	LICENSE="${LICENSE} !deblob? ( freedist )"
 
-	DEPEND+=" deblob? ( ${PYTHON_DEPS} )"
-
 	if [[ -n PATCHLEVEL ]]; then
 		DEBLOB_PV="${VERSION}.${PATCHLEVEL}.${SUBLEVEL}"
 	else
@@ -223,54 +212,6 @@ else
 	LICENSE="${LICENSE} freedist"
 fi
 
-# @FUNCTION: init_variables
-# @INTERNAL
-# @DESCRIPTION:
-# Internal function initializing all variables.
-# We define it in function scope so user can define
-# all the variables before and after inherit.
-bentoo-sources_init_variables() {
-	debug-print-function ${FUNCNAME} "$@"
-
-	local rm_unneeded_arch_cfg=$(source $cfg_file 2>/dev/null; echo ${rm_unneeded_arch})
-	: ${rm_unneeded_arch:=${rm_unneeded_arch_cfg:-no}} # rm_unneeded-arch=yes/no
-
-	local oldconfig_cfg=$(source $cfg_file 2>/dev/null; echo ${oldconfig})
-	: ${oldconfig:=${oldconfig_cfg:-yes}} # oldconfig=yes/no
-
-	debug-print "${FUNCNAME}: oldconfig=${oldconfig}"
-}
-
-bentoo-sources_init_variables
-
-# @FUNCTION: src_unpack
-# @USAGE:
-# @DESCRIPTION: Extract source packages and do any necessary patching or fixes.
-bentoo-sources_src_unpack() {
-	debug-print-function ${FUNCNAME} "$@"
-
-	if [ "${A}" != "" ]; then
-		ebegin "Extract the sources"
-			tar xvJf "${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}/${kname}" &>/dev/null
-		eend $?
-		cd "${WORKDIR}" || die "${RED}cd ${WORKDIR} failed${NORMAL}"
-		mv "linux-${kversion}" "${S}" || die "${RED}mv linux-${kversion} ${S} failed${NORMAL}"
-	fi
-	cd "${S}" || die "${RED}cd ${S} failed${NORMAL}"
-	if [ "${SKIP_UPDATE}" = "1" ] ; then
-		ewarn "${RED}Skipping update to latest upstream ...${NORMAL}"
-	else
-		ipatch push . "${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}/${pname}" "${YELLOW}Update to latest upstream ...${NORMAL}"
-	fi
-
-	use brand && ipatch push . "${FILESDIR}/${PV}/brand"
-
-	if [[ $DEBLOB_AVAILABLE == 1 ]] && use deblob; then
-		cp "${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}/${DEBLOB_A}" "${T}" || die "${RED}cp ${DEBLOB_A} failed${NORMAL}"
-		cp "${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}/${DEBLOB_CHECK_A}" "${T}/deblob-check" || die "${RED}cp ${DEBLOB_CHECK_A} failed${NORMAL}"
-		chmod +x "${T}/${DEBLOB_A}" "${T}/deblob-check" || die "${RED}chmod deblob scripts failed${NORMAL}"
-	fi
-}
 
 # iternal function
 #
@@ -326,6 +267,68 @@ get_config() {
 	eend $?
 }
 
+# @FUNCTION: copy
+# @USAGE:
+# @DESCRIPTION:
+copy() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	[[ ${#} -ne 2 ]] && die "Invalid number of args to ${FUNCNAME}()";
+
+	local src=${1}
+	local dst=${2}
+
+#	cp "${src}" "${dst}" || die "${RED}cp ${src} ${dst} failed${NORMAL}"
+#	rsync -avhW --no-compress --progress "${src}" "${dst}" || die "${RED}rsync -avhW --no-compress --progress ${src} ${dst} failed${NORMAL}"
+	test -d "${dst}" >/dev/null 2>&1 || mkdir -p "${dst}"; (cd "${src}"; tar cf - .) | (cd "${dst}"; tar xpf -) || die "${RED}cp ${src} ${dst} failed${NORMAL}"
+}
+
+# @FUNCTION: move
+# @USAGE:
+# @DESCRIPTION:
+move() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	[[ ${#} -ne 2 ]] && die "Invalid number of args to ${FUNCNAME}()";
+
+	local src=${1}
+	local dst=${2}
+
+	(copy ${src} ${dst} >/dev/null 2>&1 && rm -rf "${src}") || die "${RED}mv ${src} ${dst} failed${NORMAL}"
+}
+
+# common functions
+#==============================================================
+
+# @FUNCTION: src_unpack
+# @USAGE:
+# @DESCRIPTION: Extract source packages and do any necessary patching or fixes.
+bentoo-sources_src_unpack() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	if [ "${A}" != "" ]; then
+		ebegin "Extract the sources"
+			tar xvJf "${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}/${kname}" &>/dev/null
+		eend $?
+		cd "${WORKDIR}" || die "${RED}cd ${WORKDIR} failed${NORMAL}"
+		mv "linux-${kversion}" "${S}" || die "${RED}mv linux-${kversion} ${S} failed${NORMAL}"
+	fi
+	cd "${S}" || die "${RED}cd ${S} failed${NORMAL}"
+	if [ "${SKIP_UPDATE}" = "1" ] ; then
+		ewarn "${RED}Skipping update to latest upstream ...${NORMAL}"
+	else
+		ipatch push . "${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}/${pname}" "${YELLOW}Update to latest upstream ...${NORMAL}"
+	fi
+
+	use brand && ipatch push . "${FILESDIR}/${PV}/brand"
+
+	if [[ $DEBLOB_AVAILABLE == 1 ]] && use deblob; then
+		cp "${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}/${DEBLOB_A}" "${T}" || die "${RED}cp ${DEBLOB_A} failed${NORMAL}"
+		cp "${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}/${DEBLOB_CHECK_A}" "${T}/deblob-check" || die "${RED}cp ${DEBLOB_CHECK_A} failed${NORMAL}"
+		chmod +x "${T}/${DEBLOB_A}" "${T}/deblob-check" || die "${RED}chmod deblob scripts failed${NORMAL}"
+	fi
+}
+
 # @FUNCTION: src_prepare
 # @USAGE:
 # @DESCRIPTION: Prepare source packages and do any necessary patching or fixes.
@@ -336,8 +339,8 @@ bentoo-sources_src_prepare() {
 		sed -i -e "s:^\(EXTRAVERSION =\).*:\1 ${EXTRAVERSION}:" Makefile
 	eend
 
-	if [ ! "${EXTRAVERSION}" = "-geek" ]; then
-		sed -i -e 's/CONFIG_FLAGS=""/CONFIG_FLAGS="GEEK"/;s/CONFIG_FLAGS="SMP"/CONFIG_FLAGS="$CONFIG_FLAGS SMP"/' scripts/mkcompile_h
+	if [ ! "${EXTRAVERSION}" = "-bentoo" ]; then
+		sed -i -e 's/CONFIG_FLAGS=""/CONFIG_FLAGS="BENTOO"/;s/CONFIG_FLAGS="SMP"/CONFIG_FLAGS="$CONFIG_FLAGS SMP"/' scripts/mkcompile_h
 	fi
 
 	if [ "${oldconfig}" = "yes" ]; then
@@ -382,45 +385,11 @@ bentoo-sources_src_compile() {
 	fi
 }
 
-# @FUNCTION: copy
-# @USAGE:
-# @DESCRIPTION:
-copy() {
-	debug-print-function ${FUNCNAME} "$@"
-
-	[[ ${#} -ne 2 ]] && die "Invalid number of args to ${FUNCNAME}()";
-
-	local src=${1}
-	local dst=${2}
-
-#	cp "${src}" "${dst}" || die "${RED}cp ${src} ${dst} failed${NORMAL}"
-#	rsync -avhW --no-compress --progress "${src}" "${dst}" || die "${RED}rsync -avhW --no-compress --progress ${src} ${dst} failed${NORMAL}"
-	test -d "${dst}" >/dev/null 2>&1 || mkdir -p "${dst}"; (cd "${src}"; tar cf - .) | (cd "${dst}"; tar xpf -) || die "${RED}cp ${src} ${dst} failed${NORMAL}"
-}
-
-# @FUNCTION: move
-# @USAGE:
-# @DESCRIPTION:
-move() {
-	debug-print-function ${FUNCNAME} "$@"
-
-	[[ ${#} -ne 2 ]] && die "Invalid number of args to ${FUNCNAME}()";
-
-	local src=${1}
-	local dst=${2}
-
-	(copy ${src} ${dst} >/dev/null 2>&1 && rm -rf "${src}") || die "${RED}mv ${src} ${dst} failed${NORMAL}"
-}
-
 # @FUNCTION: src_install
 # @USAGE:
 # @DESCRIPTION: Install a package to ${D}
 bentoo-sources_src_install() {
 	debug-print-function ${FUNCNAME} "$@"
-
-	if use build; then
-		geek-build_src_compile
-	fi
 
 	local version_h_name="usr/src/linux-${KV_FULL}/include/linux"
 	local version_h="${ROOT}${version_h_name}"
@@ -454,12 +423,9 @@ bentoo-sources_pkg_postinst() {
  ${BR}
  ${BLUE}Now is the time to configure and build the kernel.${NORMAL}${BR}"
 
-	einfo "${BR}${BLUE}Wiki:${NORMAL} ${RED}https://github.com/init6/init_6/wiki/geek-sources${NORMAL}${BR}
-${BLUE}Bugs:${NORMAL} ${RED}https://github.com/init6/init_6/issues${NORMAL}${BR}
-${BLUE}Donate:${NORMAL} ${RED}https://github.com/init6/init_6/wiki/donate${NORMAL}${BR}
-${BLUE}For more info about patchset’s, and how to report problems, see:${NORMAL}${BR}"
-
-	use deblob && einfo " ${BLUE}Deblobbed kernels are UNSUPPORTED by Gentoo Security.${NORMAL}"
+	einfo "${BLUE}For more info about patchset’s, and how to report problems, see:${NORMAL}${BR}
+${BR}${BLUE}Wiki:${NORMAL} ${RED}https://bitbucket.org/redeyeteam/bentoo/wiki${NORMAL}${BR}
+${BLUE}Bugs:${NORMAL} ${RED}https://bitbucket.org/redeyeteam/bentoo/issues${NORMAL}${BR}"
 }
 
 fi
