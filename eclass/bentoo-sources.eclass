@@ -86,7 +86,7 @@ RDEPEND="!build? (
 	sys-devel/make
 	dev-lang/perl
 	sys-devel/bc
-	brand?	( >=media-fonts/iso_latin_1-0.0.5 )
+	brand?	( >=media-fonts/iso_latin_1 )
 )"
 PDEPEND="!build? ( virtual/dev-manager )"
 
