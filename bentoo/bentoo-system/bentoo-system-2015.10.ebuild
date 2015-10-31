@@ -42,12 +42,14 @@ RDEPEND="${DEPEND}
 	app-portage/eix
 	app-portage/euses
 	app-portage/gentoolkit
+	app-portage/ibashrc
 	app-portage/layman
 	app-portage/portage-utils
 	app-text/tree
 	dev-util/dialog
 	dev-vcs/git
 	dev-vcs/git-flow
+	media-fonts/iso_latin_1
 	media-gfx/graphviz
 	media-video/mpv
 	net-irc/irssi
@@ -61,6 +63,7 @@ RDEPEND="${DEPEND}
 	sys-apps/pv
 	sys-apps/smartmontools
 	sys-apps/usbutils
+	sys-devel/ipatch
 	sys-fs/cryptsetup
 	lvm? ( sys-fs/lvm2 )
 	sys-fs/squashfs-tools	

@@ -16,6 +16,7 @@ PDEPEND="
 		www-plugins/exif_viewer
 		www-plugins/firebug
 		www-plugins/foxyproxy
+		www-plugins/greasemonkey
 		www-plugins/hackbar
 		www-plugins/httpfox
 		www-plugins/https-everywhere
