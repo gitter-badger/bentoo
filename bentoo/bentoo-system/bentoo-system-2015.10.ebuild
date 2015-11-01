@@ -66,10 +66,10 @@ RDEPEND="${DEPEND}
 	sys-devel/ipatch
 	sys-fs/cryptsetup
 	lvm? ( sys-fs/lvm2 )
-	sys-fs/squashfs-tools	
+	sys-fs/squashfs-tools
 	livecd? ( sys-kernel/linux-firmware )
 	!arm? ( !livecd-stage1? ( sys-kernel/genkernel-next || ( sys-boot/grub:0 sys-boot/grub-static sys-boot/grub:2 ) ) )
-	!arm? ( sys-kernel/geek-sources )
+	!arm? ( sys-kernel/bentoo-sources )
 	zfs? ( !livecd-stage1? ( amd64? ( !pax_kernel? ( sys-fs/zfs ) ) ) )
 	!livecd-stage1? ( video_cards_virtualbox? ( app-emulation/virtualbox-guest-additions ) )
 	sys-libs/gpm
