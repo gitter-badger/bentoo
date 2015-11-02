@@ -1,6 +1,6 @@
 diff -Naur a/arch/x86/kernel/early_printk.c b/arch/x86/kernel/early_printk.c
---- a/arch/x86/kernel/early_printk.c	2015-08-30 23:34:09.000000000 +0500
-+++ b/arch/x86/kernel/early_printk.c	2015-10-31 16:40:36.661476584 +0500
+--- a/arch/x86/kernel/early_printk.c	2015-11-02 05:05:25.000000000 +0500
++++ b/arch/x86/kernel/early_printk.c	2015-11-02 19:23:40.174227249 +0500
 @@ -27,7 +27,8 @@
  static int max_ypos = 25, max_xpos = 80;
  static int current_ypos = 25, current_xpos;
@@ -22,8 +22,8 @@ diff -Naur a/arch/x86/kernel/early_printk.c b/arch/x86/kernel/early_printk.c
  	while (*s && n-- > 0) {
  		if (*s == '\n')
 diff -Naur a/arch/x86/platform/efi/early_printk.c b/arch/x86/platform/efi/early_printk.c
---- a/arch/x86/platform/efi/early_printk.c	2015-08-30 23:34:09.000000000 +0500
-+++ b/arch/x86/platform/efi/early_printk.c	2015-10-31 16:40:36.670476471 +0500
+--- a/arch/x86/platform/efi/early_printk.c	2015-11-02 05:05:25.000000000 +0500
++++ b/arch/x86/platform/efi/early_printk.c	2015-11-02 19:23:40.238226449 +0500
 @@ -124,7 +124,8 @@
  }
  
@@ -35,8 +35,8 @@ diff -Naur a/arch/x86/platform/efi/early_printk.c b/arch/x86/platform/efi/early_
  	struct screen_info *si;
  	unsigned int len;
 diff -Naur a/drivers/accessibility/braille/braille_console.c b/drivers/accessibility/braille/braille_console.c
---- a/drivers/accessibility/braille/braille_console.c	2015-08-30 23:34:09.000000000 +0500
-+++ b/drivers/accessibility/braille/braille_console.c	2015-10-31 16:40:36.680476346 +0500
+--- a/drivers/accessibility/braille/braille_console.c	2015-11-02 05:05:25.000000000 +0500
++++ b/drivers/accessibility/braille/braille_console.c	2015-11-02 19:23:40.238226449 +0500
 @@ -116,7 +116,7 @@
  	*c++ = csum;
  	*c++ = ETX;
@@ -47,8 +47,8 @@ diff -Naur a/drivers/accessibility/braille/braille_console.c b/drivers/accessibi
  
  /* Follow the VC cursor*/
 diff -Naur a/drivers/net/netconsole.c b/drivers/net/netconsole.c
---- a/drivers/net/netconsole.c	2015-08-30 23:34:09.000000000 +0500
-+++ b/drivers/net/netconsole.c	2015-10-31 16:40:36.774475171 +0500
+--- a/drivers/net/netconsole.c	2015-11-02 05:05:25.000000000 +0500
++++ b/drivers/net/netconsole.c	2015-11-02 19:23:40.282225899 +0500
 @@ -836,7 +836,7 @@
  }
  
@@ -69,8 +69,8 @@ diff -Naur a/drivers/net/netconsole.c b/drivers/net/netconsole.c
  	int frag, left;
  	unsigned long flags;
 diff -Naur a/drivers/tty/Kconfig b/drivers/tty/Kconfig
---- a/drivers/tty/Kconfig	2015-08-30 23:34:09.000000000 +0500
-+++ b/drivers/tty/Kconfig	2015-10-31 16:40:36.815474659 +0500
+--- a/drivers/tty/Kconfig	2015-11-02 05:05:25.000000000 +0500
++++ b/drivers/tty/Kconfig	2015-11-02 19:23:40.282225899 +0500
 @@ -75,6 +75,124 @@
  	def_bool y
  	depends on VT_CONSOLE && PM_SLEEP
@@ -197,19 +197,10 @@ diff -Naur a/drivers/tty/Kconfig b/drivers/tty/Kconfig
  	bool
  	depends on VT && !UML
 diff -Naur a/drivers/tty/serial/8250/8250_core.c b/drivers/tty/serial/8250/8250_core.c
---- a/drivers/tty/serial/8250/8250_core.c	2015-10-31 16:10:36.000000000 +0500
-+++ b/drivers/tty/serial/8250/8250_core.c	2015-10-31 16:40:36.817474634 +0500
-@@ -3347,7 +3347,7 @@
-  *	The console_lock must be held when we get here.
-  */
- static void serial8250_console_write(struct uart_8250_port *up, const char *s,
--				     unsigned int count)
-+				     unsigned int count, unsigned int loglevel)
- {
- 	struct uart_port *port = &up->port;
- 	unsigned long flags;
-@@ -3421,11 +3421,11 @@
- }
+--- a/drivers/tty/serial/8250/8250_core.c	2015-11-02 05:05:25.000000000 +0500
++++ b/drivers/tty/serial/8250/8250_core.c	2015-11-02 19:23:19.006491882 +0500
+@@ -584,11 +584,11 @@
+ #ifdef CONFIG_SERIAL_8250_CONSOLE
  
  static void univ8250_console_write(struct console *co, const char *s,
 -				   unsigned int count)
@@ -221,10 +212,10 @@ diff -Naur a/drivers/tty/serial/8250/8250_core.c b/drivers/tty/serial/8250/8250_
 +	serial8250_console_write(up, s, count, loglevel);
  }
  
- static unsigned int probe_baud(struct uart_port *port)
+ static int univ8250_console_setup(struct console *co, char *options)
 diff -Naur a/drivers/tty/serial/8250/8250_early.c b/drivers/tty/serial/8250/8250_early.c
---- a/drivers/tty/serial/8250/8250_early.c	2015-08-30 23:34:09.000000000 +0500
-+++ b/drivers/tty/serial/8250/8250_early.c	2015-10-31 16:40:36.817474634 +0500
+--- a/drivers/tty/serial/8250/8250_early.c	2015-11-02 05:05:25.000000000 +0500
++++ b/drivers/tty/serial/8250/8250_early.c	2015-11-02 19:23:40.283225886 +0500
 @@ -90,7 +90,7 @@
  }
  
@@ -235,8 +226,8 @@ diff -Naur a/drivers/tty/serial/8250/8250_early.c b/drivers/tty/serial/8250/8250
  	struct earlycon_device *device = console->data;
  	struct uart_port *port = &device->port;
 diff -Naur a/drivers/tty/vt/vt.c b/drivers/tty/vt/vt.c
---- a/drivers/tty/vt/vt.c	2015-08-30 23:34:09.000000000 +0500
-+++ b/drivers/tty/vt/vt.c	2015-10-31 16:40:36.822474571 +0500
+--- a/drivers/tty/vt/vt.c	2015-11-02 05:05:25.000000000 +0500
++++ b/drivers/tty/vt/vt.c	2015-11-02 19:23:40.284225874 +0500
 @@ -71,6 +71,7 @@
   */
  
@@ -338,8 +329,8 @@ diff -Naur a/drivers/tty/vt/vt.c b/drivers/tty/vt/vt.c
  	notify_update(vc);
  
 diff -Naur a/include/linux/console.h b/include/linux/console.h
---- a/include/linux/console.h	2015-08-30 23:34:09.000000000 +0500
-+++ b/include/linux/console.h	2015-10-31 16:40:36.928473246 +0500
+--- a/include/linux/console.h	2015-11-02 05:05:25.000000000 +0500
++++ b/include/linux/console.h	2015-11-02 19:23:40.311225536 +0500
 @@ -119,7 +119,7 @@
  
  struct console {
@@ -350,8 +341,8 @@ diff -Naur a/include/linux/console.h b/include/linux/console.h
  	struct tty_driver *(*device)(struct console *, int *);
  	void	(*unblank)(void);
 diff -Naur a/kernel/debug/kdb/kdb_io.c b/kernel/debug/kdb/kdb_io.c
---- a/kernel/debug/kdb/kdb_io.c	2015-08-30 23:34:09.000000000 +0500
-+++ b/kernel/debug/kdb/kdb_io.c	2015-10-31 16:40:36.956472896 +0500
+--- a/kernel/debug/kdb/kdb_io.c	2015-11-02 05:05:25.000000000 +0500
++++ b/kernel/debug/kdb/kdb_io.c	2015-11-02 19:23:40.311225536 +0500
 @@ -710,7 +710,7 @@
  			}
  		}
@@ -371,8 +362,8 @@ diff -Naur a/kernel/debug/kdb/kdb_io.c b/kernel/debug/kdb/kdb_io.c
  			c = c->next;
  		}
 diff -Naur a/kernel/printk/printk.c b/kernel/printk/printk.c
---- a/kernel/printk/printk.c	2015-08-30 23:34:09.000000000 +0500
-+++ b/kernel/printk/printk.c	2015-10-31 16:40:36.958472871 +0500
+--- a/kernel/printk/printk.c	2015-11-02 05:05:25.000000000 +0500
++++ b/kernel/printk/printk.c	2015-11-02 19:23:40.312225524 +0500
 @@ -1450,9 +1450,9 @@
  		    !(con->flags & CON_ANYTIME))
  			continue;
