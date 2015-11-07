@@ -13,8 +13,7 @@ SRC_URI="https://addons.mozilla.org/firefox/downloads/file/${MOZ_FILEID} -> ${P}
 
 LICENSE="GPL-2"
 SLOT="0"
-#KEYWORDS="amd64 x86"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+symlink_all_targets target_firefox target_thunderbird target_seamonkey target_firefox-bin target_thunderbird-bin target_seamonkey-bin"
 
 # symlink all possible target paths if this is set
