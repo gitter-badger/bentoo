@@ -20,23 +20,30 @@ PDEPEND="
 		www-plugins/hackbar
 		www-plugins/httpfox
 		www-plugins/https-everywhere
+		www-plugins/librejs
 		www-plugins/live-http-headers
+		www-plugins/location-guard
 		www-plugins/noscript
-		www-plugins/password_exporter
+		www-plugins/password-reuse-visualizer
 		www-plugins/privacy_badger
 		www-plugins/private_tab
 		www-plugins/proxy_selector
-		www-plugins/quick_locale_switcher
+		www-plugins/random-agent-spoofer
 		www-plugins/referrer-control
 		www-plugins/righttoclick
 		www-plugins/s3download-statusbar
+		www-plugins/s3google-translator
+		www-plugins/s3menu-wizard
 		www-plugins/saved-password-editor
+		www-plugins/self-destructing-cookies
 		www-plugins/session-manager
+		www-plugins/showip
 		www-plugins/show-password-field
+		www-plugins/ssl-version-control
 		www-plugins/tree-style-tab
 		www-plugins/ublock-origin
 		www-plugins/user-agent-switcher
+		www-plugins/visual-hashing
 		www-plugins/worldip
 		www-plugins/youtube_center
 	)"
-

@@ -6,14 +6,14 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_ADDON_ID=7597
-DESCRIPTION="SQL Inject Me is the Exploit-Me tool used to test for SQL Injection vulnerabilities."
-HOMEPAGE="http://labs.securitycompass.com/exploit-me"
-SRC_URI="http://addons.mozilla.org/downloads/latest/${MOZ_ADDON_ID} -> ${P}.xpi"
+MOZ_FILEID="473878"
+DESCRIPTION="Allows the use of various browser profiles (including useragent ,platform, oscpu, accept headers and other options), which it can randomly switch between after a chosen period of time has expired."
+HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/random-agent-spoofer/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
-LICENSE="LGPL-3"
+LICENSE="MPL-1.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+symlink_all_targets target_firefox target_firefox-bin"
 
 # symlink all possible target paths if this is set
@@ -29,8 +29,3 @@ RDEPEND="
 		target_firefox? ( www-client/firefox )
 		target_firefox-bin? ( www-client/firefox-bin )
 	)"
-
-pkg_postinst() {
-	ewarn "This ebuild installs the latest STABLE version !"
-	ewarn "It is used by the maintainer to check for new versions ..."
-}
