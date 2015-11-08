@@ -6,10 +6,10 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_FILEID="148902"
-DESCRIPTION="Firefox extension to test for reflected cross-site-scripting vulnerabilities."
-HOMEPAGE="http://labs.securitycompass.com/exploit-me/xss-me"
-SRC_URI="http://addons.mozilla.org/downloads/file/${MOZ_FILEID} -> ${P}.xpi"
+MOZ_FILEID="350590"
+DESCRIPTION="GNU LibreJS blocks nonfree nontrivial JavaScript while allowing JavaScript that is free and/or trivial."
+HOMEPAGE="https://www.gnu.org/software/librejs/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="GPL-3"
 SLOT="0"

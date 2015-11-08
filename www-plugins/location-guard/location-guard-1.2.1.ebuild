@@ -6,12 +6,12 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_FILEID="229626"
-DESCRIPTION="SQL Inject Me is the Exploit-Me tool used to test for SQL Injection vulnerabilities."
-HOMEPAGE="http://labs.securitycompass.com/exploit-me"
-SRC_URI="http://addons.mozilla.org/downloads/file/${MOZ_FILEID} -> ${P}.xpi"
+MOZ_FILEID="496120"
+DESCRIPTION="Hide your geographic location from websites."
+HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/location-guard/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
-LICENSE="LGPL-3"
+LICENSE="MPL-1.1"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="+symlink_all_targets target_firefox target_firefox-bin"
