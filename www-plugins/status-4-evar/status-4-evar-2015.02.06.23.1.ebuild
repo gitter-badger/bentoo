@@ -6,7 +6,7 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_FILEID="8266"
+MOZ_FILEID="235283"
 DESCRIPTION="Status bar widgets and progress indicators for Firefox 4+."
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/status-4-evar/"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
