@@ -39,5 +39,5 @@ RDEPEND="
 	)"
 
 src_prepare(){
-	epatch "${FILESDIR}/tree-style-tab-0.15.20150902901-install.rdf.patch" || die 'epatch failed'
+	epatch "${FILESDIR}/tree-style-tab-0.16.2015110801-install.rdf.patch" || die 'epatch failed'
 }

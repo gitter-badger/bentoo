@@ -1,6 +1,6 @@
 diff -Naur a/install.rdf b/install.rdf
---- a/install.rdf	2015-09-29 02:55:26.000000000 +0500
-+++ b/install.rdf	2015-11-07 10:36:30.147780961 +0500
+--- a/install.rdf	2015-11-08 19:00:50.000000000 +0500
++++ b/install.rdf	2015-11-09 17:44:01.991120625 +0500
 @@ -1,241 +1,26 @@
 -﻿<?xml version="1.0" encoding="UTF-8"?>
 -<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
@@ -9,7 +9,7 @@ diff -Naur a/install.rdf b/install.rdf
 -  <RDF:Description RDF:about="urn:mozilla:install-manifest"
 -                   em:id="treestyletab@piro.sakura.ne.jp"
 -                   em:name="Tree Style Tab"
--                   em:version="0.15.20150902901"
+-                   em:version="0.16.2015110801"
 -                   em:creator="YUKI &quot;Piro&quot; Hiroshi"
 -                   em:description="Show tabs like a tree."
 -                   em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
@@ -235,12 +235,20 @@ diff -Naur a/install.rdf b/install.rdf
 -        </RDF:Description>
 -    </em:localized>
 -
+-
+-    <em:targetApplication>
+-      <RDF:Description em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+-                       em:minVersion="38.0"
+-                       em:maxVersion="45.0a1" />
+-    </em:targetApplication>
+-  </RDF:Description>
+-</RDF:RDF>
 +<?xml version='1.0' encoding='utf-8'?>
 +<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 +  <Description about="urn:mozilla:install-manifest">
 +    <em:id>treestyletab@piro.sakura.ne.jp</em:id>
 +    <em:name>Tree Style Tab</em:name>
-+    <em:version>0.15.20150902901</em:version>
++    <em:version>0.16.2015110801</em:version>
 +    <em:creator>YUKI &quot;Piro&quot; Hiroshi</em:creator>
 +    <em:type>2</em:type>
 +    <em:multiprocessCompatible>true</em:multiprocessCompatible>
@@ -250,19 +258,14 @@ diff -Naur a/install.rdf b/install.rdf
 +    <em:homepageURL>http://piro.sakura.ne.jp/xul/_treestyletab.html.en</em:homepageURL>
 +    <em:iconURL>chrome://treestyletab/content/res/icon.png</em:iconURL>
 +    <em:optionsURL>chrome://treestyletab/content/config.xul</em:optionsURL>
- 
++
 +    <!-- Firefox -->
-     <em:targetApplication>
--      <RDF:Description em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
--                       em:minVersion="38.0"
--                       em:maxVersion="44.0a1" />
++     <em:targetApplication>
 +      <Description>
 +        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 +        <em:minVersion>24.0</em:minVersion>
-+        <em:maxVersion>35.0</em:maxVersion>
++        <em:maxVersion>45.0a1</em:maxVersion>
 +      </Description>
-     </em:targetApplication>
--  </RDF:Description>
--</RDF:RDF>
++     </em:targetApplication>
 +    </Description>
 +</RDF>
