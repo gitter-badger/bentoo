@@ -8,8 +8,8 @@ inherit mozilla-addon
 
 MOZ_FILEID="506646"
 DESCRIPTION="Protects your privacy by blocking spying ads and invisible trackers."
-HOMEPAGE="https://www.eff.org/privacybadger"
-SRC_URI="http://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID} -> ${P}.xpi"
+HOMEPAGE="https://www.eff.org/privacybadger https://addons.mozilla.org/en-GB/firefox/addon/privacy-badger-firefox/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="GPL-3 MIT"
 SLOT="0"

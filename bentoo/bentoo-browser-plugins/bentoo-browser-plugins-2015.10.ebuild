@@ -13,6 +13,7 @@ IUSE="firefox"
 
 PDEPEND="
 	firefox? (
+		www-plugins/classic_theme_restorer
 		www-plugins/exif_viewer
 		www-plugins/firebug
 		www-plugins/foxyproxy
@@ -20,14 +21,18 @@ PDEPEND="
 		www-plugins/hackbar
 		www-plugins/httpfox
 		www-plugins/https-everywhere
+		www-plugins/iconic_firefox_menu
 		www-plugins/librejs
 		www-plugins/live-http-headers
 		www-plugins/location-guard
+		www-plugins/menu-icons-plus
+		www-plugins/nimbus-screen-capture
 		www-plugins/noscript
 		www-plugins/password-reuse-visualizer
 		www-plugins/privacy_badger
 		www-plugins/private_tab
 		www-plugins/proxy_selector
+		www-plugins/pwgen
 		www-plugins/random-agent-spoofer
 		www-plugins/referrer-control
 		www-plugins/righttoclick
@@ -40,8 +45,10 @@ PDEPEND="
 		www-plugins/showip
 		www-plugins/show-password-field
 		www-plugins/ssl-version-control
+		www-plugins/status-4-evar
 		www-plugins/tree-style-tab
 		www-plugins/ublock-origin
+		www-plugins/unmht
 		www-plugins/user-agent-switcher
 		www-plugins/visual-hashing
 		www-plugins/worldip

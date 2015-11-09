@@ -6,10 +6,10 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_FILEID="319162"
+MOZ_FILEID="2464"
 DESCRIPTION="A set of proxy management tools for firefox"
-HOMEPAGE="http://getfoxyproxy.org"
-SRC_URI="http://addons.mozilla.org/downloads/file/${MOZ_FILEID} -> ${P}.xpi"
+HOMEPAGE="http://getfoxyproxy.org https://addons.mozilla.org/en-GB/firefox/addon/foxyproxy-standard/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="GPL-2"
 SLOT="0"

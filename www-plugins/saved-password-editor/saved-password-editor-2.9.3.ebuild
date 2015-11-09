@@ -9,7 +9,7 @@ inherit mozilla-addon
 MOZ_FILEID="60265"
 DESCRIPTION="Adds the ability to create and edit entries in the password manager."
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/saved-password-editor/"
-SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID} -> ${P}.xpi"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="GPL-2"
 SLOT="0"

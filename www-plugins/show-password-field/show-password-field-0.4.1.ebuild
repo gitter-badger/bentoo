@@ -8,8 +8,8 @@ inherit mozilla-addon
 
 MOZ_FILEID="537748"
 DESCRIPTION="Show your password in a readable format in the password fields of the web pages."
-HOMEPAGE="https://addons.mozilla.org/en-us/firefox/addon/show-password-field/"
-SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID} -> ${P}.xpi"
+HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/show-password-field/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="GPL-2"
 SLOT="0"

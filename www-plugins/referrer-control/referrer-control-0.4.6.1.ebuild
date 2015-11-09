@@ -8,8 +8,8 @@ inherit mozilla-addon
 
 MOZ_FILEID="429858"
 DESCRIPTION="Control http request referrer."
-HOMEPAGE="https://addons.mozilla.org/en-US/firefox/addon/referrer-control/"
-SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID} -> ${P}.xpi"
+HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/referrer-control/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="GPL-2"
 SLOT="0"

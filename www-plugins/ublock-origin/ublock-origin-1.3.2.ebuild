@@ -8,8 +8,8 @@ inherit mozilla-addon
 
 MOZ_FILEID="607454"
 DESCRIPTION="uBlock Origin - An efficient blocker for Firefox. Fast and lean."
-HOMEPAGE="https://github.com/gorhill/uBlock"
-SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID} -> ${P}.xpi"
+HOMEPAGE="https://github.com/gorhill/uBlock https://addons.mozilla.org/en-GB/firefox/addon/ublock-origin/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="GPL-3"
 SLOT="0"

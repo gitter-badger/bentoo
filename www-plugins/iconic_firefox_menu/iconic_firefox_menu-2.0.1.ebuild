@@ -6,10 +6,10 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_FILEID="281364"
-DESCRIPTION="Simple security audit / penetration test tool."
-HOMEPAGE="http://code.google.com/p/hackbar"
-SRC_URI="http://addons.mozilla.org/downloads/file/${MOZ_FILEID} -> ${P}.xpi"
+MOZ_FILEID="472577"
+DESCRIPTION="Make your Firefox menu icon colorful instead of three boring lines."
+HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/iconic-firefox-menu/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="MPL-1.1"
 SLOT="0"
