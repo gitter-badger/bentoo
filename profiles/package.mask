@@ -2,16 +2,4 @@
 =app-portage/ibashrc-9999
 =sys-devel/ipatch-9999
 =sys-kernel/bentoo-sources-4.3.0-r7
-=www-plugins/exif_viewer-9999
-=www-plugins/firebug-9999
-=www-plugins/foxyproxy-9999
-=www-plugins/hackbar-9999
-=www-plugins/httpfox-9999
-=www-plugins/live-http-headers-9999
-=www-plugins/noscript-9999
-=www-plugins/proxy_selector-9999
-=www-plugins/showip-9999
-=www-plugins/sql-inject-me-9999
-=www-plugins/user-agent-switcher-9999
-=www-plugins/xss-me-9999
 =www-plugins/youtube_center-9999
