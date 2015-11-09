@@ -6,14 +6,13 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_FILEID="245010"
-DESCRIPTION="Lets you switch local proxies in firefox. A fork of multiproxy switch."
-HOMEPAGE="http://addons.mozilla.org/en-US/firefox/addon/proxy-selector"
+MOZ_FILEID="240658"
+DESCRIPTION="YouTube Center contains all kind of different useful functions which makes your visit on YouTube much more entertaining.."
+HOMEPAGE="https://github.com/YePpHa/YouTubeCenter https://addons.mozilla.org/en-GB/firefox/addon/youtube-center/"
 SRC_URI="http://addons.mozilla.org/downloads/file/${MOZ_FILEID} -> ${P}.xpi"
 
-LICENSE="MPL-1.1"
+LICENSE="GPL-3"
 SLOT="0"
-# fails to unpack, some problem with the packaging of the xpi?
 KEYWORDS="amd64 x86"
 IUSE="+symlink_all_targets target_firefox target_firefox-bin"
 
@@ -30,10 +29,3 @@ RDEPEND="
 		target_firefox? ( www-client/firefox )
 		target_firefox-bin? ( www-client/firefox-bin )
 	)"
-
-#FIXME: it fails to unpack
-#src_unpack() {
-#    if [ "${A}" != "" ]; then
-#	unzip -qo "${DISTDIR}/${A}" -d "${WORKDIR}/"
-#    fi
-#}

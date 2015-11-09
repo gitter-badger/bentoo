@@ -6,12 +6,12 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_FILEID="107207"
-DESCRIPTION="Adds a menu and a toolbar button to switch the user agent of firefox"
-HOMEPAGE="http://chrispederick.com/work/user-agent-switcher"
-SRC_URI="http://addons.mozilla.org/downloads/file/${MOZ_FILEID} -> ${P}.xpi"
+MOZ_FILEID="8266"
+DESCRIPTION="Adds icons to your Firefox menus. Choose from the built-in icon sets or import your own."
+HOMEPAGE="http://www.codedawn.com/menu-icons-plus.php https://addons.mozilla.org/en-GB/firefox/addon/menu-icons-plus/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
-LICENSE="GPL-3"
+LICENSE="MPL-1.1"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="+symlink_all_targets target_firefox target_firefox-bin"

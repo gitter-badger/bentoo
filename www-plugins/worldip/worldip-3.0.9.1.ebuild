@@ -8,8 +8,8 @@ inherit mozilla-addon
 
 MOZ_FILEID="8661"
 DESCRIPTION="Professional Geo Add-on with security features and advanced network tools."
-HOMEPAGE="https://www.wipmania.com/en/apps/"
-SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID} -> ${P}.xpi"
+HOMEPAGE="https://www.wipmania.com/en/apps/ https://addons.mozilla.org/en-GB/firefox/addon/worldip/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="GPL-2"
 SLOT="0"
