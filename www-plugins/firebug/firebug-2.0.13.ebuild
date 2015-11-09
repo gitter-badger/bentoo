@@ -6,14 +6,15 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_ADDON_ID=3829
-DESCRIPTION="View HTTP headers of a page and while browsing"
-HOMEPAGE="http://livehttpheaders.mozdev.org/"
-SRC_URI="http://addons.mozilla.org/downloads/latest/${MOZ_ADDON_ID} -> ${P}.xpi"
+MOZ_FILEID="1843"
+DESCRIPTION="Powerful web development tool for firefox"
+HOMEPAGE="http://getfirebug.com"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
-LICENSE="GPL-2"
+LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+# blocked because it pulls firefox-bin when I want to keep firefox only
+KEYWORDS="amd64 x86"
 IUSE="+symlink_all_targets target_firefox target_firefox-bin"
 
 # symlink all possible target paths if this is set
@@ -26,11 +27,6 @@ fi
 
 RDEPEND="
 	!symlink_all_targets? (
-		target_firefox? ( www-client/firefox )
-		target_firefox-bin? ( www-client/firefox-bin )
+		target_firefox? ( >=www-client/firefox-31.2.0-r1 )
+		target_firefox-bin? ( >=www-client/firefox-bin-31.2.0-r1 )
 	)"
-
-pkg_postinst() {
-	ewarn "This ebuild installs the latest STABLE version !"
-	ewarn "It is used by the maintainer to check for new versions ..."
-}

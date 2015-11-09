@@ -8,7 +8,7 @@ inherit mozilla-addon
 
 MOZ_FILEID="350590"
 DESCRIPTION="GNU LibreJS blocks nonfree nontrivial JavaScript while allowing JavaScript that is free and/or trivial."
-HOMEPAGE="https://www.gnu.org/software/librejs/"
+HOMEPAGE="https://www.gnu.org/software/librejs/ https://addons.mozilla.org/en-GB/firefox/addon/librejs/"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="GPL-3"

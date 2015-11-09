@@ -6,10 +6,10 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_FILEID="164511"
+MOZ_FILEID="3905"
 DESCRIPTION="Firefox extension to display the Exif and IPTC data in local and remote JPEG images."
 HOMEPAGE="http://araskin.webs.com/exif/exif.html"
-SRC_URI="http://addons.mozilla.org/downloads/file/${MOZ_FILEID} -> ${P}.xpi"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="MPL-1.1"
 SLOT="0"

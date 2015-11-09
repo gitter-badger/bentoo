@@ -6,10 +6,10 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_FILEID="2324"
-DESCRIPTION="Session Manager saves and restores the state of all or some windows."
-HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/session-manager/"
-SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID} -> ${P}.xpi"
+MOZ_FILEID="422756"
+DESCRIPTION="Adds private tabs."
+HOMEPAGE="https://addons.mozilla.org/en-us/firefox/addon/private-tab/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="GPL-2"
 SLOT="0"

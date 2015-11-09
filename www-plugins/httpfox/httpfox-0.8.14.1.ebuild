@@ -6,14 +6,14 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_ADDON_ID=215989
-DESCRIPTION="Lets you switch local proxies in firefox. A fork of multiproxy switch."
-HOMEPAGE="http://addons.mozilla.org/en-US/firefox/addon/proxy-selector"
-SRC_URI="http://addons.mozilla.org/downloads/latest/${MOZ_ADDON_ID} -> ${P}.xpi"
+MOZ_FILEID="6647"
+DESCRIPTION="A HTTP analyzer addon for Firefox"
+HOMEPAGE="http://code.google.com/p/httpfox"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
-LICENSE="MPL-1.1"
+LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+symlink_all_targets target_firefox target_firefox-bin"
 
 # symlink all possible target paths if this is set
@@ -29,8 +29,3 @@ RDEPEND="
 		target_firefox? ( www-client/firefox )
 		target_firefox-bin? ( www-client/firefox-bin )
 	)"
-
-pkg_postinst() {
-	ewarn "This ebuild installs the latest STABLE version !"
-	ewarn "It is used by the maintainer to check for new versions ..."
-}

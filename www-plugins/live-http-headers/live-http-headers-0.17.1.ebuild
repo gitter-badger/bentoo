@@ -6,14 +6,13 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_FILEID="287680"
-DESCRIPTION="Powerful web development tool for firefox"
-HOMEPAGE="http://getfirebug.com"
-SRC_URI="http://addons.mozilla.org/downloads/file/${MOZ_FILEID} -> ${P}.xpi"
+MOZ_FILEID="3829"
+DESCRIPTION="View HTTP headers of a page and while browsing"
+HOMEPAGE="http://livehttpheaders.mozdev.org/ https://addons.mozilla.org/en-GB/firefox/addon/live-http-headers/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
-LICENSE="BSD"
+LICENSE="GPL-2"
 SLOT="0"
-# blocked because it pulls firefox-bin when I want to keep firefox only
 KEYWORDS="amd64 x86"
 IUSE="+symlink_all_targets target_firefox target_firefox-bin"
 
@@ -27,6 +26,6 @@ fi
 
 RDEPEND="
 	!symlink_all_targets? (
-		target_firefox? ( >=www-client/firefox-31.2.0-r1 )
-		target_firefox-bin? ( >=www-client/firefox-bin-31.2.0-r1 )
+		target_firefox? ( www-client/firefox )
+		target_firefox-bin? ( www-client/firefox-bin )
 	)"

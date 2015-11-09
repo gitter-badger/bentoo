@@ -7,7 +7,7 @@ EAPI=5
 inherit mozilla-addon
 
 DESCRIPTION="YouTube Center contains all kind of different useful functions which makes your visit on YouTube much more entertaining.."
-HOMEPAGE="https://github.com/YePpHa/YouTubeCenter"
+HOMEPAGE="https://github.com/YePpHa/YouTubeCenter https://addons.mozilla.org/en-GB/firefox/addon/youtube-center/"
 SRC_URI="https://github.com/YePpHa/YouTubeCenter/raw/master/dist/YouTubeCenter.xpi -> ${P}.xpi"
 
 LICENSE="GPL-3"

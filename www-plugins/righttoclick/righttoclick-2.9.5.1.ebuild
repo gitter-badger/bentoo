@@ -8,7 +8,7 @@ inherit mozilla-addon
 
 MOZ_FILEID="12572"
 DESCRIPTION="Stops javascript annoyances such as forbidden right click, forbidden text selection or cascading dialog boxes."
-HOMEPAGE="https://addons.mozilla.org/en-us/firefox/addon/righttoclick/"
+HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/righttoclick/"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID} -> ${P}.xpi"
 
 LICENSE="GPL-2"

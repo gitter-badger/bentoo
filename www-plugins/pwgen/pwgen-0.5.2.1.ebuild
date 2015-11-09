@@ -6,14 +6,14 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_ADDON_ID=1843
-DESCRIPTION="Powerful web development tool for firefox"
-HOMEPAGE="http://getfirebug.com"
-SRC_URI="http://addons.mozilla.org/downloads/latest/${MOZ_ADDON_ID} -> ${P}.xpi"
+MOZ_FILEID="12441"
+DESCRIPTION="For Sysadmins / Network Engineers / and why not everybody who needs a quick password generator.. simple, yet efficient."
+HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/pwgen-password-generator"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
-LICENSE="BSD"
+LICENSE="MPL-1.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE="+symlink_all_targets target_firefox target_firefox-bin"
 
 # symlink all possible target paths if this is set
@@ -26,11 +26,6 @@ fi
 
 RDEPEND="
 	!symlink_all_targets? (
-		target_firefox? ( >=www-client/firefox-31.2.0-r1 )
-		target_firefox-bin? ( >=www-client/firefox-bin-31.2.0-r1 )
+		target_firefox? ( www-client/firefox )
+		target_firefox-bin? ( www-client/firefox-bin )
 	)"
-
-pkg_postinst() {
-	ewarn "This ebuild installs the latest STABLE version !"
-	ewarn "It is used by the maintainer to check for new versions ..."
-}
