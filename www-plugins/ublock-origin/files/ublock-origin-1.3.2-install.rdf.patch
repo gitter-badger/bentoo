@@ -1,25 +1,24 @@
-diff -Naur a/work/ublock-origin-1.1.1/install.rdf b/work/ublock-origin-1.1.1/install.rdf
---- a/work/ublock-origin-1.1.1/install.rdf	2015-09-17 00:20:20.000000000 +0000
-+++ b/work/ublock-origin-1.1.1/install.rdf	2015-10-04 09:06:43.896780222 +0000
-@@ -1,429 +1,51 @@
- <?xml version="1.0" encoding="utf-8"?>
+diff -Naur a/install.rdf b/install.rdf
+--- a/install.rdf	2015-10-28 16:33:00.000000000 +0500
++++ b/install.rdf	2015-11-09 18:22:25.927589221 +0500
+@@ -1,448 +1,65 @@
+-<?xml version="1.0" encoding="utf-8"?>
 -<r:RDF xmlns:r="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.mozilla.org/2004/em-rdf#">
 -    <r:Description about="urn:mozilla:install-manifest">
 -        <id>uBlock0@raymondhill.net</id>
--        <version>1.1.1</version>
+-        <version>1.3.2</version>
 -        <name>uBlock Origin</name>
 -        <description>Finally, an efficient blocker. Easy on CPU and memory.</description>
 -        <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
 -        <creator>All uBlock Origin contributors</creator>
 -        <developer>Deathamns</developer>
 -        <developer>Alex Vallat</developer>
+-        <developer>Manuel Reimer</developer>
 -        <type>2</type>
 -        <bootstrap>true</bootstrap>
 -        <multiprocessCompatible>true</multiprocessCompatible>
 -        <optionsType>2</optionsType>
-+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
-+    <Description about="urn:mozilla:install-manifest">
- 
+-
 -        <localized><r:Description>
 -            <locale>ar</locale>
 -            <name>uBlock Origin</name>
@@ -27,12 +26,7 @@ diff -Naur a/work/ublock-origin-1.1.1/install.rdf b/work/ublock-origin-1.1.1/ins
 -            <creator>All uBlock Origin contributors</creator>
 -            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
 -        </r:Description></localized>
-+	<em:creator>All uBlock Origin contributors</em:creator>
-+	<em:id>uBlock0@raymondhill.net</em:id>
-+	<em:name>uBlock Origin</em:name>
-+	<em:description>Finally, an efficient blocker. Easy on CPU and memory.</em:description>    
-+	<em:version>1.1.1</em:version>
- 
+-
 -        <localized><r:Description>
 -            <locale>bg</locale>
 -            <name>uBlock Origin</name>
@@ -400,6 +394,13 @@ diff -Naur a/work/ublock-origin-1.1.1/install.rdf b/work/ublock-origin-1.1.1/ins
 -            <creator>All uBlock Origin contributors</creator>
 -            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
 -        </r:Description></localized>
++<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
++    <Description about="urn:mozilla:install-manifest">
++	<em:creator>All uBlock Origin contributors</em:creator>
++	<em:id>uBlock0@raymondhill.net</em:id>
++	<em:name>uBlock Origin</em:name>
++	<em:description>Finally, an efficient blocker. Easy on CPU and memory.</em:description>    
++	<em:version>1.3.2</em:version>
 +	<em:bootstrap>true</em:bootstrap>
 +	<em:type>2</em:type>
  
@@ -424,31 +425,30 @@ diff -Naur a/work/ublock-origin-1.1.1/install.rdf b/work/ublock-origin-1.1.1/ins
 -            <r:Description>
 -                <id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</id>
 -                <minVersion>24.0</minVersion>
--                <maxVersion>40.0</maxVersion>
+-                <maxVersion>41.*</maxVersion>
 -            </r:Description>
 -        </targetApplication>
 +        <em:targetApplication>
 +            <Description>
 +                <em:id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</em:id>
 +                <em:minVersion>24.0</em:minVersion>
-+                <em:maxVersion>40.0</em:maxVersion>
++                <em:maxVersion>41.*</em:maxVersion>
 +            </Description>
 +        </em:targetApplication>
-+
  
          <!-- SeaMonkey -->
 -        <targetApplication>
 -            <r:Description>
 -                <id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</id>
 -                <minVersion>2.21</minVersion>
--                <maxVersion>2.37</maxVersion>
+-                <maxVersion>2.38</maxVersion>
 -            </r:Description>
 -        </targetApplication>
 +        <em:targetApplication>
 +            <Description>
 +                <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
 +                <em:minVersion>2.21</em:minVersion>
-+                <em:maxVersion>2.37</em:maxVersion>
++                <em:maxVersion>2.38</em:maxVersion>
 +            </Description>
 +        </em:targetApplication>
  
@@ -460,13 +460,45 @@ diff -Naur a/work/ublock-origin-1.1.1/install.rdf b/work/ublock-origin-1.1.1/ins
 -                <maxVersion>26.*</maxVersion>
 -            </r:Description>
 -        </targetApplication>
--    </r:Description>
--</r:RDF>
 +        <em:targetApplication>
 +            <Description>
 +                <em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
 +                <em:minVersion>25.0</em:minVersion>
 +                <em:maxVersion>26.*</em:maxVersion>
++            </Description>
++        </em:targetApplication>
+ 
+         <!-- Conkeror -->
+-        <targetApplication>
+-            <r:Description>
+-                <id>{a79fe89b-6662-4ff4-8e88-09950ad4dfde}</id>
+-                <minVersion>0.1</minVersion>
+-                <maxVersion>9.9</maxVersion>
+-            </r:Description>
+-        </targetApplication>
++        <em:targetApplication>
++            <Description>
++                <em:id>{a79fe89b-6662-4ff4-8e88-09950ad4dfde}</em:id>
++                <em:minVersion>0.1</em:minVersion>
++                <em:maxVersion>9.9</em:maxVersion>
++            </Description>
++        </em:targetApplication>
+ 
+         <!-- Thunderbird -->
+-        <targetApplication>
+-            <r:Description>
+-                <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
+-                <minVersion>31.0</minVersion>
+-                <maxVersion>45.0</maxVersion>
+-            </r:Description>
+-        </targetApplication>
+-    </r:Description>
+-</r:RDF>
++        <em:targetApplication>
++            <Description>
++                <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
++                <em:minVersion>31.0</em:minVersion>
++                <em:maxVersion>45.0</em:maxVersion>
 +            </Description>
 +        </em:targetApplication>
 +    </Description>
