@@ -32,7 +32,7 @@ RDEPEND="${DEPEND}"
 if [[ ${PV} == "9999" ]] ; then
 	S="${WORKDIR}/${P}"
 else
-	MY_COMMIT="ec0d029e164c"
+	MY_COMMIT="100dbf042cd0"
 	S="${WORKDIR}/redeyeteam-${PN}-${MY_COMMIT}"
 fi
 
