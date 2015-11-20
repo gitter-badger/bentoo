@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-KEYWORDS="amd64 arm x86"
+KEYWORDS="~amd64 ~arm ~x86"
 DESCRIPTION="Bentoo gnome meta ebuild"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SLOT="0"
@@ -24,7 +24,7 @@ RDEPEND="${DEPEND}
 	>=app-crypt/gcr-${PV}
 	>=gnome-base/nautilus-${PV}
 	>=gnome-base/gnome-keyring-${PV}
-	>=gnome-extra/evolution-data-server-3.16
+	>=gnome-extra/evolution-data-server-${PV}
 
 	>=app-crypt/seahorse-${PV}
 	>=app-editors/gedit-${PV}
@@ -55,8 +55,8 @@ RDEPEND="${DEPEND}
 	x11-themes/sound-theme-freedesktop
 
 	accessibility? (
-		>=app-accessibility/at-spi2-atk-2.16
-		>=app-accessibility/at-spi2-core-2.16
+		>=app-accessibility/at-spi2-atk-${PV}
+		>=app-accessibility/at-spi2-core-${PV}
 		>=app-accessibility/caribou-0.4.18
 		>=app-accessibility/orca-${PV}
 		>=gnome-extra/mousetweaks-3.12.0 )
@@ -78,7 +78,7 @@ RDEPEND="${DEPEND}
 		>=gnome-extra/gucharmap-${PV}:2.90
 		>=gnome-extra/nautilus-sendto-3.8.2
 		>=gnome-extra/sushi-${PV}
-		>=mail-client/evolution-3.16
+		>=mail-client/evolution-${PV}
 		>=media-gfx/gnome-font-viewer-${PV}
 		>=media-gfx/gnome-screenshot-${PV}
 		>=media-sound/sound-juicer-${PV}
@@ -110,7 +110,7 @@ RDEPEND="${DEPEND}
 		share? ( >=gnome-extra/gnome-user-share-3.14 )
 		shotwell? ( >=media-gfx/shotwell-0.22 )
 		tracker? (
-			>=app-misc/tracker-1.4
+			>=app-misc/tracker-1.6
 			>=media-gfx/gnome-photos-${PV}
 			>=media-sound/gnome-music-${PV} ) )
 "
