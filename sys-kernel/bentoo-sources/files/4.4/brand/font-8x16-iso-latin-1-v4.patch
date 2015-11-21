@@ -1,12 +1,10 @@
-diff -urN a/include/linux/font.h b/include/linux/font.h
---- a/include/linux/font.h	2013-09-02 23:46:10.000000000 +0300
-+++ b/include/linux/font.h	2013-09-16 17:32:33.769645882 +0300
-@@ -21,19 +21,21 @@
-     int pref;
- };
+diff -Naur a/include/linux/font.h b/include/linux/font.h
+--- a/include/linux/font.h	2015-04-12 22:12:50.000000000 +0000
++++ b/include/linux/font.h	2015-09-22 16:12:06.911438484 +0000
+@@ -23,18 +23,20 @@
  
--#define VGA8x8_IDX	0
--#define VGA8x16_IDX	1
+ #define VGA8x8_IDX	0
+ #define VGA8x16_IDX	1
 -#define PEARL8x8_IDX	2
 -#define VGA6x11_IDX	3
 -#define FONT7x14_IDX	4
@@ -15,17 +13,17 @@ diff -urN a/include/linux/font.h b/include/linux/font.h
 -#define SUN12x22_IDX	7
 -#define ACORN8x8_IDX	8
 -#define	MINI4x6_IDX	9
-+#define VGA8x8_IDX		0
-+#define VGA8x16_IDX		1
-+#define ISO_LATIN_1_8x16_IDX	2
-+#define PEARL8x8_IDX		3
-+#define VGA6x11_IDX		4
-+#define FONT7x14_IDX		5
-+#define FONT10x18_IDX		6
-+#define SUN8x16_IDX		7
-+#define SUN12x22_IDX		8
-+#define ACORN8x8_IDX		9
-+#define MINI4x6_IDX		10
+-#define FONT6x10_IDX	10
++#define ISO_LATIN_1_8x16_IDX 2
++#define PEARL8x8_IDX	3
++#define VGA6x11_IDX	4
++#define FONT7x14_IDX	5
++#define	FONT10x18_IDX	6
++#define SUN8x16_IDX	7
++#define SUN12x22_IDX	8
++#define ACORN8x8_IDX	9
++#define	MINI4x6_IDX	10
++#define FONT6x10_IDX	11
  
  extern const struct font_desc	font_vga_8x8,
  			font_vga_8x16,
@@ -33,9 +31,48 @@ diff -urN a/include/linux/font.h b/include/linux/font.h
  			font_pearl_8x8,
  			font_vga_6x11,
  			font_7x14,
-diff -urN a/lib/fonts/font_iso_latin_1_8x16.c b/lib/fonts/font_iso_latin_1_8x16.c
---- a/lib/fonts/font_iso_latin_1_8x16.c	1970-01-01 03:00:00.000000000 +0300
-+++ b/lib/fonts/font_iso_latin_1_8x16.c	2013-09-16 17:17:34.000000000 +0300
+diff -Naur a/lib/fonts/Kconfig b/lib/fonts/Kconfig
+--- a/lib/fonts/Kconfig	2015-04-12 22:12:50.000000000 +0000
++++ b/lib/fonts/Kconfig	2015-09-22 16:05:15.350583703 +0000
+@@ -43,6 +43,16 @@
+ 
+ 	  If unsure, say Y.
+ 
++config FONT_ISO_LATIN_1_8x16
++	bool "VGA iso latin-1 8x16 font" if FONTS
++	depends on FRAMEBUFFER_CONSOLE || SGI_NEWPORT_CONSOLE || STI_CONSOLE || USB_SISUSBVGA_CON
++	default y if !SPARC && !FONTS
++	help
++	  This is the "high resolution" font for the VGA frame buffer (the one
++	  provided by the VGA text console 80x25 mode.
++
++	  If unsure, say Y.
++
+ config FONT_6x11
+ 	bool "Mac console 6x11 font (not supported by all drivers)" if FONTS
+ 	depends on FRAMEBUFFER_CONSOLE || STI_CONSOLE
+@@ -121,6 +131,7 @@
+ 	depends on !FONT_SUN8x16
+ 	depends on !FONT_SUN12x22
+ 	depends on !FONT_10x18
++	depends on !FONT_ISO_LATIN_1_8x16
+ 	select FONT_8x16
+ 
+ endif # FONT_SUPPORT
+diff -Naur a/lib/fonts/Makefile b/lib/fonts/Makefile
+--- a/lib/fonts/Makefile	2015-04-12 22:12:50.000000000 +0000
++++ b/lib/fonts/Makefile	2015-09-22 16:05:15.350583703 +0000
+@@ -6,6 +6,7 @@
+ font-objs-$(CONFIG_FONT_SUN12x22)  += font_sun12x22.o
+ font-objs-$(CONFIG_FONT_8x8)       += font_8x8.o
+ font-objs-$(CONFIG_FONT_8x16)      += font_8x16.o
++font-objs-$(CONFIG_FONT_ISO_LATIN_1_8x16)      += font_iso_latin_1_8x16.o
+ font-objs-$(CONFIG_FONT_6x11)      += font_6x11.o
+ font-objs-$(CONFIG_FONT_7x14)      += font_7x14.o
+ font-objs-$(CONFIG_FONT_10x18)     += font_10x18.o
+diff -Naur a/lib/fonts/font_iso_latin_1_8x16.c b/lib/fonts/font_iso_latin_1_8x16.c
+--- a/lib/fonts/font_iso_latin_1_8x16.c	1970-01-01 00:00:00.000000000 +0000
++++ b/lib/fonts/font_iso_latin_1_8x16.c	2015-09-22 16:05:15.348583728 +0000
 @@ -0,0 +1,4655 @@
 +/*
 +http://www.opensource.apple.com/source/xnu/xnu-517.9.4/osfmk/console/iso_font.c
@@ -4692,9 +4729,9 @@ diff -urN a/lib/fonts/font_iso_latin_1_8x16.c b/lib/fonts/font_iso_latin_1_8x16.
 +};
 +EXPORT_SYMBOL(font_iso_latin_1_8x16);
 +
-diff -urN a/lib/fonts/fonts.c b/lib/fonts/fonts.c
---- a/lib/fonts/fonts.c	2013-09-02 23:46:10.000000000 +0300
-+++ b/lib/fonts/fonts.c	2013-09-16 17:20:15.362877237 +0300
+diff -Naur a/lib/fonts/fonts.c b/lib/fonts/fonts.c
+--- a/lib/fonts/fonts.c	2015-04-12 22:12:50.000000000 +0000
++++ b/lib/fonts/fonts.c	2015-09-22 16:05:15.349583715 +0000
 @@ -31,6 +31,10 @@
  #undef NO_FONTS
      &font_vga_8x16,
@@ -4706,42 +4743,3 @@ diff -urN a/lib/fonts/fonts.c b/lib/fonts/fonts.c
  #ifdef CONFIG_FONT_6x11
  #undef NO_FONTS
      &font_vga_6x11,
-diff -urN a/lib/fonts/Kconfig b/lib/fonts/Kconfig
---- a/lib/fonts/Kconfig	2013-09-02 23:46:10.000000000 +0300
-+++ b/lib/fonts/Kconfig	2013-09-16 17:22:26.466238219 +0300
-@@ -43,6 +43,16 @@
- 
- 	  If unsure, say Y.
- 
-+config FONT_ISO_LATIN_1_8x16
-+	bool "VGA iso latin-1 8x16 font" if FONTS
-+	depends on FRAMEBUFFER_CONSOLE || SGI_NEWPORT_CONSOLE || STI_CONSOLE || USB_SISUSBVGA_CON
-+	default y if !SPARC && !FONTS
-+	help
-+	  This is the "high resolution" font for the VGA frame buffer (the one
-+	  provided by the VGA text console 80x25 mode.
-+
-+	  If unsure, say Y.
-+
- config FONT_6x11
- 	bool "Mac console 6x11 font (not supported by all drivers)" if FONTS
- 	depends on FRAMEBUFFER_CONSOLE || STI_CONSOLE
-@@ -112,6 +122,7 @@
- 	depends on !FONT_SUN8x16
- 	depends on !FONT_SUN12x22
- 	depends on !FONT_10x18
-+	depends on !FONT_ISO_LATIN_1_8x16
- 	select FONT_8x16
- 
- endif # FONT_SUPPORT
-diff -urN a/lib/fonts/Makefile b/lib/fonts/Makefile
---- a/lib/fonts/Makefile	2013-09-02 23:46:10.000000000 +0300
-+++ b/lib/fonts/Makefile	2013-09-16 17:23:02.388789125 +0300
-@@ -6,6 +6,7 @@
- font-objs-$(CONFIG_FONT_SUN12x22)  += font_sun12x22.o
- font-objs-$(CONFIG_FONT_8x8)       += font_8x8.o
- font-objs-$(CONFIG_FONT_8x16)      += font_8x16.o
-+font-objs-$(CONFIG_FONT_ISO_LATIN_1_8x16)      += font_iso_latin_1_8x16.o
- font-objs-$(CONFIG_FONT_6x11)      += font_6x11.o
- font-objs-$(CONFIG_FONT_7x14)      += font_7x14.o
- font-objs-$(CONFIG_FONT_10x18)     += font_10x18.o
