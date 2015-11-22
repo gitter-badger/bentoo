@@ -29,7 +29,6 @@ PDEPEND="${PDEPEND}
 RDEPEND="${DEPEND}
 	app-admin/logrotate
 	app-admin/sudo
-	( app-admin/syslog-ng virtual/logger )
 	app-admin/sysstat
 	app-arch/sharutils
 	app-arch/unrar
@@ -46,13 +45,14 @@ RDEPEND="${DEPEND}
 	app-portage/layman
 	app-portage/portage-utils
 	app-text/tree
+	bentoo/bentoo-mpv
+	bentoo/bentoo-irssi
+	bentoo/bentoo-syslog-ng
 	dev-util/dialog
 	dev-vcs/git
 	dev-vcs/git-flow
 	media-fonts/iso_latin_1
 	media-gfx/graphviz
-	media-video/mpv
-	net-irc/irssi
 	net-p2p/transmission
 	sys-apps/gptfdisk
 	sys-apps/hdparm
@@ -81,7 +81,7 @@ RDEPEND="${DEPEND}
 	sys-process/time
 	|| ( sys-process/vixie-cron virtual/cron )
 	video_cards_nvidia? ( x11-misc/bumblebee )
-	rxvt? ( x11-terms/rxvt-unicode )
+	rxvt? ( bentoo/bentoo-rxvt )
 	"
 
 src_install() {
@@ -121,7 +121,4 @@ src_install() {
 	doexe "${FILESDIR}"/00-linux_link.start
 	newexe "${FILESDIR}"/00-speed_shutdown.stop 00-speed_shutdown.stop
 	newexe "${FILESDIR}"/99-power_saving.start 99-power_saving.start
-
-	exeinto /etc/syslog-ng
-	newins "${FILESDIR}"/syslog-ng.conf-2015.10 syslog-ng.conf
 }

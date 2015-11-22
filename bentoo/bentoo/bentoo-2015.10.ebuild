@@ -21,4 +21,4 @@ PDEPEND="
 	gnome? ( bentoo/bentoo-gnome )
 	mobile? ( bentoo/bentoo-mobile )
 	bentoo/bentoo-system
-  	"
+	"
