@@ -18,6 +18,6 @@ RDEPEND="${DEPEND}
 	"
 
 src_install() {
-	exeinto /root
+	insinto /root
 	newins "${FILESDIR}"/Xresources .Xresources || die "doins Xresources failed"
 }
