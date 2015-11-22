@@ -1,0 +1,129 @@
+!-------------------------------------------------------------------------------
+! Xft settings
+!-------------------------------------------------------------------------------
+
+Xft.dpi:		96
+Xft.antialias:		false
+Xft.rgba:		rgb
+Xft.hinting:		true
+Xft.hintstyle:		hintslight
+
+!-------------------------------------------------------------------------------
+! URxvt settings
+! xrdb -merge ~/.Xresources
+!-------------------------------------------------------------------------------
+
+URxvt.termName:		rxvt-unicode-256color
+URxvt.depth:		32
+! size matters:
+URxvt.geometry:		90x30
+URxvt.transparent:	false
+URxvt.fading:		0
+URxvt.urgentOnBell:	false
+URxvt.visualBell:	false
+URxvt.loginShell:	true
+! scrollback buffer lines - 65535 is max on most machines (64 is default)
+URxvt.saveLines:	65535
+URxvt.internalBorder:	3
+URxvt.externalBorder:	0
+URxvt.lineSpace:	0
+
+! colors
+URxvt*background:	#000000
+URxvt*foreground:	#DDDDDD
+! URxvt*inheritPixmap:	true
+URxvt*shading:		10
+!#include "/home/user/.config/urxvt/colors/solarized"
+!#include "/home/user/.config/urxvt/colors/dark"
+!#include "$HOME/.colors/light"
+!#include "$HOME/.colors/bright"
+!#include "$HOME/.colors/low"
+!#include "$HOME/.colors/old"
+!#include "$HOME/.colors/soft"
+!#include "$HOME/.colors/washed"
+!#include "$HOME/.colors/lich"
+!#include "$HOME/.colors/milomouse"
+!#include "$HOME/.colors/rab"
+!#include "$HOME/.colors/reasons"
+!#include "$HOME/.colors/zenburn"
+
+! Fonts
+URxvt.allow_bold:	true
+
+URxvt*font:		xft:Monaco for Powerline:regular:size=10:antialias=true:hinting=true
+URxvt*imFont:		xft:Monaco for Powerline:regular:size=10:antialias=true:hinting=true
+URxvt*boldFont:		xft:Monaco for Powerline:bold:size=10:antialias=true:hinting=true
+URxvt*italicFont:	xft:Monaco for Powerline:italic:size=10:antialias=true:hinting=true
+URxvt*boldItalicFont:	xft:Monaco for Powerline:bold:italic:size=10:antialias=true:hinting=true
+
+! Fix font space
+URxvt*letterSpace:	-1
+
+! Scrollbar
+! scrollbar style - rxvt (default), plain (most compact), next, or xterm
+URxvt.scrollStyle:	plain
+URxvt.scrollBar:	true
+URxvt.scrollColor:	grey13
+!URxvt*troughColor:	#4444c0
+! прокрутка при выводе текста
+URxvt*scrollTtyOutput:	false
+! прокрутка по нажатию клавиши
+URxvt*scrollTtyKeypress: true
+URxvt*scrollWithBuffer:	true
+URxvt*secondaryScroll:	true
+! расположение скроллбара
+URxvt.scrollBar_right:	true
+URxvt.scrollBar_floating: false
+URxvt*borderLess:	false
+
+! Perl extensions
+urxvt*perl-lib:		/usr/lib/urxvt/perl/
+URxvt.perl-ext-common:	default,matcher,tabbed,clipboard
+URxvt.matcher.button:	1
+URxvt*cutchars:	@-./_~?&=%+#'"'()*,;<=>[]^{|}
+
+! регексп для ссылок:
+URxvt.matcher.pattern.0:  (?:https?:\\/\\/|ftp:\\/\\/|news:\\/\\/|mailto:|file:\\/\\/|\\bwww\\.)\n\
+                           [a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_.+!*\\x27,~#]*\n\
+                           (\n\
+                             \\([a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_.+!*\\x27,~#]*\\)| # Allow a pair of matched parentheses\n\
+                             [a-zA-Z0-9\\x{0410}-\\x{044F}\\-\\@;\\/?:&=%\\$_+*~]  # exclude some trailing characters (heuristic)\n\
+                           )+
+
+! подчёркивать ссылки
+! URxvt.underlineURLs: true
+URxvt.url-launcher:	firefox
+
+! tabs
+URxvt.tabbed.tabbar-fg:	5
+URxvt.tabbed.tabbar-bg:	0
+URxvt.tabbed.tab-fg:	14
+URxvt.tabbed.tab-bg:	0
+
+! Cursor
+URxvt.cursorBlink:	true
+URxvt.cursorColor:	#657b83
+URxvt.cursorUnderline:	false
+
+! Pointer
+URxvt.pointerBlank:	true
+
+! transparency stuff
+URxvt*inheritPixmap:	false
+URxvt*tintColor:	#FFFFFF
+
+! Clipboard
+urxvt.keysym.A-c:		perl:clipboard:copy
+urxvt.keysym.A-v:		perl:clipboard:paste
+urxvt.keysym.A-C-v:		perl:clipboard:paste_escaped
+urxvt.clipboard.copycmd:	xclip -i -selection clipboard
+urxvt.clipboard.pastecmd:	xclip -o -selection clipboard
+
+! ctrl keys
+URxvt.keysym.Control-Up:    \033[1;5A
+URxvt.keysym.Control-Down:  \033[1;5B
+URxvt.keysym.Control-Left:  \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
+
+! Note:
+!xrdb -load ~/.Xdefaults
