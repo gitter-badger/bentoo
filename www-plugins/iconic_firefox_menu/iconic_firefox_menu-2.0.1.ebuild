@@ -6,7 +6,7 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_FILEID="472577"
+MOZ_FILEID="222193"
 DESCRIPTION="Make your Firefox menu icon colorful instead of three boring lines."
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/iconic-firefox-menu/"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
