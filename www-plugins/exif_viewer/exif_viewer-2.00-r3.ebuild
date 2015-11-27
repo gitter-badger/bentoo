@@ -8,7 +8,7 @@ inherit mozilla-addon
 
 MOZ_FILEID="3905"
 DESCRIPTION="Firefox extension to display the Exif and IPTC data in local and remote JPEG images."
-HOMEPAGE="http://araskin.webs.com/exif/exif.html"
+HOMEPAGE="http://araskin.webs.com/exif/exif.html https://addons.mozilla.org/en-GB/firefox/addon/exif-viewer/"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="MPL-1.1"

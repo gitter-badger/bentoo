@@ -1,12 +1,12 @@
 diff -Naur a/install.rdf b/install.rdf
---- a/install.rdf	2015-10-28 16:33:00.000000000 +0500
-+++ b/install.rdf	2015-11-09 18:22:25.927589221 +0500
-@@ -1,448 +1,65 @@
+--- a/install.rdf	2015-11-21 20:29:46.000000000 +0500
++++ b/install.rdf	2015-11-27 22:29:50.771877727 +0500
+@@ -1,448 +1,64 @@
 -<?xml version="1.0" encoding="utf-8"?>
 -<r:RDF xmlns:r="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.mozilla.org/2004/em-rdf#">
 -    <r:Description about="urn:mozilla:install-manifest">
 -        <id>uBlock0@raymondhill.net</id>
--        <version>1.3.2</version>
+-        <version>1.3.6</version>
 -        <name>uBlock Origin</name>
 -        <description>Finally, an efficient blocker. Easy on CPU and memory.</description>
 -        <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
@@ -278,7 +278,7 @@ diff -Naur a/install.rdf b/install.rdf
 -        <localized><r:Description>
 -            <locale>pt-PT</locale>
 -            <name>uBlock Origin</name>
--            <description>Finalmente, um bloqueador eficiente. Leve no CPU e memória.</description>
+-            <description>Finalmente, um bloqueador eficiente. Leve na CPU e memória.</description>
 -            <creator>All uBlock Origin contributors</creator>
 -            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
 -        </r:Description></localized>
@@ -400,7 +400,7 @@ diff -Naur a/install.rdf b/install.rdf
 +	<em:id>uBlock0@raymondhill.net</em:id>
 +	<em:name>uBlock Origin</em:name>
 +	<em:description>Finally, an efficient blocker. Easy on CPU and memory.</em:description>    
-+	<em:version>1.3.2</em:version>
++	<em:version>1.3.6</em:version>
 +	<em:bootstrap>true</em:bootstrap>
 +	<em:type>2</em:type>
  
@@ -409,14 +409,14 @@ diff -Naur a/install.rdf b/install.rdf
 -            <r:Description>
 -                <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
 -                <minVersion>24.0</minVersion>
--                <maxVersion>43.0</maxVersion>
+-                <maxVersion>44.*</maxVersion>
 -            </r:Description>
 -        </targetApplication>
 +        <em:targetApplication>
 +            <Description>
 +                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 +                <em:minVersion>24.0</em:minVersion>
-+                <em:maxVersion>43.0</em:maxVersion>
++                <em:maxVersion>44.*</em:maxVersion>
 +            </Description>
 +        </em:targetApplication>
  
@@ -428,7 +428,6 @@ diff -Naur a/install.rdf b/install.rdf
 -                <maxVersion>41.*</maxVersion>
 -            </r:Description>
 -        </targetApplication>
-+        <em:targetApplication>
 +            <Description>
 +                <em:id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</em:id>
 +                <em:minVersion>24.0</em:minVersion>
@@ -441,14 +440,14 @@ diff -Naur a/install.rdf b/install.rdf
 -            <r:Description>
 -                <id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</id>
 -                <minVersion>2.21</minVersion>
--                <maxVersion>2.38</maxVersion>
+-                <maxVersion>2.39.*</maxVersion>
 -            </r:Description>
 -        </targetApplication>
 +        <em:targetApplication>
 +            <Description>
 +                <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
 +                <em:minVersion>2.21</em:minVersion>
-+                <em:maxVersion>2.38</em:maxVersion>
++                <em:maxVersion>2.39.*</em:maxVersion>
 +            </Description>
 +        </em:targetApplication>
  
