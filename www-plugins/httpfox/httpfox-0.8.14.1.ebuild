@@ -8,7 +8,7 @@ inherit mozilla-addon
 
 MOZ_FILEID="6647"
 DESCRIPTION="A HTTP analyzer addon for Firefox"
-HOMEPAGE="http://code.google.com/p/httpfox"
+HOMEPAGE="http://code.google.com/p/httpfox https://addons.mozilla.org/en-GB/firefox/addon/httpfox/"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="GPL-2"

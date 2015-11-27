@@ -8,7 +8,7 @@ inherit mozilla-addon
 
 MOZ_FILEID="1843"
 DESCRIPTION="Powerful web development tool for firefox"
-HOMEPAGE="http://getfirebug.com"
+HOMEPAGE="http://getfirebug.com https://addons.mozilla.org/en-GB/firefox/addon/firebug/"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="BSD"
