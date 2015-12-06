@@ -17,10 +17,10 @@ S="${WORKDIR}"
 
 DEPEND=""
 RDEPEND="livecd? ( app-misc/livecd-tools
-                virtual/eject
-                sys-apps/hwsetup
-                sys-block/disktype
-                x11-misc/mkxf86config
+		virtual/eject
+		sys-apps/hwsetup
+		sys-block/disktype
+		x11-misc/mkxf86config
 		sys-apps/gentoo-functions
 	)"
 
@@ -29,9 +29,9 @@ pkg_setup() {
 }
 
 src_install() {
-        #/usr/sbin
-        newsbin "${FILESDIR}"/flushchanges-${PV} flushchanges
-        newsbin "${FILESDIR}"/makemo-${PV} makemo
+	#/usr/sbin
+	newsbin "${FILESDIR}"/flushchanges-${PV} flushchanges
+	newsbin "${FILESDIR}"/makemo-${PV} makemo
 
 	newinitd "${FILESDIR}"/binary-driver-handler.initd-${PV} binary-driver-handler
 }

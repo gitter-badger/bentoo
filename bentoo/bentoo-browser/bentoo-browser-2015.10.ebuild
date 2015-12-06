@@ -8,16 +8,24 @@ HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 KEYWORDS="amd64 arm x86"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE="chromium +firefox"
+IUSE="chromium +firefox gnome kde"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 	www-client/lynx
+	chromium? (
+		www-client/chromium
+		www-plugins/chrome-binary-plugins
+	)
 	firefox? (
 		www-client/firefox
 		bentoo/bentoo-browser-plugins
 	)
-	chromium? (
-		www-client/chromium
-		www-plugins/chrome-binary-plugins
-	)"
+	gnome? (
+		www-client/epiphany
+	)
+	kde? (
+		kde-apps/konqueror
+		kde-apps/konq-plugins
+	)
+	"
