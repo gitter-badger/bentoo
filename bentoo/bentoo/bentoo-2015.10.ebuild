@@ -8,7 +8,7 @@ HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 KEYWORDS="amd64 arm x86"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE="gnome kde +mobile"
+IUSE="gnome kde +mobile +pelican"
 
 DEPEND=""
 
@@ -21,5 +21,6 @@ PDEPEND="
 	gnome? ( bentoo/bentoo-gnome )
 	kde? ( bentoo/bentoo-kde )
 	mobile? ( bentoo/bentoo-mobile )
+	pelican? ( bentoo/bentoo-pelican )
 	bentoo/bentoo-system
 	"
