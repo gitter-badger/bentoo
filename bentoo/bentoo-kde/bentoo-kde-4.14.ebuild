@@ -22,7 +22,6 @@ RDEPEND="${DEPEND}
 	<kde-apps/kamera-4.14.50
 	<kde-apps/kate-4.14.50
 	<kde-apps/kcalc-4.14.50
-	<kde-apps/kcalc-4.14.50
 	<kde-apps/kde4-l10n-4.14.50
 	<kde-apps/kdialog-4.14.50
 	<kde-apps/kgpg-4.14.50
@@ -37,6 +36,7 @@ RDEPEND="${DEPEND}
 	<kde-base/kdebase-startkde-4.14.50
 	<kde-base/kdeplasma-addons-4.14.50
 	<kde-base/kdm-4.14.50
+	<kde-base/klipper-4.14.50
 	<kde-base/kmail-4.14.50
 	<kde-misc/kdiff3-4.14.50
 	kde-misc/plasma-nm
