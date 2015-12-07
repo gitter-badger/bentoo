@@ -92,7 +92,7 @@ case "${PR}" in
 				kversion="${PV}"
 				SKIP_UPDATE=1
 			;;
-			6)	kurl="mirror://kernel/linux/kernel/v${KMV}/longterm/v${KMV}.${SUBLEVEL}"
+			6)	kurl="mirror://kernel/linux/kernel/v${KMV}"
 				kversion="${KSV}"
 			;;
 			esac
@@ -100,7 +100,7 @@ case "${PR}" in
 				if [ "${PATCHLEVEL}" = 6 ]; then
 					pversion="${PV}"
 					pname="patch-${pversion}.${extension}"
-					KERNEL_URI="${KERNEL_URI} ${kurl}/${pname}"
+					KERNEL_URI="${KERNEL_URI} ${kurl}/longterm/v${KMV}.${SUBLEVEL}/${pname}"
 				fi
 			fi
 		;;
@@ -131,7 +131,7 @@ case "${PR}" in
 				kversion="${PV}"
 				SKIP_UPDATE=1
 			;;
-			6)	kurl="mirror://kernel/linux/kernel/v${KMV}/longterm/v${KMV}.${SUBLEVEL}"
+			6)	kurl="mirror://kernel/linux/kernel/v${KMV}"
 				kversion="${KSV}"
 			;;
 			esac
@@ -139,7 +139,7 @@ case "${PR}" in
 				if [ "${PATCHLEVEL}" = 6 ]; then
 					pversion="${PV}"
 					pname="patch-${pversion}.${extension}"
-					KERNEL_URI="${KERNEL_URI} ${kurl}/${pname}"
+					KERNEL_URI="${KERNEL_URI} ${kurl}/longterm/v${KMV}.${SUBLEVEL}/${pname}"
 				fi
 			fi
 		;;
