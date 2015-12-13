@@ -39,5 +39,5 @@ RDEPEND="
 	)"
 
 src_prepare(){
-	epatch "${FILESDIR}/righttoclick-2.9.5.1-install.rdf.patch" || die 'epatch failed'
+	epatch "${FILESDIR}/righttoclick-2.9.6-install.rdf.patch" || die 'epatch failed'
 }
