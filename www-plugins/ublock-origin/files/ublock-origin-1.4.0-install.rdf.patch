@@ -1,12 +1,12 @@
 diff -Naur a/install.rdf b/install.rdf
---- a/install.rdf	2015-11-21 20:29:46.000000000 +0500
-+++ b/install.rdf	2015-11-27 22:29:50.771877727 +0500
+--- a/install.rdf	2015-12-12 19:50:43.000000000 +0500
++++ b/install.rdf	2015-12-13 09:29:10.664189595 +0500
 @@ -1,448 +1,64 @@
 -<?xml version="1.0" encoding="utf-8"?>
 -<r:RDF xmlns:r="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.mozilla.org/2004/em-rdf#">
 -    <r:Description about="urn:mozilla:install-manifest">
 -        <id>uBlock0@raymondhill.net</id>
--        <version>1.3.6</version>
+-        <version>1.4.0</version>
 -        <name>uBlock Origin</name>
 -        <description>Finally, an efficient blocker. Easy on CPU and memory.</description>
 -        <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
@@ -400,7 +400,7 @@ diff -Naur a/install.rdf b/install.rdf
 +	<em:id>uBlock0@raymondhill.net</em:id>
 +	<em:name>uBlock Origin</em:name>
 +	<em:description>Finally, an efficient blocker. Easy on CPU and memory.</em:description>    
-+	<em:version>1.3.6</em:version>
++	<em:version>1.4.0</em:version>
 +	<em:bootstrap>true</em:bootstrap>
 +	<em:type>2</em:type>
  
@@ -412,14 +412,15 @@ diff -Naur a/install.rdf b/install.rdf
 -                <maxVersion>44.*</maxVersion>
 -            </r:Description>
 -        </targetApplication>
+-
 +        <em:targetApplication>
 +            <Description>
 +                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 +                <em:minVersion>24.0</em:minVersion>
 +                <em:maxVersion>44.*</em:maxVersion>
 +            </Description>
-+        </em:targetApplication>
- 
++        </em:targetApplication>	
++	
          <!-- Fennec -->
 -        <targetApplication>
 -            <r:Description>
@@ -428,7 +429,7 @@ diff -Naur a/install.rdf b/install.rdf
 -                <maxVersion>41.*</maxVersion>
 -            </r:Description>
 -        </targetApplication>
-+            <Description>
++	<Description>
 +                <em:id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</em:id>
 +                <em:minVersion>24.0</em:minVersion>
 +                <em:maxVersion>41.*</em:maxVersion>
@@ -502,3 +503,4 @@ diff -Naur a/install.rdf b/install.rdf
 +        </em:targetApplication>
 +    </Description>
 +</RDF>
+\ No newline at end of file
