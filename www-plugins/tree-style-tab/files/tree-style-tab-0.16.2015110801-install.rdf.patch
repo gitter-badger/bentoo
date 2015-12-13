@@ -1,22 +1,10 @@
 diff -Naur a/install.rdf b/install.rdf
---- a/install.rdf	2015-11-08 19:00:50.000000000 +0500
-+++ b/install.rdf	2015-11-09 17:44:01.991120625 +0500
-@@ -1,241 +1,26 @@
--﻿<?xml version="1.0" encoding="UTF-8"?>
--<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
--         xmlns:NC="http://home.netscape.com/NC-rdf#"
--         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
--  <RDF:Description RDF:about="urn:mozilla:install-manifest"
--                   em:id="treestyletab@piro.sakura.ne.jp"
--                   em:name="Tree Style Tab"
--                   em:version="0.16.2015110801"
--                   em:creator="YUKI &quot;Piro&quot; Hiroshi"
--                   em:description="Show tabs like a tree."
--                   em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
--                   em:iconURL="chrome://treestyletab/content/res/icon.png"
--                   em:optionsURL="chrome://treestyletab/content/config.xul"
--                   em:type="2"
--                   em:multiprocessCompatible="true">
+--- a/install.rdf	2015-12-04 12:42:12.000000000 +0500
++++ b/install.rdf	2015-12-13 09:21:04.316269781 +0500
+@@ -1,175 +1,26 @@
+ <?xml version='1.0' encoding='utf-8'?>
+-<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#" xmlns:NC="http://home.netscape.com/NC-rdf#" xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+-  <RDF:Description RDF:about="urn:mozilla:install-manifest" em:id="treestyletab@piro.sakura.ne.jp" em:name="Tree Style Tab" em:version="0.16.2015113001.1-let-fixed" em:creator="YUKI &quot;Piro&quot; Hiroshi" em:description="Show tabs like a tree." em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en" em:iconURL="chrome://treestyletab/content/res/icon.png" em:optionsURL="chrome://treestyletab/content/config.xul" em:type="2" em:multiprocessCompatible="true">
 -
 -
 -
@@ -24,11 +12,7 @@ diff -Naur a/install.rdf b/install.rdf
 -
 -
 -    <em:localized>
--      <RDF:Description em:locale="en-US"
--                       em:name="Tree Style Tab"
--                       em:description="Show tabs like a tree."
--                       em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
--                       em:creator="YUKI &quot;Piro&quot; Hiroshi">
+-      <RDF:Description em:locale="en-US" em:name="Tree Style Tab" em:description="Show tabs like a tree." em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en" em:creator="YUKI &quot;Piro&quot; Hiroshi">
 -          <em:contributor>Zusukar (auto-shrink mode)</em:contributor>
 -          <em:contributor>Alice0775 (compatibility problem)</em:contributor>
 -          <em:contributor>Philipp von Weitershausen (Sidebar style)</em:contributor>
@@ -39,11 +23,7 @@ diff -Naur a/install.rdf b/install.rdf
 -      </RDF:Description>
 -    </em:localized>
 -    <em:localized>
--      <RDF:Description em:locale="ja"
--                       em:name="ツリー型タブ"
--                       em:description="タブをツリー状に表示します。"
--                       em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html"
--                       em:creator="YUKI &quot;Piro&quot; Hiroshi">
+-      <RDF:Description em:locale="ja" em:name="ツリー型タブ" em:description="タブをツリー状に表示します。" em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html" em:creator="YUKI &quot;Piro&quot; Hiroshi">
 -          <em:contributor>Zusukar (auto-shrink mode)</em:contributor>
 -          <em:contributor>Alice0775 (compatibility problem)</em:contributor>
 -          <em:contributor>Philipp von Weitershausen (Sidebar style)</em:contributor>
@@ -54,11 +34,7 @@ diff -Naur a/install.rdf b/install.rdf
 -      </RDF:Description>
 -    </em:localized>
 -    <em:localized>
--      <RDF:Description em:locale="it-IT"
--                       em:name="Tree Style Tab"
--                       em:description="Permette di visualizzare la barra delle schede in forma di albero"
--                       em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
--                       em:creator="YUKI &quot;Piro&quot; Hiroshi">
+-      <RDF:Description em:locale="it-IT" em:name="Tree Style Tab" em:description="Permette di visualizzare la barra delle schede in forma di albero" em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en" em:creator="YUKI &quot;Piro&quot; Hiroshi">
 -          <em:contributor>Zusukar (auto-shrink mode)</em:contributor>
 -          <em:contributor>Alice0775 (compatibility problem)</em:contributor>
 -          <em:contributor>Philipp von Weitershausen (Sidebar style)</em:contributor>
@@ -70,11 +46,7 @@ diff -Naur a/install.rdf b/install.rdf
 -      </RDF:Description>
 -    </em:localized>
 -    <em:localized>
--      <RDF:Description em:locale="zh-CN"
--                       em:name="Tree Style Tab"
--                       em:description="以树的形式显示标签。"
--                       em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
--                       em:creator="YUKI &quot;Piro&quot; Hiroshi">
+-      <RDF:Description em:locale="zh-CN" em:name="Tree Style Tab" em:description="以树的形式显示标签。" em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en" em:creator="YUKI &quot;Piro&quot; Hiroshi">
 -          <em:contributor>Zusukar (auto-shrink mode)</em:contributor>
 -          <em:contributor>Alice0775 (compatibility problem)</em:contributor>
 -          <em:contributor>Philipp von Weitershausen (Sidebar style)</em:contributor>
@@ -87,11 +59,7 @@ diff -Naur a/install.rdf b/install.rdf
 -      </RDF:Description>
 -    </em:localized>
 -    <em:localized>
--      <RDF:Description em:locale="es-ES"
--                       em:name="Tree Style Tab (Pestañas estilo árbol)"
--                       em:description="Muestra las pestañas en vista de árbol"
--                       em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
--                       em:creator="YUKI &quot;Piro&quot; Hiroshi">
+-      <RDF:Description em:locale="es-ES" em:name="Tree Style Tab (Pestañas estilo árbol)" em:description="Muestra las pestañas en vista de árbol" em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en" em:creator="YUKI &quot;Piro&quot; Hiroshi">
 -          <em:contributor>Zusukar (auto-shrink mode)</em:contributor>
 -          <em:contributor>Alice0775 (compatibility problem)</em:contributor>
 -          <em:contributor>Philipp von Weitershausen (Sidebar style)</em:contributor>
@@ -103,11 +71,7 @@ diff -Naur a/install.rdf b/install.rdf
 -      </RDF:Description>
 -    </em:localized>
 -    <em:localized>
--      <RDF:Description em:locale="de-DE"
--                       em:name="Tree Style Tab"
--                       em:description="Stellt Tabs in einer Baumstukur dar"
--                       em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
--                       em:creator="YUKI &quot;Piro&quot; Hiroshi">
+-      <RDF:Description em:locale="de-DE" em:name="Tree Style Tab" em:description="Stellt Tabs in einer Baumstukur dar" em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en" em:creator="YUKI &quot;Piro&quot; Hiroshi">
 -          <em:contributor>Zusukar (auto-shrink mode)</em:contributor>
 -          <em:contributor>Alice0775 (compatibility problem)</em:contributor>
 -          <em:contributor>Philipp von Weitershausen (Sidebar style)</em:contributor>
@@ -119,11 +83,7 @@ diff -Naur a/install.rdf b/install.rdf
 -      </RDF:Description>
 -    </em:localized>
 -    <em:localized>
--      <RDF:Description em:locale="zh-TW"
--                       em:name="Tree Style Tab"
--                       em:description="樹狀分頁顯示。"
--                       em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
--                       em:creator="YUKI &quot;Piro&quot; Hiroshi">
+-      <RDF:Description em:locale="zh-TW" em:name="Tree Style Tab" em:description="樹狀分頁顯示。" em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en" em:creator="YUKI &quot;Piro&quot; Hiroshi">
 -          <em:contributor>Zusukar (auto-shrink mode)</em:contributor>
 -          <em:contributor>Alice0775 (compatibility problem)</em:contributor>
 -          <em:contributor>Philipp von Weitershausen (Sidebar style)</em:contributor>
@@ -137,11 +97,7 @@ diff -Naur a/install.rdf b/install.rdf
 -      </RDF:Description>
 -    </em:localized>
 -    <em:localized>
--      <RDF:Description em:locale="ru"
--                       em:name="Tree Style Tab (Древовидный стиль вкладок)"
--                       em:description="Отображение вкладок в виде дерева"
--                       em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
--                       em:creator="YUKI &quot;Piro&quot; Hiroshi">
+-      <RDF:Description em:locale="ru" em:name="Tree Style Tab (Древовидный стиль вкладок)" em:description="Отображение вкладок в виде дерева" em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en" em:creator="YUKI &quot;Piro&quot; Hiroshi">
 -          <em:contributor>Zusukar (auto-shrink mode)</em:contributor>
 -          <em:contributor>Alice0775 (compatibility problem)</em:contributor>
 -          <em:contributor>Philipp von Weitershausen (Sidebar style)</em:contributor>
@@ -154,11 +110,7 @@ diff -Naur a/install.rdf b/install.rdf
 -      </RDF:Description>
 -    </em:localized>
 -    <em:localized>
--      <RDF:Description em:locale="pl"
--                       em:name="Tree Style Tab"
--                       em:description="Wyświetla karty w układzie drzewa."
--                       em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
--                       em:creator="YUKI &quot;Piro&quot; Hiroshi">
+-      <RDF:Description em:locale="pl" em:name="Tree Style Tab" em:description="Wyświetla karty w układzie drzewa." em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en" em:creator="YUKI &quot;Piro&quot; Hiroshi">
 -          <em:contributor>Zusukar (auto-shrink mode)</em:contributor>
 -          <em:contributor>Alice0775 (compatibility problem)</em:contributor>
 -          <em:contributor>Philipp von Weitershausen (Sidebar style)</em:contributor>
@@ -170,11 +122,7 @@ diff -Naur a/install.rdf b/install.rdf
 -      </RDF:Description>
 -    </em:localized>
 -    <em:localized>
--      <RDF:Description em:locale="fr-FR"
--                       em:name="Tree Style Tab"
--                       em:description="Show tabs like a tree."
--                       em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
--                       em:creator="YUKI &quot;Piro&quot; Hiroshi">
+-      <RDF:Description em:locale="fr-FR" em:name="Tree Style Tab" em:description="Show tabs like a tree." em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en" em:creator="YUKI &quot;Piro&quot; Hiroshi">
 -          <em:contributor>Zusukar (auto-shrink mode)</em:contributor>
 -          <em:contributor>Alice0775 (compatibility problem)</em:contributor>
 -          <em:contributor>Philipp von Weitershausen (Sidebar style)</em:contributor>
@@ -187,11 +135,7 @@ diff -Naur a/install.rdf b/install.rdf
 -      </RDF:Description>
 -    </em:localized>
 -    <em:localized>
--      <RDF:Description em:locale="sv-SE"
--                       em:name="Tree Style Tab"
--                       em:description="Visar flikar i en trädstruktur."
--                       em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
--                       em:creator="Hiroshi Shimoda">
+-      <RDF:Description em:locale="sv-SE" em:name="Tree Style Tab" em:description="Visar flikar i en trädstruktur." em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en" em:creator="Hiroshi Shimoda">
 -          <em:contributor>Zusukar (krymp automatiskt-läget)</em:contributor>
 -          <em:contributor>Alice0775 (kompatibilitetsproblem)</em:contributor>
 -          <em:contributor>Philipp von Weitershausen (sidopanelens utseende)</em:contributor>
@@ -203,11 +147,7 @@ diff -Naur a/install.rdf b/install.rdf
 -      </RDF:Description>
 -    </em:localized>
 -    <em:localized>
--      <RDF:Description em:locale="da-DK"
--                       em:name="Tree Style Tab"
--                       em:description="Viser faner som mappetræer."
--                       em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
--                       em:creator="Hiroshi Shimoda">
+-      <RDF:Description em:locale="da-DK" em:name="Tree Style Tab" em:description="Viser faner som mappetræer." em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en" em:creator="Hiroshi Shimoda">
 -          <em:contributor>Zusukar (auto minimering)</em:contributor>
 -          <em:contributor>Alice0775 (kompatibilitetsproblem)</em:contributor>
 -          <em:contributor>Philipp von Weitershausen (sidebjælkens stil)</em:contributor>
@@ -219,11 +159,7 @@ diff -Naur a/install.rdf b/install.rdf
 -      </RDF:Description>
 -    </em:localized>
 -    <em:localized>
--      <RDF:Description em:locale="cs"
--                         em:name="Tree Style Tab"
--                         em:description="Uspořádává panely do stromu."
--                         em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
--                         em:creator="YUKI &quot;Piro&quot; Hiroshi">
+-      <RDF:Description em:locale="cs" em:name="Tree Style Tab" em:description="Uspořádává panely do stromu." em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en" em:creator="YUKI &quot;Piro&quot; Hiroshi">
 -            <em:contributor>Zusukar (auto-shrink mode)</em:contributor>
 -            <em:contributor>Alice0775 (compatibility problem)</em:contributor>
 -            <em:contributor>Philipp von Weitershausen (Sidebar style)</em:contributor>
@@ -237,18 +173,16 @@ diff -Naur a/install.rdf b/install.rdf
 -
 -
 -    <em:targetApplication>
--      <RDF:Description em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
--                       em:minVersion="38.0"
--                       em:maxVersion="45.0a1" />
+-      <RDF:Description em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}" em:minVersion="38.0" em:maxVersion="45.0a1"/>
 -    </em:targetApplication>
 -  </RDF:Description>
 -</RDF:RDF>
-+<?xml version='1.0' encoding='utf-8'?>
+\ No newline at end of file
 +<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 +  <Description about="urn:mozilla:install-manifest">
 +    <em:id>treestyletab@piro.sakura.ne.jp</em:id>
 +    <em:name>Tree Style Tab</em:name>
-+    <em:version>0.16.2015110801</em:version>
++    <em:version>0.16.2015113001.1-let-fixed</em:version>
 +    <em:creator>YUKI &quot;Piro&quot; Hiroshi</em:creator>
 +    <em:type>2</em:type>
 +    <em:multiprocessCompatible>true</em:multiprocessCompatible>
@@ -269,3 +203,4 @@ diff -Naur a/install.rdf b/install.rdf
 +     </em:targetApplication>
 +    </Description>
 +</RDF>
+\ No newline at end of file
