@@ -39,7 +39,7 @@ RDEPEND="
 	)"
 
 src_prepare(){
-    # the install rdf seems really 'old', with restriction on FF <10.0 ... but it works as well
-    # also see: bug https://bugs.gentoo.org/show_bug.cgi?id=515192
-	epatch "${FILESDIR}/ublock-origin-1.4.0-install.rdf.patch" || die 'epatch failed'
+	# the install rdf seems really 'old', with restriction on FF <10.0 ... but it works as well
+	# also see: bug https://bugs.gentoo.org/show_bug.cgi?id=515192
+	ipatch push . "${FILESDIR}/ublock-origin-1.4.0-install.rdf.patch"
 }
