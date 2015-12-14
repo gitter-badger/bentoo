@@ -39,5 +39,5 @@ RDEPEND="
 	)"
 
 src_prepare(){
-	epatch "${FILESDIR}/saved-password-editor-2.9.4-install.rdf.patch" || die 'epatch failed'
+	ipatch push . "${FILESDIR}/saved-password-editor-2.9.4-install.rdf.patch"
 }
