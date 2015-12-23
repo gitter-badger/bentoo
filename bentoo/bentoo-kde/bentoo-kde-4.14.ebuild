@@ -29,6 +29,7 @@ RDEPEND="${DEPEND}
 	<kde-apps/konsole-4.14.50
 	<kde-apps/kopete-4.14.50
 	<kde-apps/kpat-4.14.50
+	<kde-apps/ksnapshot-4.14.50
 	<kde-apps/ksystemlog-4.14.50
 	<kde-apps/kwalletmanager-4.14.50
 	<kde-apps/okular-4.14.50
