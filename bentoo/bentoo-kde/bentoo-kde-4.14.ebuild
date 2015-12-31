@@ -38,7 +38,7 @@ RDEPEND="${DEPEND}
 	<kde-base/kdeplasma-addons-4.14.50
 	<kde-base/kdm-4.14.50
 	<kde-base/klipper-4.14.50
-	<kde-base/kmail-4.14.50
+	<kde-apps/kmail-4.14.50
 	<kde-misc/kdiff3-4.14.50
 	kde-misc/plasma-nm
 	net-wireless/bluedevil
