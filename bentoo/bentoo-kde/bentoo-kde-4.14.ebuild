@@ -4,11 +4,11 @@
 
 EAPI=5
 KEYWORDS="amd64 arm x86"
-DESCRIPTION="Bentoo gnome meta ebuild"
+DESCRIPTION="Bentoo kde meta ebuild"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE=""
+IUSE="touchpad"
 
 DEPEND=""
 RDEPEND="${DEPEND}
