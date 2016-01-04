@@ -1,12 +1,12 @@
 diff -Naur a/install.rdf b/install.rdf
---- a/install.rdf	2015-12-12 19:50:43.000000000 +0500
-+++ b/install.rdf	2015-12-13 09:29:10.664189595 +0500
-@@ -1,448 +1,64 @@
+--- a/install.rdf	2015-12-28 02:32:38.000000000 +0500
++++ b/install.rdf	2016-01-04 09:00:24.488843374 +0500
+@@ -1,456 +1,64 @@
 -<?xml version="1.0" encoding="utf-8"?>
 -<r:RDF xmlns:r="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.mozilla.org/2004/em-rdf#">
 -    <r:Description about="urn:mozilla:install-manifest">
 -        <id>uBlock0@raymondhill.net</id>
--        <version>1.4.0</version>
+-        <version>1.5.1</version>
 -        <name>uBlock Origin</name>
 -        <description>Finally, an efficient blocker. Easy on CPU and memory.</description>
 -        <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
@@ -79,6 +79,14 @@ diff -Naur a/install.rdf b/install.rdf
 -            <locale>el</locale>
 -            <name>uBlock Origin</name>
 -            <description>Επιτέλους, ένας αποτελεσματικός blocker. Ελαφρύς για τον επεξεργαστή και τη μνήμη.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>eo</locale>
+-            <name>uBlock Origin</name>
+-            <description>Finfine rendimenta reklamoblokilo. Afabla por ĉefprocesoro kaj memoro.</description>
 -            <creator>All uBlock Origin contributors</creator>
 -            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
 -        </r:Description></localized>
@@ -400,7 +408,7 @@ diff -Naur a/install.rdf b/install.rdf
 +	<em:id>uBlock0@raymondhill.net</em:id>
 +	<em:name>uBlock Origin</em:name>
 +	<em:description>Finally, an efficient blocker. Easy on CPU and memory.</em:description>    
-+	<em:version>1.4.0</em:version>
++	<em:version>1.5.1</em:version>
 +	<em:bootstrap>true</em:bootstrap>
 +	<em:type>2</em:type>
  
@@ -409,30 +417,29 @@ diff -Naur a/install.rdf b/install.rdf
 -            <r:Description>
 -                <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
 -                <minVersion>24.0</minVersion>
--                <maxVersion>44.*</maxVersion>
+-                <maxVersion>46.0</maxVersion>
 -            </r:Description>
 -        </targetApplication>
--
 +        <em:targetApplication>
 +            <Description>
 +                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 +                <em:minVersion>24.0</em:minVersion>
-+                <em:maxVersion>44.*</em:maxVersion>
++                <em:maxVersion>46.0</em:maxVersion>
 +            </Description>
 +        </em:targetApplication>	
-+	
+ 
          <!-- Fennec -->
 -        <targetApplication>
 -            <r:Description>
 -                <id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</id>
 -                <minVersion>24.0</minVersion>
--                <maxVersion>41.*</maxVersion>
+-                <maxVersion>42.*</maxVersion>
 -            </r:Description>
 -        </targetApplication>
 +	<Description>
 +                <em:id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</em:id>
 +                <em:minVersion>24.0</em:minVersion>
-+                <em:maxVersion>41.*</em:maxVersion>
++                <em:maxVersion>42.0</em:maxVersion>
 +            </Description>
 +        </em:targetApplication>
  
@@ -503,4 +510,3 @@ diff -Naur a/install.rdf b/install.rdf
 +        </em:targetApplication>
 +    </Description>
 +</RDF>
-\ No newline at end of file
