@@ -8,7 +8,7 @@ DESCRIPTION="Bentoo kde meta ebuild"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE="touchpad"
+IUSE="bluetooth networkmanager touchpad"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -40,8 +40,8 @@ RDEPEND="${DEPEND}
 	<kde-base/klipper-4.14.50
 	<kde-apps/kmail-4.14.50
 	<kde-misc/kdiff3-4.14.50
-	=kde-misc/plasma-nm-0.9.3.6
-	=net-wireless/bluedevil-2.1.1
+	networkmanager? ( =kde-misc/plasma-nm-0.9.3.6 )
+	bluetooth? ( =net-wireless/bluedevil-2.1.1 )
 	touchpad? ( =kde-misc/kcm-touchpad-1.1 )
 "
 	
