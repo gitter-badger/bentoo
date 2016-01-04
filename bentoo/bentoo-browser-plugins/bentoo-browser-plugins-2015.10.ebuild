@@ -13,22 +13,20 @@ IUSE="firefox"
 
 PDEPEND="
 	firefox? (
-		www-plugins/classic_theme_restorer
-		www-plugins/exif_viewer
+		www-plugins/classic-theme-restorer
+		www-plugins/exif-viewer
 		www-plugins/firebug
-		www-plugins/foxyproxy
 		www-plugins/greasemonkey
 		www-plugins/hackbar
-		www-plugins/httpfox
 		www-plugins/https-everywhere
-		www-plugins/iconic_firefox_menu
+		www-plugins/iconic-firefox-menu
 		www-plugins/librejs
 		www-plugins/live-http-headers
 		www-plugins/menu-icons-plus
 		www-plugins/nimbus-screen-capture
 		www-plugins/noscript
 		www-plugins/password-reuse-visualizer
-		www-plugins/privacy_badger
+		www-plugins/privacy-badger
 		www-plugins/pwgen
 		www-plugins/random-agent-spoofer
 		www-plugins/righttoclick
@@ -40,12 +38,11 @@ PDEPEND="
 		www-plugins/session-manager
 		www-plugins/showip
 		www-plugins/show-password-field
-		www-plugins/ssl-version-control
 		www-plugins/status-4-evar
 		www-plugins/tree-style-tab
 		www-plugins/ublock-origin
 		www-plugins/unmht
 		www-plugins/visual-hashing
 		www-plugins/worldip
-		www-plugins/youtube_center
+		www-plugins/youtube-center
 	)"
