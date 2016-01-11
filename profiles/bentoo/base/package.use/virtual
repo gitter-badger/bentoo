@@ -1,4 +1,3 @@
 virtual/libgudev static-libs
 virtual/libudev static-libs
-virtual/linux-sources firmware
 virtual/mpi threads

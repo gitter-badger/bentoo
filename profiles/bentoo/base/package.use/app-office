@@ -1,2 +1,1 @@
 app-office/akonadi-server -mysql postgres
-app-office/libreoffice gstreamer
