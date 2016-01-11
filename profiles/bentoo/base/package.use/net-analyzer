@@ -1,7 +1,1 @@
-net-analyzer/ettercap plugins
-net-analyzer/nmap lua nping
 net-analyzer/rrdtool -ruby
-net-analyzer/scapy gnuplot pyx
-net-analyzer/snort dynamicplugin
-net-analyzer/ucsniff plugins
-net-analyzer/wireshark kerberos geoip portaudio smi -qt4

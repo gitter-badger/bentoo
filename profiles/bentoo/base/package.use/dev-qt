@@ -1,4 +1,3 @@
 dev-qt/qtdeclarative -abi_x86_32
-dev-qt/qtgui gif
 dev-qt/qtsql -mysql postgres
 dev-qt/qtwebkit icu

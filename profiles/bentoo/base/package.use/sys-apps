@@ -1,4 +1,3 @@
 sys-apps/file python
 sys-apps/lm_sensors sensord
-sys-apps/usermode-utilities fuse
 sys-apps/util-linux static-libs
