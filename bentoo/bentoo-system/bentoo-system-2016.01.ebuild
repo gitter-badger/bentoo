@@ -96,14 +96,14 @@ src_install() {
 
 	# here is where we merge in things from root_overlay which make sense
 	exeinto /root
-	newexe "${FILESDIR}"/b43-commercial-2015.10 b43-commercial
+	newexe "${FILESDIR}"/b43-commercial-${PV} b43-commercial
 
 	#/etc
 	insinto /etc
 	echo "Bentoo Release ${PV}" > bentoo-release
 	doins bentoo-release
-	newins "${FILESDIR}"/motd-2015.10 motd
-	newins "${FILESDIR}"/issue.logo-2015.10 issue.logo
+	newins "${FILESDIR}"/motd-${PV} motd
+	newins "${FILESDIR}"/issue.logo-${PV} issue.logo
 
 	#/etc/portage/postsync.d
 	exeinto /etc/portage/postsync.d

@@ -9,9 +9,12 @@ HOMEPAGE="http://www.firecat.fr/"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 arm x86"
-IUSE="firefox"
+IUSE="chromium firefox kde"
 
 PDEPEND="
+	chromium? (
+		www-plugins/chrome-binary-plugins
+	)
 	firefox? (
 		www-plugins/classic-theme-restorer
 		www-plugins/exif-viewer
@@ -45,4 +48,7 @@ PDEPEND="
 		www-plugins/visual-hashing
 		www-plugins/worldip
 		www-plugins/youtube-center
+	)
+	kde? (
+		kde-apps/konq-plugins
 	)"

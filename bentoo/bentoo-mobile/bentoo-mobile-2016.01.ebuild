@@ -12,5 +12,5 @@ IUSE="+android"
 
 DEPEND=""
 RDEPEND="${DEPEND}
-	android? ( dev-util/android-tools )
+	android? ( =dev-util/android-tools-5.1.1_p18::bentoo )
 	"
