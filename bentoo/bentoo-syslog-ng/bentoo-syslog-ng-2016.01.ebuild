@@ -19,5 +19,5 @@ RDEPEND="${DEPEND}
 
 src_install() {
 	insinto /etc/syslog-ng
-	newins "${FILESDIR}"/syslog-ng.conf-2015.10 syslog-ng.conf || die "doins syslog-ng.conf failed"
+	newins "${FILESDIR}"/syslog-ng.conf-${PV} syslog-ng.conf || die "doins syslog-ng.conf failed"
 }

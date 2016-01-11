@@ -15,17 +15,17 @@ RDEPEND="${DEPEND}
 	www-client/lynx
 	chromium? (
 		www-client/chromium
-		www-plugins/chrome-binary-plugins
+		bentoo/bentoo-browser-plugins[chromium]
 	)
 	firefox? (
 		www-client/firefox
-		bentoo/bentoo-browser-plugins
+		bentoo/bentoo-browser-plugins[firefox]
 	)
 	gnome? (
 		www-client/epiphany
 	)
 	kde? (
 		kde-apps/konqueror
-		kde-apps/konq-plugins
+		bentoo/bentoo-browser-plugins[kde]
 	)
 	"
