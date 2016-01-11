@@ -1,4 +1,1 @@
-media-video/ffmpeg speex threads gsm opus x264 xvid theora vdpau vaapi
-media-video/libav speex threads gsm vdpau vaapi v4l theora
-media-video/vlc aalib dvb dvd fontconfig ffmpeg libcaca mpeg mtp sid dts a52 ogg flac theora matroska xv httpd lua cdda live run-as-root x264 rtsp v4l vaapi
-virtual/ffmpeg gsm speex threads x264 theora vdpau vaapi
+media-video/ffmpeg speex threads gsm opus x264 xvid theora vaapi

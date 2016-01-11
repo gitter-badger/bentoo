@@ -1,7 +1,5 @@
-dev-libs/Ice python
 dev-libs/boost mpi
 dev-libs/elfutils static-libs
-dev-libs/libdnet python
 dev-libs/libgcrypt static-libs
 dev-libs/libgpg-error static-libs
 dev-libs/libpcre pcre16
@@ -9,4 +7,3 @@ dev-libs/libpwquality static-libs
 dev-libs/libxml2 icu
 dev-libs/nss utils
 dev-libs/popt static-libs
-dev-libs/radare2-bindings python -ruby

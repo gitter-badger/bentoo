@@ -1,4 +1,0 @@
-net-libs/gtk-vnc python
-net-libs/libmicrohttpd messages
-net-libs/liboauth -curl
-net-libs/nfqueue-bindings python perl
