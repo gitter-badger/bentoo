@@ -1,4 +1,4 @@
-# Copyright 1999-2015 The Bentoo Authors. All rights reserved.
+# Copyright 1999-2016 The Bentoo Authors. All rights reserved.
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
@@ -43,7 +43,7 @@ RDEPEND="${DEPEND}
 	<kde-apps/kompare-15.12.50
 	networkmanager? ( <kde-plasma/plasma-nm-15.12.50 )
 	bluetooth? ( <kde-plasma/bluedevil-15.12.50 )
-	touchpad? ( kde-plasma/plasma-desktop-5.5.50[touchpad] )
+	touchpad? ( kde-plasma/plasma-desktop[touchpad] )
 "
 #	ToDo add:
 #	<kde-apps/plasma-telepathy-meta-15.12.50
