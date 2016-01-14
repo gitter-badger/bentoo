@@ -1,4 +1,4 @@
-# Copyright 1999-2015 The Bentoo Authors. All rights reserved.
+# Copyright 1999-2016 The Bentoo Authors. All rights reserved.
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
@@ -12,5 +12,5 @@ IUSE="+android"
 
 DEPEND=""
 RDEPEND="${DEPEND}
-	android? ( =dev-util/android-tools-5.1.1_p18::bentoo )
+	android? ( =dev-util/android-tools-5.1.1_p18 )
 	"
