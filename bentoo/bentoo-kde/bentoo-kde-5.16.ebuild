@@ -1,4 +1,4 @@
-# Copyright 1999-2016 The Bentoo Authors. All rights reserved.
+# Copyright 1999-2015 The Bentoo Authors. All rights reserved.
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
@@ -23,32 +23,29 @@ RDEPEND="${DEPEND}
 	<kde-apps/kate-15.12.50
 	<kde-apps/kcalc-15.12.50
 	<kde-apps/kde-l10n-15.12.50
-	<kde-apps/kdialog-15.12.50
-	<kde-apps/kgpg-15.12.50
+	<kde-apps/kdepim-15.12.50
 	<kde-apps/kmix-15.12.50
+	<kde-apps/kompare-15.12.50
 	<kde-apps/konsole-15.12.50
-
-	<kde-apps/okular-15.12.50
 	<kde-apps/kpat-15.12.50
-	<kde-apps/ksnapshot-15.12.50
 	<kde-apps/ksystemlog-15.12.50
 	<kde-apps/kwalletmanager-15.12.50
-	<kde-apps/okular-15.12.50
-	<kde-apps/plasma-apps-15.12.50
-	<kde-plasma/plasma-desktop-15.12.50
+	<kde-apps/plasma-telepathy-meta-15.12.50
 	<kde-plasma/kdeplasma-addons-15.12.50
-	<x11-misc/sddm-0.14.50
+	<kde-plasma/plasma-desktop-15.12.50
 	<kde-plasma/sddm-kcm-15.12.50
-
-	<kde-apps/kompare-15.12.50
-	networkmanager? ( <kde-plasma/plasma-nm-15.12.50 )
+	<kde-plasma/systemsettings-15.12.50
+	<x11-misc/sddm-0.14.50
 	bluetooth? ( <kde-plasma/bluedevil-15.12.50 )
+	networkmanager? ( <kde-plasma/plasma-nm-15.12.50 )
 	touchpad? ( kde-plasma/plasma-desktop[touchpad] )
 "
-#	ToDo add:
-#	<kde-apps/plasma-telepathy-meta-15.12.50
-#	Bump <kde-plasma/kdeplasma-addons-5.5.50 -> <kde-plasma/plasma-addons-5.5.50 ?
-#	<kde-apps/kdepim-15.12.50
+#	kde-4 dep-s:
+#	<kde-apps/plasma-apps-15.12.50
+#	<kde-apps/kdialog-15.12.50
+#	<kde-apps/ksnapshot-15.12.50
+#	<kde-apps/kgpg-15.12.50
+#	<kde-apps/okular-15.12.50
 
 PDEPEND=""
 
