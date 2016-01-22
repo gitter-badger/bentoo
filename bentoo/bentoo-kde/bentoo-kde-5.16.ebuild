@@ -31,9 +31,9 @@ RDEPEND="${DEPEND}
 	<kde-apps/ksystemlog-15.12.50
 	<kde-apps/kwalletmanager-15.12.50
 	<kde-apps/plasma-telepathy-meta-15.12.50
+	<kde-apps/spectacle-15.12.50
 	<kde-plasma/kdeplasma-addons-15.12.50
 	<kde-plasma/plasma-desktop-15.12.50
-	<kde-plasma/sddm-kcm-15.12.50
 	<kde-plasma/systemsettings-15.12.50
 	<x11-misc/sddm-0.14.50
 	bluetooth? ( <kde-plasma/bluedevil-15.12.50 )
@@ -43,7 +43,6 @@ RDEPEND="${DEPEND}
 #	kde-4 dep-s:
 #	<kde-apps/plasma-apps-15.12.50
 #	<kde-apps/kdialog-15.12.50
-#	<kde-apps/ksnapshot-15.12.50
 #	<kde-apps/kgpg-15.12.50
 #	<kde-apps/okular-15.12.50
 
