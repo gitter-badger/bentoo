@@ -75,6 +75,7 @@ RDEPEND="${DEPEND}
 	sys-libs/gpm
 	!arm? ( sys-power/acpid )
 	sys-power/hibernate-script
+	sys-power/powertop
 	sys-process/htop
 	sys-process/iotop
 	sys-process/lsof
