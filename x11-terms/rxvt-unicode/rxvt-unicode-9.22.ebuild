@@ -40,8 +40,9 @@ REQUIRED_USE="vanilla? ( !alt-font-width !buffer-on-clear focused-urgency !secon
 
 src_prepare() {
 	# fix for prefix not installing properly
+	ipatch push . "${FILESDIR}"/${PN}-0001-Prefer-XDG_RUNTIME_DIR-over-the-HOME.patch
+	ipatch push . "${FILESDIR}"/${PN}-9.21-Fix-hard-coded-wrong-path-to-xsubpp.patch
 	ipatch push . "${FILESDIR}"/${PN}-9.06-case-insensitive-fs.patch
-	ipatch push . "${FILESDIR}"/${PN}-9.21-xsubpp.patch
 
 	if ! use vanilla; then
 		ewarn "You are going to include unsupported third-party bug fixes/features."
