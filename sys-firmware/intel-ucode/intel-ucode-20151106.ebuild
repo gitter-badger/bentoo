@@ -9,7 +9,7 @@ inherit linux-info toolchain-funcs
 # Find updates by searching and clicking the first link (hopefully it's the one):
 # http://www.intel.com/content/www/us/en/search.html?keyword=Processor+Microcode+Data+File
 
-NUM="23984"
+NUM="25512"
 DESCRIPTION="Intel IA32 microcode update data"
 HOMEPAGE="http://inertiawar.com/microcode/ https://downloadcenter.intel.com/Detail_Desc.aspx?DwnldID=${NUM}"
 SRC_URI="http://downloadmirror.intel.com/${NUM}/eng/microcode-${PV}.tgz"
