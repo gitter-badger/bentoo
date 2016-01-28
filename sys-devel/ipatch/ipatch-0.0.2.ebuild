@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI=5
+EAPI="6"
 
 if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
@@ -19,7 +19,9 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE=""
 
-DEPEND="sys-apps/coreutils
+DEPEND=""
+RDEPEND="${DEPEND}
+	sys-apps/coreutils
 	sys-apps/file
 	sys-devel/patch
 	app-arch/bzip2
@@ -27,7 +29,6 @@ DEPEND="sys-apps/coreutils
 	app-arch/lrzip
 	app-arch/unzip
 	app-arch/xz-utils"
-RDEPEND="${DEPEND}"
 
 if [[ ${PV} == "9999" ]] ; then
 	S="${WORKDIR}/${P}"

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI=5
+EAPI="6"
 
 if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
@@ -19,9 +19,10 @@ LICENSE="GPL-3"
 SLOT="0"
 IUSE=""
 
-DEPEND="sys-apps/portage
+DEPEND=""
+RDEPEND="${DEPEND}
+	sys-apps/portage
 	sys-devel/ipatch"
-RDEPEND="${DEPEND}"
 
 if [[ ${PV} == "9999" ]] ; then
 	S="${WORKDIR}/${P}"

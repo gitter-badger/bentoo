@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI=5
+EAPI="6"
 DESCRIPTION="Collection of firefox extensions for application security auditing and assessment."
 # HOMEPAGE="http://www.security-database.com/toolswatch/FireCAT-Firefox-Catalog-of,302.html"
 HOMEPAGE="http://www.firecat.fr/"
