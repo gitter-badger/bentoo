@@ -20,7 +20,7 @@
 # Wiki: https://bitbucket.org/redeyeteam/bentoo/wiki
 
 case ${EAPI:-0} in
-	[01234])
+	[012345])
 		die "EAPI ${EAPI:-0} is not supported"
 esac
 

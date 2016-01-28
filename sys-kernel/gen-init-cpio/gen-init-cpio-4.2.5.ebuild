@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI=5
+EAPI="6"
 
 DESCRIPTION="Program to compress initramfs images"
 HOMEPAGE="http://www.kernel.org/"

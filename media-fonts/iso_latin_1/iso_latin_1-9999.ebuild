@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI=5
+EAPI="6"
 
 MY_PN="iso-latin-1"
 
@@ -23,7 +23,9 @@ IUSE=""
 # Only installs fonts.
 RESTRICT="mirror strip binchecks"
 
-DEPEND="media-gfx/psftools"
+RDEPEND=""
+DEPEND="${RDEPEND}
+	media-gfx/psftools"
 
 FONTDIR="/usr/share/consolefonts"
 

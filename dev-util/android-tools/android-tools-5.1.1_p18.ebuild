@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI=5
+EAPI="6"
 inherit git-r3 systemd
 
 KEYWORDS="~amd64 ~x86 ~arm-linux ~x86-linux"
