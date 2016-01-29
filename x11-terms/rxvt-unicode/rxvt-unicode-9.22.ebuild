@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI="5"
+EAPI=5
 inherit autotools eutils systemd
 
 DESCRIPTION="rxvt clone with xft and unicode support"
@@ -11,7 +11,7 @@ SRC_URI="http://dist.schmorp.de/rxvt-unicode/Attic/${P}.tar.bz2"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris"
+KEYWORDS="amd64 arm x86"
 IUSE="
 	256-color alt-font-width blink buffer-on-clear +focused-urgency
 	fading-colors +font-styles iso14755 +mousewheel +perl pixbuf secondary-wheel
@@ -19,7 +19,7 @@ IUSE="
 "
 
 RDEPEND="
-	>=sys-libs/ncurses-5.7-r6
+	>=sys-libs/ncurses-5.7-r6:=
 	kernel_Darwin? ( dev-perl/Mac-Pasteboard )
 	media-libs/fontconfig
 	perl? ( dev-lang/perl:= )
@@ -35,16 +35,14 @@ DEPEND="
 	x11-proto/xproto
 "
 
-RESTRICT="mirror test"
+RESTRICT="test"
 REQUIRED_USE="vanilla? ( !alt-font-width !buffer-on-clear focused-urgency !secondary-wheel !wcwidth )"
 
 src_prepare() {
-	epatch "${FILESDIR}/${PN}-0001-Prefer-XDG_RUNTIME_DIR-over-the-HOME.patch"
-	epatch "${FILESDIR}/${PN}-9.21-Fix-hard-coded-wrong-path-to-xsubpp.patch"
-	epatch "${FILESDIR}/${PN}-9.06-case-insensitive-fs.patch"
-#	epatch "${FILESDIR}/${PN}-9.22-font-width-fix.patch"
-#	epatch "${FILESDIR}/${PN}-9.22-line-spacing-fix.patch"
-#	epatch "${FILESDIR}/${PN}-9.22-sgr-mouse-mode.patch"
+	# fix for prefix not installing properly
+	epatch \
+		"${FILESDIR}"/${PN}-9.06-case-insensitive-fs.patch \
+		"${FILESDIR}"/${PN}-9.21-xsubpp.patch
 
 	if ! use vanilla; then
 		ewarn "You are going to include unsupported third-party bug fixes/features."
@@ -84,7 +82,7 @@ src_configure() {
 
 	use iso14755 || myconf='--disable-iso14755'
 
-	econf
+	econf --enable-everything \
 		$(use_enable 256-color) \
 		$(use_enable blink text-blink) \
 		$(use_enable fading-colors fading) \
@@ -93,23 +91,8 @@ src_configure() {
 		$(use_enable perl) \
 		$(use_enable pixbuf) \
 		$(use_enable startup-notification) \
-		$(use_enable unicode3) \
 		$(use_enable xft) \
-		--disable-frills \
-		--disable-smart-resize \
-		--enable-combining \
-		--enable-keepscrolling \
-		--enable-lastlog \
-		--enable-next-scroll \
-		--enable-pointer-blank \
-		--enable-rxvt-scroll \
-		--enable-selectionscrolling \
-		--enable-slipwheeling \
-		--enable-transparency \
-		--enable-utmp \
-		--enable-wtmp \
-		--enable-xim \
-		--enable-xterm-scroll \
+		$(use_enable unicode3) \
 		${myconf}
 }
 
@@ -151,7 +134,6 @@ pkg_postinst() {
 		elog "  URxvt*secondaryWheel: true"
 		elog "in your ~/.Xdefaults file"
 	fi
-
 	elog "To use Daemon-Client setup"
 	elog "Pass the username when starting the service:"
 	elog
