@@ -30,6 +30,8 @@ RDEPEND="${DEPEND}
 	app-admin/logrotate
 	app-admin/sudo
 	app-admin/sysstat
+	app-arch/p7zip
+	app-arch/rpm2targz
 	app-arch/sharutils
 	app-arch/unrar
 	app-arch/unzip
