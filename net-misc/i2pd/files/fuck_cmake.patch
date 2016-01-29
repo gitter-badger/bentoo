@@ -1,0 +1,35 @@
+diff -Naur a/build/CMakeLists.txt b/build/CMakeLists.txt
+--- a/build/CMakeLists.txt	2016-01-23 18:08:20.000000000 +0500
++++ b/build/CMakeLists.txt	2016-01-23 19:39:11.821162866 +0500
+@@ -359,31 +359,6 @@
+   DESTINATION .
+   COMPONENT Runtime
+   )
+-# Take a copy on Appveyor
+-install(FILES "C:/projects/openssl-$ENV{OPENSSL}/LICENSE"
+-  DESTINATION .
+-  COMPONENT Runtime
+-  RENAME LICENSE_OPENSSL
+-  OPTIONAL                      # for local builds only!
+-  )
+-
+-file(GLOB_RECURSE I2PD_SOURCES "../*.cpp" "../build" "../Win32" "../Makefile*")
+-install(FILES ${I2PD_SOURCES} DESTINATION src/ COMPONENT Source)
+-# install(DIRECTORY ../ DESTINATION src/
+-#   # OPTIONAL
+-#   COMPONENT Source FILES_MATCHING
+-#   PATTERN .git EXCLUDE
+-#   PATTERN "*.cpp"
+-#   )
+-
+-file(GLOB I2PD_HEADERS "../*.h")
+-install(FILES ${I2PD_HEADERS} DESTINATION src/ COMPONENT Headers)
+-# install(DIRECTORY ../ DESTINATION src/
+-#   # OPTIONAL
+-#   COMPONENT Headers FILES_MATCHING
+-#   PATTERN .git EXCLUDE
+-#   PATTERN "*.h"
+-#   )
+ 
+ set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Purple I2P, a C++ I2P daemon")
+ set(CPACK_PACKAGE_VENDOR "Purple I2P")
