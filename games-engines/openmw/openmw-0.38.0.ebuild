@@ -45,9 +45,9 @@ PATCHES=(
 
 src_configure() {
 	local mycmakeargs=(
-		$(cmake-utils_use_build devtools BSATOOL)
-		$(cmake-utils_use_build devtools ESMTOOL)
-		$(cmake-utils_use_build devtools OPENCS)
+		-DBUILD_BSATOOL="$(usex devtools)"
+		-DBUILD_ESMTOOL="$(usex devtools)"
+		-DBUILD_OPENCS="$(usex devtools)"
 		-DBUILD_OPENMW=ON
 		-DBUILD_UNITTESTS=OFF
 		-DCMAKE_BUILD_TYPE=Release
