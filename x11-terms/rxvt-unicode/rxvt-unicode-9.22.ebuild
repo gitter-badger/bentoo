@@ -42,8 +42,8 @@ src_prepare() {
 	epatch "${FILESDIR}/${PN}-0001-Prefer-XDG_RUNTIME_DIR-over-the-HOME.patch"
 	epatch "${FILESDIR}/${PN}-9.21-Fix-hard-coded-wrong-path-to-xsubpp.patch"
 	epatch "${FILESDIR}/${PN}-9.06-case-insensitive-fs.patch"
-	epatch "${FILESDIR}/${PN}-9.22-font-width-fix.patch"
-	epatch "${FILESDIR}/${PN}-9.22-line-spacing-fix.patch"
+#	epatch "${FILESDIR}/${PN}-9.22-font-width-fix.patch"
+#	epatch "${FILESDIR}/${PN}-9.22-line-spacing-fix.patch"
 	epatch "${FILESDIR}/${PN}-9.22-sgr-mouse-mode.patch"
 
 	if ! use vanilla; then
