@@ -7,4 +7,4 @@ Exec=urxvtc
 Icon=terminal
 Terminal=false
 Type=Application
-Categories=Application;System;TerminalEmulator;
+Categories=System;TerminalEmulator;
