@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI="6"
+EAPI="5"
 inherit autotools eutils systemd
 
 DESCRIPTION="rxvt clone with xft and unicode support"
@@ -39,34 +39,36 @@ RESTRICT="mirror test"
 REQUIRED_USE="vanilla? ( !alt-font-width !buffer-on-clear focused-urgency !secondary-wheel !wcwidth )"
 
 src_prepare() {
-	# fix for prefix not installing properly
-	ipatch push . "${FILESDIR}"/${PN}-0001-Prefer-XDG_RUNTIME_DIR-over-the-HOME.patch
-	ipatch push . "${FILESDIR}"/${PN}-9.21-Fix-hard-coded-wrong-path-to-xsubpp.patch
-	ipatch push . "${FILESDIR}"/${PN}-9.06-case-insensitive-fs.patch
+	epatch "${FILESDIR}/${PN}-0001-Prefer-XDG_RUNTIME_DIR-over-the-HOME.patch"
+	epatch "${FILESDIR}/${PN}-9.21-Fix-hard-coded-wrong-path-to-xsubpp.patch"
+	epatch "${FILESDIR}/${PN}-9.06-case-insensitive-fs.patch"
+	epatch "${FILESDIR}/${PN}-9.22-font-width-fix.patch"
+	epatch "${FILESDIR}/${PN}-9.22-line-spacing-fix.patch"
+	epatch "${FILESDIR}/${PN}-9.22-sgr-mouse-mode.patch"
 
 	if ! use vanilla; then
 		ewarn "You are going to include unsupported third-party bug fixes/features."
 		ewarn "If you want even more control over patches, then set USE=vanilla"
 		ewarn "and store your patch set in /etc/portage/patches/${CATEGORY}/${PF}/"
 
-		use wcwidth && ipatch push . doc/wcwidth.patch
+		use wcwidth && epatch doc/wcwidth.patch
 
 		# bug #240165
-		use focused-urgency || ipatch push . "${FILESDIR}"/${PN}-9.06-no-urgency-if-focused.diff
+		use focused-urgency || epatch "${FILESDIR}"/${PN}-9.06-no-urgency-if-focused.diff
 
 		# bug #263638
-		ipatch push . "${FILESDIR}"/${PN}-9.06-popups-hangs.patch
+		epatch "${FILESDIR}"/${PN}-9.06-popups-hangs.patch
 
 		# bug #237271
-		ipatch push . "${FILESDIR}"/${PN}-9.05_no-MOTIF-WM-INFO.patch
+		epatch "${FILESDIR}"/${PN}-9.05_no-MOTIF-WM-INFO.patch
 
 		# support for wheel scrolling on secondary screens
-		use secondary-wheel && ipatch push . "${FILESDIR}"/${PN}-9.19-secondary-wheel.patch
+		use secondary-wheel && epatch "${FILESDIR}"/${PN}-9.19-secondary-wheel.patch
 
 		# ctrl-l buffer fix
-		use buffer-on-clear && ipatch push . "${FILESDIR}"/${PN}-9.14-clear.patch
+		use buffer-on-clear && epatch "${FILESDIR}"/${PN}-9.14-clear.patch
 
-		use alt-font-width && ipatch push . "${FILESDIR}"/${PN}-9.06-font-width.patch
+		use alt-font-width && epatch "${FILESDIR}"/${PN}-9.06-font-width.patch
 	fi
 
 	# kill the rxvt-unicode terminfo file - #192083
@@ -82,7 +84,7 @@ src_configure() {
 
 	use iso14755 || myconf='--disable-iso14755'
 
-	econf --enable-everything \
+	econf
 		$(use_enable 256-color) \
 		$(use_enable blink text-blink) \
 		$(use_enable fading-colors fading) \
@@ -91,8 +93,23 @@ src_configure() {
 		$(use_enable perl) \
 		$(use_enable pixbuf) \
 		$(use_enable startup-notification) \
-		$(use_enable xft) \
 		$(use_enable unicode3) \
+		$(use_enable xft) \
+		--disable-frills \
+		--disable-smart-resize \
+		--enable-combining \
+		--enable-keepscrolling \
+		--enable-lastlog \
+		--enable-next-scroll \
+		--enable-pointer-blank \
+		--enable-rxvt-scroll \
+		--enable-selectionscrolling \
+		--enable-slipwheeling \
+		--enable-transparency \
+		--enable-utmp \
+		--enable-wtmp \
+		--enable-xim \
+		--enable-xterm-scroll \
 		${myconf}
 }
 
@@ -110,11 +127,9 @@ src_install() {
 	dodoc \
 		README.FAQ Changes doc/README* doc/changes.txt doc/etc/* doc/rxvt-tabbed
 
-	make_desktop_entry urxvt urxvt utilities-terminal \
-		"System;TerminalEmulator"
-
-	make_desktop_entry urxvtc urxvtc utilities-terminal \
-		"System;TerminalEmulator"
+	domenu "${FILESDIR}/urxvt.desktop"
+	domenu "${FILESDIR}/urxvt-tabbed.desktop"
+	domenu "${FILESDIR}/urxvtc.desktop"
 
 	systemd_dounit "${FILESDIR}"/urxvtd@.service
 }
