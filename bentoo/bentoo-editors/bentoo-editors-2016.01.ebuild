@@ -8,10 +8,14 @@ HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 KEYWORDS="amd64 arm x86"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE="+vim"
+IUSE="gnome kde +vim"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 	app-editors/nano
-	vim? ( app-editors/vim )
+	vim? (
+		app-editors/vim
+		gnome? ( app-editors/gvim )
+		kde? ( app-editors/vim-qt )
+	)
 	"
