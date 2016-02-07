@@ -1,6 +1,6 @@
-# Copyright 1999-2015 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v2
-# $Id$
+# Copyright 1999-2016 The Bentoo Authors. All rights reserved.
+# Distributed under the terms of the GNU General Public License v3 or later
+# $Header: $
 
 EAPI=5
 

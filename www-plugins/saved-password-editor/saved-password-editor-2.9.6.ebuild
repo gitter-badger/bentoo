@@ -6,12 +6,12 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_FILEID="607454"
-DESCRIPTION="uBlock Origin - An efficient blocker for Firefox. Fast and lean."
-HOMEPAGE="https://github.com/gorhill/uBlock https://addons.mozilla.org/en-GB/firefox/addon/ublock-origin/"
+MOZ_FILEID="60265"
+DESCRIPTION="Adds the ability to create and edit entries in the password manager."
+HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/saved-password-editor/"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
-LICENSE="GPL-3"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="+symlink_all_targets target_firefox target_thunderbird target_seamonkey target_firefox-bin target_thunderbird-bin target_seamonkey-bin"
@@ -39,7 +39,5 @@ RDEPEND="
 	)"
 
 src_prepare(){
-	# the install rdf seems really 'old', with restriction on FF <10.0 ... but it works as well
-	# also see: bug https://bugs.gentoo.org/show_bug.cgi?id=515192
-	ipatch push . "${FILESDIR}/ublock-origin-1.5.1-install.rdf.patch"
+	ipatch push . "${FILESDIR}/saved-password-editor-2.9.6-install.rdf.patch"
 }
