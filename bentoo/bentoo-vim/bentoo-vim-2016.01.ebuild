@@ -13,6 +13,9 @@ IUSE="gnome kde"
 DEPEND=""
 RDEPEND="${DEPEND}
 	app-editors/vim
+	app-vim/pathogen
+	app-vim/syntastic
 	gnome? ( app-editors/gvim )
 	kde? ( app-editors/vim-qt )
 	"
+
