@@ -19,3 +19,8 @@ RDEPEND="${DEPEND}
 	kde? ( app-editors/vim-qt )
 	"
 
+src_install() {
+	insinto /root
+	newins "${FILESDIR}"/vimrc .vimrc
+}
+
