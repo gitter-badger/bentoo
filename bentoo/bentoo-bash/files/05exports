@@ -1,0 +1,58 @@
+#----------------------------------------------------------------------------
+# ~/.bashrc.d/05exports: executed by .bash_profile for exports
+# $Revision: 2.03 $
+# $Comment: $
+#----------------------------------------------------------------------------
+
+# By default console commands' history is saved only when you type 'exit' in
+# your GUI console. When you close your console with 'x' in the corner, it does
+# not happen.
+# Use the following line to enable autosaving after every command execution and
+# make the history accessible from every terminal tabs or windows (e.g.: if ls
+# is executed in one, switch to another already-running terminal and then press
+# up, ls shows up).
+#
+# -a: append history lines from this session to the history file;
+# -c: clear the history list by deleting all of the entries;
+# -r: read the history file and append the contents to the history list
+#
+# - No need to check if the history command is present, it's built-in bash.
+# - Need to issue at least a command to get the history updated in an
+# already-open terminal.
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# Line matching the previous line history won't be saved.
+# NOTE: HISTCONTROL is a colon separated list.
+# HISTCONTROL=ignoredups
+
+# Lines which begin with a space character are not saved in the history.
+# HISTCONTROL+=:ignorespace
+
+# ignoreboth is a shortcut for ignoredups and ignorespace described just above.
+export HISTCONTROL="ignoreboth:ignoredups:ignorespace:erasedups"
+
+# Max number of lines command to save in the history (default 500).
+export HISTSIZE=1000
+
+# The maximum number of lines (default 500) contained in our custom history
+# file which defined with HISTFILE attribute (default to ~/.bash_history).
+# This parameter isn't needed here as we don't change HISTFILE location.
+export HISTFILESIZE=2000
+
+export HISTIGNORE="&:ls:[bf]g:exit"
+export HISTTIMEFORMAT='%d.%m.%Y %H:%M:%S '
+
+export GREP_COLOR=36
+
+# bash tuning
+#----------------------------------------------------------------------------
+
+# no more overwriting existing files with <> > >&
+# complete && cdspell
+# bash save all lines of a multiple-line cmd to same hist
+set -C noclobber
+complete -d cd
+shopt -s cdspell cmdhist dotglob
+#shopt -s extglob
+
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'

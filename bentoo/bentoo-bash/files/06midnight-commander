@@ -1,0 +1,15 @@
+#----------------------------------------------------------------------------
+# ~/.bashrc.d/06midnight-commander: executed by .bash_profile for other settings
+# $Revision: 2.03 $
+# $Comment: $
+#----------------------------------------------------------------------------
+
+# Midnight Commander chdir enhancement
+#----------------------------------------------------------------------------
+if [ -f /usr/share/mc/mc.gentoo ]; then
+  source /usr/share/mc/mc.gentoo
+fi
+
+if [ -f /usr/libexec/mc/mc.sh ]; then
+  source /usr/libexec/mc/mc.sh
+fi

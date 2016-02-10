@@ -1,0 +1,46 @@
+#----------------------------------------------------------------------------
+# ~/.bashrc: executed by bash(1) for login shells.
+# $Revision: 2.03 $
+# $Comment: $
+#----------------------------------------------------------------------------
+
+# General settings
+#----------------------------------------------------------------------------
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# Test for an interactive shell.  There is no need to set anything
+# past this point for scp and rcp, and it's important to refrain from
+# outputting anything in those cases.
+if [[ $- != *i* ]] ; then
+	# Shell is non-interactive.  Be done now!
+	return
+fi
+
+# The default umask is set in /etc/login.defs
+# umask 022
+
+# Include ~/.bashrc.d/* if it exists
+if [ -d ~/.bashrc.d ]; then
+	for i in `ls ~/.bashrc.d/` ; do
+		if [[ -f ~/.bashrc.d/${i} ]]; then
+			. ~/.bashrc.d/${i}
+		fi
+	done
+	unset i
+fi
+
+# User specific environment and startup programs
+if [ -d ~/bin ]; then
+	PATH=~/bin:"${PATH}"
+	export PATH
+fi
+
+# do the same with MANPATH
+if [ -d ~/man ]; then
+	MANPATH=~/man:${MANPATH:-:}
+	export MANPATH
+fi
+
+#EOF
