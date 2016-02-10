@@ -1,0 +1,82 @@
+#----------------------------------------------------------------------------
+# ~/.bashrc.d/00aliases: executed by .bash_profile for aliases
+# $Revision: 2.03 $
+# $Comment: $
+#----------------------------------------------------------------------------
+
+# Alias definitions.
+#----------------------------------------------------------------------------
+alias cp='cp -i'
+alias df='df -h'
+alias du='du -h'
+alias less='less -r'
+alias ll='ls -lp'
+alias ls='ls --color=auto'
+alias md='mkdir'
+alias mtr='mtr -o "LRSD NBAWV"'
+alias mv='mv -i'
+alias pman='pinfo -m'
+alias px='ps xa'
+alias rd='rmdir'
+alias rm='rm -i'
+alias scp='scp -p -r'
+alias screen='[ -z "$HUSHLOGIN" ] && TERM=xterm screen -D -RR || TERM=linux screen -D -RR'
+alias su='su -'
+alias sudo='sudo -s'
+alias watch='watch '
+alias who='who -HuT'
+
+# dircolors enhances the colored command output; for example with ls,
+# broken (orphan) symlinks will be shown in a red hue.
+if type dircolors >/dev/null 2>&1 && [ $(uname) == 'Darwin' ] || [ $(uname) == 'Linux' ]; then
+    [ -r "~/.dircolors" ] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls -X --color=auto'
+    # grep faster with color on UTF8 Systems
+    alias grep='LC_ALL=posix grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+alias ':wq'='exit'
+alias purge="egrep -v '^[[:space:]]*#|^ *$|^$'"
+
+# Checking here if the 'ls' command has all the argument is needed because
+# busybox might not have all of these.
+if ls -alh >/dev/null 2>&1; then
+    alias ll='ls -alh'
+fi
+
+# For security reasons, redefine the default behaviour
+if [[ "$(uname)" == "Linux" ]]; then
+    alias rm='rm --preserve-root'
+fi
+
+# Add some colors to the less command
+export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
+export LESS_TERMCAP_md=$(tput bold; tput setaf 6) # cyan
+export LESS_TERMCAP_me=$(tput sgr0)
+export LESS_TERMCAP_so=$(tput bold; tput setaf 3; tput setab 4) # yellow on blue
+export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7) # white
+export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
+export LESS_TERMCAP_mr=$(tput rev)
+export LESS_TERMCAP_mh=$(tput dim)
+export LESS_TERMCAP_ZN=$(tput ssubm)
+export LESS_TERMCAP_ZV=$(tput rsubm)
+export LESS_TERMCAP_ZO=$(tput ssupm)
+export LESS_TERMCAP_ZW=$(tput rsupm)
+
+LESS="--RAW-CONTROL-CHARS"
+
+# Add the fatest way to get our public ip address
+alias myip='
+if type dig >/dev/null 2>&1; then
+    dig +short myip.opendns.com @resolver1.opendns.com
+else
+  echo "[${RED}-${OFF}] dig was not found! This command is usually found in the 'dnsutils' package of common GNU/Linux distributions."
+fi'
+
+alias mc='. /usr/libexec/mc/mc-wrapper.sh'
+
+alias pushall='for i in `git remote`; do git push $i; done;'
+alias pullall='for i in `git remote`; do git pull $i; done;'

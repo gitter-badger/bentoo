@@ -1,0 +1,17 @@
+#----------------------------------------------------------------------------
+# ~/.bashrc.d/03bash_completion: executed by .bash_profile for bash-completion
+# $Revision: 2.03 $
+# $Comment: $
+#----------------------------------------------------------------------------
+
+# Enable bash completion in interactive shells only if the shells don't have to
+# be POSIX compliant.
+if [ "! shopt -oq posix" ]; then
+  if [ -f /etc/profile.d/bash-completion ]; then
+    source /etc/profile.d/bash-completion
+  elif [ -f /etc/bash_completion ]; then
+    source /etc/bash_completion
+  elif [ -f /usr/share/bash-completion/bash_completion ]; then
+    source /usr/share/bash-completion/bash_completion
+  fi
+fi
