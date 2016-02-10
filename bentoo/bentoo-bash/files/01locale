@@ -1,0 +1,12 @@
+#----------------------------------------------------------------------------
+# ~/.bashrc.d/00locale: executed by .bash_profile for locale settings
+# $Revision: 2.03 $
+# $Comment: $
+#----------------------------------------------------------------------------
+
+# Locale definitions.
+export LC_ALL=""
+export LANG="ru_RU.UTF-8"
+export LC_NUMERIC="C"
+export LC_TIME="POSIX"
+[ ${EUID} == 0 ] && export LC_MESSAGES="POSIX"

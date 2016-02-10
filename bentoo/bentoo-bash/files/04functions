@@ -1,0 +1,339 @@
+#----------------------------------------------------------------------------
+# ~/.bashrc.d/04functions: executed by .bash_profile for functions
+# $Revision: 2.03 $
+# $Comment: $
+#----------------------------------------------------------------------------
+
+# SSH-agent management
+#----------------------------------------------------------------------------
+# Load ssh-agent and use its environment variables.
+# README: Please ensure this part of script is loaded from the profile file
+# level (/etc/profile or ~/.bash_profile). This will avoid the ssh-agent
+# process to be forked each time the user launches a new login shell (TTY or in
+# UI) and avoid high memory increase.
+set -o functrace
+ssh-agentManagement() {
+    if ! type ssh-agent >/dev/null 2>&1; then
+        echo "[${RED}-${OFF}] ssh-agent not found!"
+        return 1
+    fi
+
+    if ! type ssh-add >/dev/null 2>&1; then
+        echo "[${RED}-${OFF}] ssh-add not found!"
+        return 1
+    fi
+
+    local destinationFolder="$HOME/.ssh"
+
+    # Ensure the destination folder really exists before continuing.
+    if [ -f "$destinationFolder" ]; then
+        echo "[${RED}-${OFF}] \"$destinationFolder\" is already a file. Aborted."
+        return 2
+    elif [ ! -d "$destinationFolder" ] && ! mkdir -p "$destinationFolder" >/dev/null 2>&1; then
+        echo "[${RED}-${OFF}] Cannot create \"$destinationFolder\". Please check your file permissions. Aborted."
+        return 3
+    fi
+
+    local destinationFile="$destinationFolder/agent"
+
+    if [ -r "$destinationFile" ]; then
+        source "$destinationFile" >/dev/null 2>&1
+    fi
+
+    # If there is a valid ssh-agent socket, we assume ssh-agent is already
+    # loaded, don't need to load it again and stop now then.
+    if [ -S "$SSH_AUTH_SOCK" ]; then
+        return 6
+    fi
+
+    # If we haven't any keys stored, why use ssh-agent? Don't launch it then.
+    local keysLocationFile="$destinationFolder/keys_location"
+    if [ -r "$keysLocationFile" ]; then
+        local keysLocation=$(<"$keysLocationFile")
+    fi
+    if [ ! -r "$destinationFolder/id_rsa" ] &&
+       [ ! -r "$destinationFolder/id_dsa" ] &&
+       [ ! -r "$destinationFolder/id_ecdsa" ] &&
+       [ ! -r "$destinationFolder/identity" ] &&
+       [ -z "$keysLocation" ]; then
+        return 5
+    fi
+
+    if [ -f "$destinationFile" ] && [ ! -r "$destinationFile" ]; then
+        echo "[${RED}-${OFF}] \"$destinationFile\" isn't readable and your ssh-agent won't be usable in other sessions. Aborted."
+        return 4
+    fi
+
+    # NOTE: Brackets are only needed to replace the following bash error
+    # message 'bash: agent: Permission denied' with our own.
+    if { ! ssh-agent > "$destinationFile"; } 2>/dev/null; then
+        echo "[${RED}-${OFF}] Unable to launch ssh-agent. Please check the file permission for \"$destinationFile\". Aborted."
+        return 3
+    fi
+    source "$destinationFile" >/dev/null 2>&1
+
+    echo "[${GREEN}+${OFF}] Using ssh-agent \(PID $SSH_AGENT_PID\)"
+
+    # Load keys from the default location if any
+    ssh-add
+
+    # Load other keys where the location has been defined by the user.
+
+    # NOTE: These keys paths have to be defined as absolute path, as bash
+    # cannot expands vars recursively.
+    if [ -n "$keysLocationFile" ]; then
+        # Transform space delimited keysLocation variable into an array for
+        # easy usage.
+        keysLocation=($keysLocation)
+        for ((i = O; i < ${#keysLocation[@]}; i++)); do
+            if [ ! -r "${keysLocation[i]}" ]; then
+                echo "[${RED}-${OFF}] The SSH-key \"${keysLocation[i]}\" specified at line $(($i + 1)) of \"$keysLocationFile\" isn't readable."
+            else
+                ssh-add "$keysLocation"
+            fi
+        done
+    fi
+}
+ssh-agentManagement
+
+# Platform specific
+#----------------------------------------------------------------------------
+# Source platform specific code from another file
+#
+# NOTE: The location "./bash_specific.bashrc" cannot be used since this will
+# only check the current directory the user sourcing this script is in (default
+# is /home when booting the machine). This is not what we want. Get inspiration
+# from
+# http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
+getScriptDirectory() {
+    local source="${BASH_SOURCE[0]}"
+    local dir=''
+    # Resolve $source until the file is no longer a symlink
+    while [ -h "$source" ]; do
+        dir="$(cd -P "${source%/*}" && echo ${PWD})"
+        source="$(readlink "$source")"
+        # If $source was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+        [[ $source != /* ]] && source="$dir/$source"
+    done
+    dir="$(cd -P "${source%/*}" && echo ${PWD})"
+    scriptDirectory="$dir"
+}
+getScriptDirectory
+if [ -r "${scriptDirectory}/bash_specific.bashrc" ]; then
+    . ${scriptDirectory}/bash_specific.bashrc
+fi
+unset scriptDirectory
+
+# some math functions
+#----------------------------------------------------------------------------
+
+round() { [ "$2" = "" ] && NUM=3 || NUM=$2; echo $1 | sed "s/\([[:digit:]]*\.[[:digit:]]\{,$NUM\}\).*/\1/"; }
+sin() { echo "scale=10; s($1*a(1)/45);" | bc -l; }
+cos() { echo "scale=10; c($1*a(1)/45);" | bc -l; }
+tan() { echo "scale=10; arg=$1*a(1)/45; s(arg)/c(arg);" | bc -l; }
+logn() { echo "scale=10; l($1);" | bc -l; }
+log() { echo "scale=10; l($1)/l(10);" | bc -l; }
+pow() { echo "scale=10; ($1)^($2);" | bc -l; }
+sqrt() { echo "scale=10; sqrt($1);" | bc -l; }
+exp() { echo "scale=10; e($1);" | bc -l; }
+bin2hex() { echo "obase=16;ibase=2;$1" | bc; }
+bin2dec() { echo "obase=10;ibase=2;$1" | bc; }
+dec2hex() { echo "obase=16;ibase=10;$1" | bc; }
+lower() { echo $1 | tr [:upper:] [:lower:]; }
+upper() { echo $1 | tr [:lower:] [:upper:]; }
+hex2binary() { echo "obase=2;ibase=16; $(upper $1)" | bc; }
+hex2dec() { echo "obase=10;ibase=16; $(upper $1)" | bc; }
+alias pi="echo 'scale=10; a(1)*4;' | bc -l"
+export pi="$(pi)"
+
+# some more functions
+#----------------------------------------------------------------------------
+
+calc() { awk "BEGIN { print $* ; }"; }
+calcfx() { gawk -v CONVFMT="%12.2f" -v OFMT="%.9g"  "BEGIN { print $* ; }"; }
+p() { ${PAGER} $@; }
+dmsg() { dmesg | p; }
+use() { euse -E $@; }
+unuse() { euse -D $@; }
+unmask() { sudo sh -c "echo $@>>/etc/portage/package.keywords"; }
+ipmi() { sudo ipmitool -I lanplus -H $1 shell; }
+
+googlespeak() {
+  if [ -z "$2" ]; then
+    2="en"
+  fi
+  wget --user-agent="" -O - "http://translate.google.com/translate_tts?tl=$2&q=$1" > /tmp/google_translate.mp3
+  mplayer /tmp/google_translate.mp3
+  rm /tmp/google_translate.mp3
+}
+
+ncput() {
+  if [ $# -lt 2 ]; then
+    echo "usage: ncput files ip"
+    return 0
+  fi
+  tar -cv $1 | nc $2 1337;
+}
+
+ncget() {
+  if [ $# -lt 1 ]; then
+    echo "usage: ncget destination"
+    return 0
+  fi
+  nc -l -p 1337 | tar -C $@ -xv;
+}
+
+extract() {
+if [ -f $1 ] ; then
+  case $1 in
+  *.tar.xz)    tar xf $1      ;;
+  *.tar.bz2)   tar xvjf $1    ;;
+  *.tar.gz)    tar xvzf $1    ;;
+  *.bz2)       bunzip2 $1     ;;
+  *.rar)       rar e $1       ;;
+  *.gz)        gunzip $1      ;;
+  *.tar)       tar xvf $1     ;;
+  *.tbz2)      tar xvjf $1    ;;
+  *.tgz)       tar xvzf $1    ;;
+  *.zip)       unzip $1       ;;
+  *.Z)         uncompress $1  ;;
+  *.7z)        7z x $1        ;;
+  *)           echo "don't know how to extract '$1'..." ;;
+  esac
+else
+  echo "'$1' is not a valid file!"
+fi
+}
+
+pwgen() {
+  local l=$1
+  [ "$l" == "" ] && l=20
+  tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${l} | xargs
+}
+
+hilight() {
+  if [ $# -lt 1 ]; then
+    echo "usage: hilight inputfile"
+    return 0
+  fi
+  highlight -O ansi -i $@
+}
+
+
+# Chromium
+#----------------------------------------------------------------------------
+_get_chromium_flags() {
+  if [ -f /etc/chromium/default ]; then
+    _CHROMIUM_FLAGS=$(grep CHROMIUM_FLAGS /etc/chromium/default | awk -F"\"" '{ print $2 }')
+    echo ${_CHROMIUM_FLAGS}
+  fi
+}
+
+# export CHROMIUM_USER_FLAGS="--enable-print-preview $(_get_chromium_flags)"
+#export CHROMIUM_USER_FLAGS="--enable-print-preview --enable-plugins --enable-extensions --enable-user-scripts --enable-printing --enable-sync --auto-ssl-client-auth --ppapi-flash-path=/usr/lib64/chromium-browser/pepper/libpepflashplayer.so $(_get_chromium_flags)"
+export CHROMIUM_USER_FLAGS="--enable-print-preview --enable-plugins --enable-extensions --enable-user-scripts --enable-printing --enable-sync --auto-ssl-client-auth $(_get_chromium_flags)"
+
+# shell version of ord() and chr()
+#----------------------------------------------------------------------------
+ord() { printf "0x%x\n" "'$1"; }
+chr() { printf $(printf '\\%03o\\n' "$1"); }
+
+# highlight text
+#----------------------------------------------------------------------------
+highlight() { e="$1"; shift; grep --color=always -Eih "$e|$" "$@"; }
+
+# grep process table
+#----------------------------------------------------------------------------
+psgrep() { psc |grep -v grep |grep -i --color=auto "$@"; }
+
+pspid() { ps xao pid,args |grep -v grep |grep -i "$@" |awk '{print $1}'; }
+
+# killall alternative
+#----------------------------------------------------------------------------
+pskill() {
+  # Check whether a signal was given
+  if [[ "$1" =~ '^-[[:alnum:]]+' ]]; then
+    SIGNAL=$1
+    shift
+  else
+    SIGNAL="-TERM"
+  fi
+
+  PIDS=$(pspid $@)
+  if [ -n "$PIDS" ]; then
+    echo $PIDS |xargs kill $SIGNAL
+  else
+    echo "No processes matching '$@' found" 1>&2
+  fi
+}
+
+# gittree
+#----------------------------------------------------------------------------
+# Recursively traverse directory tree for git repositories, run git command
+# e.g.
+#   gittree status
+#   gittree diff
+#   gittree push
+#   gittree --no-pager log --graph --pretty=format:'%h -%d %s (%cr) <%an>'
+gittree() {
+  if [ $# -lt 1 ]; then
+    echo "Usage: gittree <command>"
+    return 1
+  fi
+
+  for gitdir in $(find . -type d -name .git); do
+    # Display repository name in blue
+    repo=$(dirname $gitdir)
+    echo -e "\033[34m$repo\033[0m"
+
+    # Run git command in the repositories directory
+    cd $repo && git $@
+    ret=$?
+
+    # Return to calling directory (ignore output)
+    cd - > /dev/null
+
+    # Abort if cd or git command fails
+    if [ $ret -ne 0 ]; then
+      return 1
+    fi
+
+    echo
+  done
+}
+
+up() {
+  if [ -d CVS ]; then
+    cvs -q update "$@";
+  elif [ -d .svn ]; then
+    svn up "$@";
+  elif gitd=$(git rev-parse --git-dir 2>/dev/null); then
+     if [ -f $gitd/objects/info/alternates ]; then
+         for d in $(cat $gitd/objects/info/alternates); do
+             (cd $d; git fetch) || return 1
+         done
+     fi
+     git fetch || return 1
+     if p=$(git rev-parse '@{u}' 2>/dev/null); then
+         # If we have a defined upstream branch, use that
+         us=$p;
+     elif git svn info >/dev/null 2>&1; then
+         us=$(git svn log --show-commit --max-count=1 --oneline|cut -d' ' -f3)
+     else
+         echo "no upstream defined for current branch, use 'git branch -u' to set it" >2
+         return 1
+     fi
+     if test -z "$(git log --merges $us..)"; then
+         git rebase $us
+     else
+         # Don't rebase a merge
+         git merge $us
+     fi
+  fi;
+}
+
+replace-recursive() {
+    # usage: replace-recursive <find> <replace>
+    hash gsed 2>/dev/null && local SED_CMD="gsed" || SED_CMD="sed"
+    find . -type f -name "*.*" -not -path "*/.git/*" -print0 | xargs -0 $SED_CMD -i "s/$1/$2/g"
+}

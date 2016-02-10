@@ -1,0 +1,10 @@
+#----------------------------------------------------------------------------
+# ~/.bashrc.d/07urxvt: executed by .bash_profile for other settings
+# $Revision: 2.03 $
+# $Comment: $
+#----------------------------------------------------------------------------
+
+# urxvt stuff
+#----------------------------------------------------------------------------
+[[ -f ~/.Xdefaults ]] && xrdb -merge ~/.Xdefaults
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
