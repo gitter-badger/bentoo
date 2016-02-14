@@ -11,7 +11,7 @@ SLOT="0"
 LICENSE="GPL-3"
 
 IUSE_VIDEO_CARDS="video_cards_nvidia video_cards_virtualbox video_cards_vmware"
-IUSE="livecd livecd-stage1 lvm pax_kernel +rxvt qemu zfs ${IUSE_VIDEO_CARDS}"
+IUSE="livecd livecd-stage1 lvm -optimus pax_kernel +rxvt qemu zfs ${IUSE_VIDEO_CARDS}"
 
 S="${WORKDIR}"
 
@@ -83,7 +83,7 @@ RDEPEND="${DEPEND}
 	sys-process/lsof
 	sys-process/time
 	|| ( sys-process/vixie-cron virtual/cron )
-	video_cards_nvidia? ( x11-misc/bumblebee )
+	optimus? ( video_cards_nvidia? ( x11-misc/bumblebee ) )
 	rxvt? ( bentoo/bentoo-rxvt )
 	"
 
