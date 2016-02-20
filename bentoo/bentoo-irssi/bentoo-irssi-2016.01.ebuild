@@ -14,6 +14,7 @@ S="${WORKDIR}"
 
 DEPEND=""
 RDEPEND="${DEPEND}
+	bentoo/bentoo-rxvt
 	net-irc/irssi
 	"
 

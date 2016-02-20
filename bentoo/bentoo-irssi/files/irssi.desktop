@@ -1,11 +1,8 @@
 [Desktop Entry]
-Version=1.0
 Name=Irssi
-Type=Application
 Comment=The client of the future
-Terminal=true
-Exec=gnome-terminal --maximize --hide-menubar --title="The client of the future" -e "irssi"
+Exec=urxvt -e "irssi"
 Icon=irssi
-Categories=ConsoleOnly;InstantMessaging;
-GenericName=Irrsi
-
+Terminal=true
+Type=Application
+Categories=Network;InstantMessaging;
