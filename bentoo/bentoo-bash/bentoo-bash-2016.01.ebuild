@@ -21,7 +21,7 @@ src_install() {
 	insinto /root/.bashrc.d
 	newins "${FILESDIR}"/00aliases 00aliases
 	newins "${FILESDIR}"/01locale 01locale
-	newins "${FILESDIR}"/02terminal 02terminal
+	newins "${FILESDIR}"/02prompt 02prompt
 	newins "${FILESDIR}"/03bash_completion 03bash_completion
 	newins "${FILESDIR}"/04functions 04functions
 	newins "${FILESDIR}"/05exports 05exports
