@@ -38,7 +38,7 @@ RDEPEND="${DEPEND}
 	app-arch/xz-utils
 	app-crypt/gnupg
 	app-misc/mc
-	app-misc/screen
+	app-misc/tmux
 	!arm? ( app-portage/cpuinfo2cpuflags )
 	app-portage/eix
 	app-portage/euses
