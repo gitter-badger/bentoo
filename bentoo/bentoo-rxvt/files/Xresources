@@ -35,7 +35,7 @@ URxvt.lineSpace:		0
 !URxvt*foreground:	#DDDDDD
 ! URxvt*inheritPixmap:	true
 URxvt*shading:		110
-#include "/home/user/.config/urxvt/colors/molokai"
+#include "/root/.config/urxvt/colors/molokai"
 
 ! Fonts
 URxvt.allow_bold:	true
