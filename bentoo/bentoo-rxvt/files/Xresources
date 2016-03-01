@@ -2,62 +2,52 @@
 ! Xft settings
 !-------------------------------------------------------------------------------
 
-Xft.dpi:		96
-Xft.antialias:		false
-Xft.rgba:		rgb
+Xft.dpi:			96.0
+Xft.antialias:		true
+Xft.rgba:			rgb
 Xft.hinting:		true
 Xft.hintstyle:		hintslight
+! lcdnone, lcddefault, lcdlight, lcdlegacy
+Xft.lcdfilter:		lcddefault
 
 !-------------------------------------------------------------------------------
 ! URxvt settings
 ! xrdb -merge ~/.Xresources
 !-------------------------------------------------------------------------------
 
-URxvt.termName:		rxvt-unicode-256color
-URxvt.depth:		32
+URxvt.termName:			rxvt-unicode-256color
+URxvt.depth:			32
 ! size matters:
-URxvt.geometry:		90x30
-URxvt.transparent:	false
-URxvt.fading:		0
-URxvt.urgentOnBell:	false
-URxvt.visualBell:	false
-URxvt.loginShell:	true
+URxvt.geometry:			90x30
+URxvt.transparent:		true
+URxvt.fading:			0
+URxvt.urgentOnBell:		false
+URxvt.visualBell:		false
+URxvt.loginShell:		true
 ! scrollback buffer lines - 65535 is max on most machines (64 is default)
-URxvt.saveLines:	65535
+URxvt.saveLines:		65535
 URxvt.internalBorder:	3
 URxvt.externalBorder:	0
-URxvt.lineSpace:	0
+URxvt.lineSpace:		0
 
 ! colors
-URxvt*background:	#000000
-URxvt*foreground:	#DDDDDD
+!URxvt*background:	#000000
+!URxvt*foreground:	#DDDDDD
 ! URxvt*inheritPixmap:	true
-URxvt*shading:		10
-!#include "/home/user/.config/urxvt/colors/solarized"
-!#include "/home/user/.config/urxvt/colors/dark"
-!#include "$HOME/.colors/light"
-!#include "$HOME/.colors/bright"
-!#include "$HOME/.colors/low"
-!#include "$HOME/.colors/old"
-!#include "$HOME/.colors/soft"
-!#include "$HOME/.colors/washed"
-!#include "$HOME/.colors/lich"
-!#include "$HOME/.colors/milomouse"
-!#include "$HOME/.colors/rab"
-!#include "$HOME/.colors/reasons"
-!#include "$HOME/.colors/zenburn"
+URxvt*shading:		110
+#include "/home/user/.config/urxvt/colors/molokai"
 
 ! Fonts
 URxvt.allow_bold:	true
 
-URxvt*font:		xft:Monaco for Powerline:regular:size=10:antialias=true:hinting=true
-URxvt*imFont:		xft:Monaco for Powerline:regular:size=10:antialias=true:hinting=true
-URxvt*boldFont:		xft:Monaco for Powerline:bold:size=10:antialias=true:hinting=true
-URxvt*italicFont:	xft:Monaco for Powerline:italic:size=10:antialias=true:hinting=true
-URxvt*boldItalicFont:	xft:Monaco for Powerline:bold:italic:size=10:antialias=true:hinting=true
+URxvt*font:				xft:Monaco:regular:size=10:antialias=true:hinting=true,xft:Monaco for Powerline:pixelsize=10
+URxvt*imFont:			xft:Monaco:regular:size=10:antialias=true:hinting=true,xft:Monaco for Powerline:pixelsize=10
+URxvt*boldFont:			xft:Monaco:bold:size=10:antialias=true:hinting=true,xft:Monaco for Powerline:pixelsize=10
+URxvt*italicFont:		xft:Monaco:italic:size=10:antialias=true:hinting=true,xft:Monaco for Powerline:pixelsize=10
+URxvt*boldItalicFont:	xft:Monaco:bold:italic:size=10:antialias=true:hinting=true,xft:Monaco for Powerline:pixelsize=10
 
 ! Fix font space
-URxvt*letterSpace:	-1
+URxvt*letterSpace: -1
 
 ! Scrollbar
 ! scrollbar style - rxvt (default), plain (most compact), next, or xterm
