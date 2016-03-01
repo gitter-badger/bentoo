@@ -20,4 +20,6 @@ RDEPEND="${DEPEND}
 src_install() {
 	insinto /root
 	newins "${FILESDIR}"/Xresources .Xresources || die "doins Xresources failed"
+	insinto /root/.config/urxvt/colors
+	newins "${FILESDIR}"/molokai molokai || die "doins molokai color theme failed"
 }
