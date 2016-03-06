@@ -35,19 +35,26 @@ URxvt.lineSpace:		0
 !URxvt*foreground:	#DDDDDD
 ! URxvt*inheritPixmap:	true
 URxvt*shading:		110
-#include "/root/.config/urxvt/colors/molokai"
+#include "/home/andrey/.config/urxvt/colors/molokai"
 
 ! Fonts
 URxvt.allow_bold:	true
 
-URxvt*font:				xft:Monaco:regular:size=10:antialias=true:hinting=true,xft:Monaco for Powerline:pixelsize=10
-URxvt*imFont:			xft:Monaco:regular:size=10:antialias=true:hinting=true,xft:Monaco for Powerline:pixelsize=10
-URxvt*boldFont:			xft:Monaco:bold:size=10:antialias=true:hinting=true,xft:Monaco for Powerline:pixelsize=10
-URxvt*italicFont:		xft:Monaco:italic:size=10:antialias=true:hinting=true,xft:Monaco for Powerline:pixelsize=10
-URxvt*boldItalicFont:	xft:Monaco:bold:italic:size=10:antialias=true:hinting=true,xft:Monaco for Powerline:pixelsize=10
+!URxvt*font:				xft:Input-Regular:regular:size=10:antialias=true:hinting=true,xft:Menlo for powerline:pixelsize=10
+!URxvt*imFont:			xft:Input-Regular:regular:size=10:antialias=true:hinting=true,xft:Menlo for powerline:pixelsize=10
+!URxvt*boldFont:			xft: Input-Bold:bold:size=10:antialias=true:hinting=true,xft:Menlo for powerline:pixelsize=10
+!URxvt*italicFont:		xft:Input-Italic:italic:size=10:antialias=true:hinting=true,xft:Menlo for powerline:pixelsize=10
+!URxvt*boldItalicFont:	xft:Input-BoldItalic:bold:italic:size=10:antialias=true:hinting=true,xft:Menlo for powerline:pixelsize=10
+
+URxvt*font:				xft:Input-Regular:regular:size=10:antialias=true:hinting=true,xft:Menlo for powerline:pixelsize=10
+URxvt*imFont:			xft:Input-Regular:regular:size=10:antialias=true:hinting=true,xft:Menlo for powerline:pixelsize=10
+URxvt*boldFont:			xft: Input-Bold:bold:size=10:antialias=true:hinting=true,xft:Menlo for powerline:pixelsize=10
+URxvt*italicFont:		xft:Input-Italic:italic:size=10:antialias=true:hinting=true,xft:Menlo for powerline:pixelsize=10
+URxvt*boldItalicFont:	xft:Input-BoldItalic:bold:italic:size=10:antialias=true:hinting=true,xft:Menlo for powerline:pixelsize=10
 
 ! Fix font space
 URxvt*letterSpace: -1
+URxvt*lineSpace: -1
 
 ! Scrollbar
 ! scrollbar style - rxvt (default), plain (most compact), next, or xterm
@@ -67,8 +74,11 @@ URxvt.scrollBar_floating: false
 URxvt*borderLess:	false
 
 ! Perl extensions
-urxvt*perl-lib:		/usr/lib/urxvt/perl/
-URxvt.perl-ext-common:	default,matcher,tabbed,clipboard
+!urxvt*perl-lib:		/usr/lib/urxvt/perl/,/home/andrey/.config/urxvt/ext/
+urxvt*perl-lib:        /home/andrey/.config/urxvt/ext/
+!URxvt.perl-ext-common:	default,matcher,tabbed,clipboard
+URxvt.perl-ext-common:	default,matcher,osc-xterm-clipboard,font-size,autocomplete-ALL-the-things,fullscreen,tabbedex,vim-insert,vtwheel
+
 URxvt.matcher.button:	1
 URxvt*cutchars:	@-./_~?&=%+#'"'()*,;<=>[]^{|}
 
@@ -114,6 +124,12 @@ URxvt.keysym.Control-Up:    \033[1;5A
 URxvt.keysym.Control-Down:  \033[1;5B
 URxvt.keysym.Control-Left:  \033[1;5D
 URxvt.keysym.Control-Right: \033[1;5C
+
+! font-size
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
 
 ! Note:
 !xrdb -load ~/.Xdefaults
