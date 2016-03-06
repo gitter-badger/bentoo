@@ -35,7 +35,7 @@ _color_prompt_ready="238" # the color of the prompt character
 # Unicode symbols
 ps_symbol_darwin=''
 #ps_symbol_linux='\$'
-ps_symbol_linux=' ' # \uE000
+ps_symbol_linux='♣ ' # \u2663
 ps_symbol_other='%'
 git_branch_symbol=' ' # \ue0a0
 
@@ -95,7 +95,7 @@ function _prompt_generate_chars() { # Not using powerline font if this file exis
   else
     _prompt_segment_char=$'\uE0B0' # 
     _prompt_path_char=$'\uE0B1' # 
-    _prompt_ready_char=$'\u279C' # ➜
+    _prompt_ready_char=$'\u2192' # →
     _prompt_segrev_char=$'\uE0B2' # 
   fi
 }
@@ -236,7 +236,7 @@ function _prompt_generate_last_command {
 }
 
 # The applying of our prompt
-function set_prompt {
+#function set_prompt {
   _prompt_generate_last_command
   _prompt_generate_chars
   _prompt_generate_host
@@ -258,7 +258,6 @@ function set_prompt {
   # Prompt used by "set -x" command in scripts for debug information '+ ' is the
   # default.
   PS4='+ '
-}
+#}
 
-
-[[ "$PROMPT_COMMAND" == *set_prompt* ]] ||  export PROMPT_COMMAND="set_prompt;$PROMPT_COMMAND"
+#[[ "$PROMPT_COMMAND" == *set_prompt* ]] ||  export PROMPT_COMMAND="\$(set_prompt);\$(PROMPT_COMMAND)\$"

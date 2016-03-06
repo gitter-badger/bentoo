@@ -47,6 +47,7 @@ RDEPEND="${DEPEND}
 	app-portage/layman
 	app-portage/portage-utils
 	app-text/tree
+	bentoo/bentoo-bash
 	bentoo/bentoo-mpv
 	bentoo/bentoo-irssi
 	bentoo/bentoo-syslog-ng

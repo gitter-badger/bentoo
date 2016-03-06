@@ -10,6 +10,8 @@ SLOT="0"
 LICENSE="GPL-3"
 IUSE=""
 
+S="${WORKDIR}"
+
 DEPEND=""
 RDEPEND="${DEPEND}
 	app-shells/bash
