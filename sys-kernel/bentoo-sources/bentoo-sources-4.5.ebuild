@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="6"
-DEBLOB_AVAILABLE="0"
+DEBLOB_AVAILABLE="1"
 inherit bentoo-sources
 
 DESCRIPTION="Full sources for the Linux kernel"
