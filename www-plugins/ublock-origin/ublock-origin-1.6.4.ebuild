@@ -6,12 +6,12 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_FILEID="372150"
-DESCRIPTION="Show tabs like a tree."
-HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/tree-style-tab/"
-SRC_URI="https://addons.mozilla.org/firefox/downloads/file/${MOZ_FILEID} -> ${P}.xpi"
+MOZ_FILEID="607454"
+DESCRIPTION="uBlock Origin - An efficient blocker for Firefox. Fast and lean."
+HOMEPAGE="https://github.com/gorhill/uBlock https://addons.mozilla.org/en-GB/firefox/addon/ublock-origin/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="+symlink_all_targets target_firefox target_thunderbird target_seamonkey target_firefox-bin target_thunderbird-bin target_seamonkey-bin"
@@ -39,5 +39,7 @@ RDEPEND="
 	)"
 
 src_prepare(){
-	ipatch push . "${FILESDIR}/tree-style-tab-0.16.2015110801-install.rdf.patch"
+	# the install rdf seems really 'old', with restriction on FF <10.0 ... but it works as well
+	# also see: bug https://bugs.gentoo.org/show_bug.cgi?id=515192
+	ipatch push . "${FILESDIR}/ublock-origin-1.6.4-install.rdf.patch"
 }
