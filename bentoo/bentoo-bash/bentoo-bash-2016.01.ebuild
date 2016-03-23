@@ -31,4 +31,3 @@ src_install() {
 	newins "${FILESDIR}"/07urxvt 07urxvt
 	newins "${FILESDIR}"/99other 99other
 }
-
