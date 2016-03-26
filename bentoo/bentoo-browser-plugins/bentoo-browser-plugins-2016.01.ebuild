@@ -4,7 +4,7 @@
 
 EAPI="6"
 DESCRIPTION="Collection of firefox extensions for application security auditing and assessment."
-# HOMEPAGE="http://www.security-database.com/toolswatch/FireCAT-Firefox-Catalog-of,302.html"
+# HOMEPAGE="http://www.security-database.com/toolswatch/FireCAT-Firefox-Catalog-of,302.html https://prism-break.org/en/categories/gnu-linux/#web-browser-addons "
 HOMEPAGE="http://www.firecat.fr/"
 LICENSE="GPL-3"
 SLOT="0"
@@ -17,6 +17,8 @@ PDEPEND="
 	)
 	firefox? (
 		www-plugins/classic-theme-restorer
+		www-plugins/decentraleyes
+		www-plugins/disconnect
 		www-plugins/exif-viewer
 		www-plugins/firebug
 		www-plugins/greasemonkey
