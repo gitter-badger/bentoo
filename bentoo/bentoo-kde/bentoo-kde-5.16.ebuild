@@ -35,8 +35,8 @@ RDEPEND="${DEPEND}
 	krusader? ( =kde-misc/krusader-9999 )
 	ksystemlog? ( <kde-apps/ksystemlog-15.12.50 )
 	kwalletmanager? ( <kde-apps/kwalletmanager-15.12.50 )
-	kwalletpam? ( kde-plasma/kwallet-pam 
-					x11-misc/sddm[pam])
+	kwalletpam? ( kde-plasma/kwallet-pam
+					x11-misc/sddm[pam] )
 	telepathy? ( <kde-apps/plasma-telepathy-meta-15.12.50 )
 	bluetooth? ( <kde-plasma/bluedevil-15.12.50 )
 	networkmanager? ( kde-plasma/plasma-nm )
