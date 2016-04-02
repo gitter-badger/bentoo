@@ -13,6 +13,7 @@ IUSE="addons bluetooth filelight kamera kdepim kmix kpat krusader ksystemlog kwa
 DEPEND=""
 RDEPEND="${DEPEND}
 	bentoo/bentoo-xorg
+
 	<kde-apps/ark-15.12.50
 	<kde-apps/dolphin-15.12.50
 	<kde-apps/dolphin-plugins-15.12.50
@@ -23,10 +24,10 @@ RDEPEND="${DEPEND}
 	<kde-apps/kompare-15.12.50
 	<kde-apps/konsole-15.12.50
 	<kde-apps/spectacle-15.12.50
-	kde-plasma/plasma-desktop
-	kde-plasma/systemsettings
+	<kde-plasma/plasma-desktop-15.12.50
+	<kde-plasma/systemsettings-15.12.50
 	<x11-misc/sddm-0.14.50
-	addons? ( kde-plasma/kdeplasma-addons )
+	addons? ( <kde-plasma/kdeplasma-addons-15.12.50 )
 	filelight? ( <kde-apps/filelight-15.12.50 )
 	kamera? ( <kde-apps/kamera-15.12.50 )
 	kdepim? ( <kde-apps/kdepim-15.12.50 )
@@ -35,11 +36,11 @@ RDEPEND="${DEPEND}
 	krusader? ( =kde-misc/krusader-9999 )
 	ksystemlog? ( <kde-apps/ksystemlog-15.12.50 )
 	kwalletmanager? ( <kde-apps/kwalletmanager-15.12.50 )
-	kwalletpam? ( kde-plasma/kwallet-pam
+	kwalletpam? ( <kde-plasma/kwallet-pam-15.12.50
 					x11-misc/sddm[pam] )
 	telepathy? ( <kde-apps/plasma-telepathy-meta-15.12.50 )
 	bluetooth? ( <kde-plasma/bluedevil-15.12.50 )
-	networkmanager? ( kde-plasma/plasma-nm )
+	networkmanager? ( <kde-plasma/plasma-nm-15.12.50 )
 	touchpad? ( kde-plasma/plasma-desktop[touchpad] )
 "
 #	kde-4 dep-s:
