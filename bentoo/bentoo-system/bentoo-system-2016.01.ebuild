@@ -40,6 +40,7 @@ RDEPEND="${DEPEND}
 	app-misc/mc
 	app-misc/tmux
 	!arm? ( app-portage/cpuinfo2cpuflags )
+	app-portage/eix
 	app-portage/euses
 	app-portage/gentoolkit
 	app-portage/ibashrc
