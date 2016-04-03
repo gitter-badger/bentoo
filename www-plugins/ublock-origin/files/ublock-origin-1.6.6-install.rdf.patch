@@ -1,12 +1,12 @@
 diff -Naur a/install.rdf b/install.rdf
---- a/install.rdf	2016-03-06 22:25:33.000000000 +0500
-+++ b/install.rdf	2016-03-18 06:05:47.381602940 +0500
+--- a/install.rdf	2016-03-26 17:49:07.000000000 +0500
++++ b/install.rdf	2016-04-03 08:34:16.376171479 +0500
 @@ -1,464 +1,64 @@
 -<?xml version="1.0" encoding="utf-8"?>
 -<r:RDF xmlns:r="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.mozilla.org/2004/em-rdf#">
 -    <r:Description about="urn:mozilla:install-manifest">
 -        <id>uBlock0@raymondhill.net</id>
--        <version>1.6.4</version>
+-        <version>1.6.6</version>
 -        <name>uBlock Origin</name>
 -        <description>Finally, an efficient blocker. Easy on CPU and memory.</description>
 -        <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
@@ -416,7 +416,7 @@ diff -Naur a/install.rdf b/install.rdf
 +	<em:id>uBlock0@raymondhill.net</em:id>
 +	<em:name>uBlock Origin</em:name>
 +	<em:description>Finally, an efficient blocker. Easy on CPU and memory.</em:description>
-+	<em:version>1.6.4</em:version>
++	<em:version>1.6.6</em:version>
 +	<em:bootstrap>true</em:bootstrap>
 +	<em:type>2</em:type>
  
@@ -432,7 +432,7 @@ diff -Naur a/install.rdf b/install.rdf
 +            <Description>
 +                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 +                <em:minVersion>24.0</em:minVersion>
-+                <em:maxVersion>46.0</em:maxVersion>
++                <em:maxVersion>*</em:maxVersion>
 +            </Description>
 +        </em:targetApplication>
  
@@ -447,7 +447,7 @@ diff -Naur a/install.rdf b/install.rdf
 +	<Description>
 +                <em:id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</em:id>
 +                <em:minVersion>24.0</em:minVersion>
-+                <em:maxVersion>42.0</em:maxVersion>
++                <em:maxVersion>*</em:maxVersion>
 +            </Description>
 +        </em:targetApplication>
  
