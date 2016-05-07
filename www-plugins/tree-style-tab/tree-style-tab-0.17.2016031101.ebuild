@@ -39,5 +39,5 @@ RDEPEND="
 	)"
 
 src_prepare(){
-	ipatch push . "${FILESDIR}/tree-style-tab-0.17.2016031101-install.rdf.patch"
+	ipatch push . "${FILESDIR}/tree-style-tab-${PV}-install.rdf.patch"
 }
