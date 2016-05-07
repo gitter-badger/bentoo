@@ -8,7 +8,7 @@ HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 KEYWORDS="amd64 arm x86"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE="gnome kde +mobile +pelican"
+IUSE="enlightenment gnome kde mate +mobile +pelican xfce"
 
 DEPEND=""
 
@@ -18,9 +18,13 @@ PDEPEND="
 	bentoo/bentoo-browser
 	bentoo/bentoo-editors
 	bentoo/bentoo-firmware
+	enlightenment? ( bentoo/bentoo-enlightenment )
 	gnome? ( bentoo/bentoo-gnome )
 	kde? ( bentoo/bentoo-kde )
+	mate? ( bentoo/bentoo-mate )
 	mobile? ( bentoo/bentoo-mobile )
 	pelican? ( bentoo/bentoo-pelican )
+	xfce? ( bentoo/bentoo-xfce )
 	bentoo/bentoo-system
-	"
+"
+
