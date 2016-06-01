@@ -8,7 +8,7 @@ DESCRIPTION="Bentoo xfce meta ebuild"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE="+cdr pulseaudio"
+IUSE="bluetooth +cdr pulseaudio"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -35,6 +35,7 @@ RDEPEND="${DEPEND}
 	xfce-extra/xfce4-power-manager
 	xfce-extra/xfce4-screenshooter
 	xfce-extra/xfce4-xkb-plugin
+	bluetooth? ( net-wireless/blueman[thunar] )
 "
 
 PDEPEND=""
