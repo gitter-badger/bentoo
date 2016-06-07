@@ -28,11 +28,9 @@ PDEPEND="
 		www-plugins/iconic-firefox-menu
 		www-plugins/librejs
 		www-plugins/live-http-headers
-		www-plugins/media-keys
 		www-plugins/menu-icons-plus
 		www-plugins/nimbus-screen-capture
 		www-plugins/noscript
-		www-plugins/open-with
 		www-plugins/password-reuse-visualizer
 		www-plugins/privacy-badger
 		www-plugins/pwgen
