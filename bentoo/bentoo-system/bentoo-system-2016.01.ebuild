@@ -50,6 +50,7 @@ RDEPEND="${DEPEND}
 	bentoo/bentoo-mpv
 	bentoo/bentoo-irssi
 	bentoo/bentoo-syslog-ng
+	bentoo/bentoo-version
 	dev-util/dialog
 	dev-vcs/git
 	dev-vcs/git-flow
@@ -103,8 +104,6 @@ src_install() {
 
 	#/etc
 	insinto /etc
-	echo "Bentoo Release ${PV}" > bentoo-release
-	doins bentoo-release
 	newins "${FILESDIR}"/motd-${PV} motd
 
 	#/etc/portage/postsync.d
