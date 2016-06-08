@@ -106,7 +106,6 @@ src_install() {
 	echo "Bentoo Release ${PV}" > bentoo-release
 	doins bentoo-release
 	newins "${FILESDIR}"/motd-${PV} motd
-	newins "${FILESDIR}"/issue.logo-${PV} issue.logo
 
 	#/etc/portage/postsync.d
 	exeinto /etc/portage/postsync.d
