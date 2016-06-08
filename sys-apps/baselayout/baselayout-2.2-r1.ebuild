@@ -135,7 +135,7 @@ pkg_preinst() {
 	# This is written in src_install (so it's in CONTENTS), but punt all
 	# pending updates to avoid user having to do etc-update (and make the
 	# pkg_postinst logic simpler).
-	rm -f "${ROOT}"/etc/._cfg????_gentoo-release
+	rm -f "${ROOT}"/etc/._cfg????_bentoo-release
 
 	# We need to install directories and maybe some dev nodes when building
 	# stages, but they cannot be in CONTENTS.
@@ -189,7 +189,7 @@ src_install() {
 	echo "LDPATH='${ldpaths#:}'" >> "${D}"/etc/env.d/00basic
 
 	# rc-scripts version for testing of features that *should* be present
-	echo "Gentoo Base System release ${PV}" > "${D}"/etc/gentoo-release
+	echo "Bentoo Base System release ${PV}" > "${D}"/etc/bentoo-release
 
 	# Bentoo customization, install /etc/hosts separately (to .example)
 	mv "${D}"/etc/hosts "${D}"/etc/hosts.example || die "cannot move /etc/hosts"
@@ -216,8 +216,8 @@ pkg_postinst() {
 	done
 
 	# Take care of the etc-update for the user
-	if [ -e "${ROOT}"/etc/._cfg0000_gentoo-release ] ; then
-		mv "${ROOT}"/etc/._cfg0000_gentoo-release "${ROOT}"/etc/gentoo-release
+	if [ -e "${ROOT}"/etc/._cfg0000_bentoo-release ] ; then
+		mv "${ROOT}"/etc/._cfg0000_bentoo-release "${ROOT}"/etc/bentoo-release
 	fi
 
 	# whine about users that lack passwords #193541
