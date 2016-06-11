@@ -19,13 +19,9 @@ DEPEND=""
 GCC_VER="4.9.3"
 PYTHON_VER="2.7"
 # Listing default packages for the current release
-RDEPEND="!app-admin/eselect-init
-	!<sys-apps/sysvinit-1000
-	!sys-apps/hal
-	!sys-auth/consolekit
+RDEPEND="virtual/service-manager
 	app-eselect/eselect-python
 	dev-lang/python:${PYTHON_VER}
-	sys-apps/systemd
 	sys-devel/gcc:${GCC_VER}
 	sys-devel/gcc-config"
 
