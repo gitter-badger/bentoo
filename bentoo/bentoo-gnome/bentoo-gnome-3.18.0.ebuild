@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="6"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 arm x86"
 DESCRIPTION="Bentoo gnome meta ebuild"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SLOT="0"
@@ -13,6 +13,7 @@ IUSE="accessibility +bluetooth +classic +cdr cups python +extras +games +share +
 DEPEND=""
 RDEPEND="${DEPEND}
 	bentoo/bentoo-xorg
+	bentoo/bentoo-dm
 
 	python? ( >=dev-python/pygobject-${PV}:3 )
 
@@ -45,8 +46,6 @@ RDEPEND="${DEPEND}
 	cdr? ( >=app-cdr/brasero-3.12.1 )
 
 	!gnome-base/gnome-applets
-
-	>=gnome-base/gdm-${PV}
 
 	>=x11-wm/mutter-${PV}
 	>=gnome-base/gnome-shell-${PV}[bluetooth?]
