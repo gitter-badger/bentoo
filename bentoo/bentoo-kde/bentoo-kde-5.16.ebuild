@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="6"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 arm x86"
 DESCRIPTION="Bentoo kde meta ebuild"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SLOT="0"
@@ -13,6 +13,7 @@ IUSE="addons bluetooth filelight kamera kdepim kmix kpat krusader ksystemlog kwa
 DEPEND=""
 RDEPEND="${DEPEND}
 	bentoo/bentoo-xorg
+	bentoo/bentoo-dm
 
 	<kde-apps/ark-15.12.50
 	<kde-apps/dolphin-15.12.50
@@ -26,7 +27,6 @@ RDEPEND="${DEPEND}
 	<kde-apps/spectacle-15.12.50
 	<kde-plasma/plasma-desktop-15.12.50
 	<kde-plasma/systemsettings-15.12.50
-	<x11-misc/sddm-0.14.50
 	addons? ( <kde-plasma/kdeplasma-addons-15.12.50 )
 	filelight? ( <kde-apps/filelight-15.12.50 )
 	kamera? ( <kde-apps/kamera-15.12.50 )

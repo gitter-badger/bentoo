@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="6"
-KEYWORDS="~amd64 ~arm ~x86"
+KEYWORDS="amd64 arm x86"
 DESCRIPTION="Bentoo enlightenment meta ebuild"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SLOT="0"
@@ -13,6 +13,7 @@ IUSE="+cdr pulseaudio"
 DEPEND=""
 RDEPEND="${DEPEND}
 	bentoo/bentoo-xorg
+	bentoo/bentoo-dm
 
 	x11-wm/enlightenment:0.17
 	x11-terms/terminology
