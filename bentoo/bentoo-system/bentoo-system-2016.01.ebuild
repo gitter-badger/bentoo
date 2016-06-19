@@ -27,6 +27,7 @@ PDEPEND="${PDEPEND}
 "
 
 RDEPEND="${DEPEND}
+	app-admin/checksec
 	app-admin/logrotate
 	app-admin/sudo
 	app-admin/sysstat
