@@ -16,6 +16,7 @@ DEPEND=""
 RDEPEND="${DEPEND}
 	bentoo/bentoo-rxvt
 	net-irc/irssi
+	net-im/bitlbee
 	"
 
 src_install() {
