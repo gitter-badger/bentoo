@@ -8,9 +8,10 @@ DESCRIPTION="Bentoo mobile meta ebuild"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE="+android"
+IUSE="+android samsung"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 	android? ( =dev-util/android-tools-5.1.1_p18 )
+	samsung? ( app-mobilephone/heimdall )
 	"
