@@ -57,6 +57,7 @@ RDEPEND="${DEPEND}
 	dev-vcs/git-flow
 	media-fonts/iso_latin_1
 	media-gfx/graphviz
+	net-misc/ntp
 	net-p2p/transmission
 	sys-apps/gptfdisk
 	sys-apps/hdparm
