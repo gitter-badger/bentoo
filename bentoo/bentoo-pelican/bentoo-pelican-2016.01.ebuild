@@ -15,4 +15,5 @@ S="${WORKDIR}"
 DEPEND=""
 RDEPEND="${DEPEND}
 	app-text/pelican[markdown]
+	=dev-python/beautifulsoup-4*
 	"
