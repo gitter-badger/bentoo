@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="udev-rules">Install udev rules for Android devices</flag>
+		<flag name="system-qt">Use system version of Qt libs instead of packaged</flag>
+	</use>
+</pkgmetadata>
