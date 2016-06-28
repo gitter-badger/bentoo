@@ -8,7 +8,7 @@ DESCRIPTION="Bentoo gnome meta ebuild"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE="accessibility +bluetooth +classic +cdr cups python +extras +games +share +shotwell +tracker"
+IUSE="accessibility +bluetooth +classic +cdr cups python +extras +evolution +games +share +shotwell +tracker handbrake"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -18,22 +18,21 @@ RDEPEND="${DEPEND}
 	python? ( >=dev-python/pygobject-${PV}:3 )
 
 	>=gnome-base/gnome-session-${PV}
-	>=gnome-base/gnome-menus-3.10.1:3
+	>=gnome-base/gnome-menus-3.13
 	>=gnome-base/gnome-settings-daemon-${PV}[cups?]
 	>=gnome-base/gnome-control-center-${PV}[cups?]
 
 	>=app-crypt/gcr-${PV}
 	>=gnome-base/nautilus-${PV}
 	>=gnome-base/gnome-keyring-${PV}
-	>=gnome-extra/evolution-data-server-${PV}
 
 	>=app-crypt/seahorse-${PV}
 	>=app-editors/gedit-${PV}
 	>=app-text/evince-${PV}
-	>=gnome-extra/gnome-contacts-${PV}
+	>=gnome-extra/gnome-contacts-3.18
 	>=media-gfx/eog-${PV}
 	>=media-video/totem-${PV}
-	>=net-im/empathy-3.12.10
+	>=net-im/empathy-3.12
 	>=x11-terms/gnome-terminal-${PV}
 
 	>=gnome-extra/gnome-user-docs-${PV}
@@ -42,8 +41,8 @@ RDEPEND="${DEPEND}
 	>=x11-themes/adwaita-icon-theme-${PV}
 	>=x11-themes/gnome-themes-standard-${PV}
 
-	bluetooth? ( >=net-wireless/gnome-bluetooth-${PV} )
-	cdr? ( >=app-cdr/brasero-3.12.1 )
+	bluetooth? ( >=net-wireless/gnome-bluetooth-3.18.0 )
+	cdr? ( >=app-cdr/brasero-3.12 )
 
 	!gnome-base/gnome-applets
 
@@ -56,30 +55,33 @@ RDEPEND="${DEPEND}
 	accessibility? (
 		>=app-accessibility/at-spi2-atk-${PV}
 		>=app-accessibility/at-spi2-core-${PV}
-		>=app-accessibility/caribou-0.4.18
+		>=app-accessibility/caribou-${PV}
 		>=app-accessibility/orca-${PV}
-		>=gnome-extra/mousetweaks-3.12.0 )
+		>=gnome-extra/mousetweaks-${PV} )
 	classic? ( >=gnome-extra/gnome-shell-extensions-${PV} )
+	evolution? (
+		>=mail-client/evolution-${PV}
+		>=gnome-extra/evolution-data-server-${PV} )
+	handbrake? ( media-video/handbrake )
 	extras? (
 		>=gnome-base/gnome-core-libs-${PV}
 
-		>=app-admin/gnome-system-log-3.9.90
+		>=app-admin/gnome-system-log-3.9.0
 		>=app-arch/file-roller-${PV}
 		>=app-dicts/gnome-dictionary-${PV}
 		>=gnome-base/dconf-editor-${PV}
 		>=gnome-extra/gconf-editor-3
 		>=gnome-extra/gnome-calculator-${PV}
 		>=gnome-extra/gnome-power-manager-${PV}
-		>=gnome-extra/gnome-search-tool-3.6
+		>=gnome-extra/gnome-search-tool-3.6.0
 		>=gnome-extra/gnome-system-monitor-${PV}
 		>=gnome-extra/gnome-tweak-tool-${PV}
 		>=gnome-extra/gnome-weather-${PV}
-		>=gnome-extra/gucharmap-${PV}:2.90
-		>=gnome-extra/nautilus-sendto-3.8.2
-		>=gnome-extra/sushi-${PV}
-		>=mail-client/evolution-${PV}
-		>=media-gfx/gnome-font-viewer-${PV}
-		>=media-gfx/gnome-screenshot-${PV}
+		>=gnome-extra/gucharmap-3.18.0
+		>=gnome-extra/nautilus-sendto-3.8.0
+		>=gnome-extra/sushi-3.18.0
+		>=media-gfx/gnome-font-viewer-3.16
+		>=media-gfx/gnome-screenshot-3.18
 		>=media-sound/sound-juicer-${PV}
 		>=media-video/cheese-${PV}
 		>=net-analyzer/gnome-nettool-3.8
@@ -87,6 +89,7 @@ RDEPEND="${DEPEND}
 		>=net-misc/vino-${PV}
 		>=sys-apps/baobab-${PV}
 		>=sys-apps/gnome-disk-utility-${PV}
+		>=app-editors/gedit-plugins-3.18.0
 
 		games? (
 			>=games-arcade/gnome-nibbles-${PV}
@@ -106,15 +109,15 @@ RDEPEND="${DEPEND}
 			>=games-puzzle/lightsoff-${PV}
 			>=games-puzzle/quadrapassel-${PV}
 			>=games-puzzle/swell-foop-${PV} )
-		share? ( >=gnome-extra/gnome-user-share-3.14 )
-		shotwell? ( >=media-gfx/shotwell-0.22 )
+		share? ( >=gnome-extra/gnome-user-share-${PV} )
+		shotwell? ( >=media-gfx/shotwell-0.23 )
 		tracker? (
-			>=app-misc/tracker-1.6
+			>=app-misc/tracker-1.8.0
 			>=media-gfx/gnome-photos-${PV}
 			>=media-sound/gnome-music-${PV} ) )
 "
 
-PDEPEND=">=gnome-base/gvfs-1.24[udisks]"
+PDEPEND=">=gnome-base/gvfs-1.26[udisks]"
 
 pkg_postinst() {
 	# Remember people where to find our project information
