@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="6"
-KEYWORDS="amd64 arm x86"
+KEYWORDS="~amd64 ~arm ~x86"
 DESCRIPTION="Bentoo gnome meta ebuild"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SLOT="0"
