@@ -8,11 +8,12 @@ HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 KEYWORDS="amd64 arm x86"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE="gnome"
+IUSE="gnome kde X"
 
 DEPEND=""
 RDEPEND="${DEPEND}
 	gnome? ( gnome-base/gdm )
-	x11-misc/sddm
+	kde? ( || ( x11-misc/sddm kde-base/kdm )  )
+	X? ( x11-apps/xdm )
 	"
 
