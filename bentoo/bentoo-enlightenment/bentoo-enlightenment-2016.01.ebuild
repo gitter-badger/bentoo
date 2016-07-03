@@ -8,7 +8,7 @@ DESCRIPTION="Bentoo enlightenment meta ebuild"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE="bluetooth"
+IUSE="bluetooth network"
 
 DEPEND=""
 RDEPEND="${DEPEND}
@@ -18,6 +18,7 @@ RDEPEND="${DEPEND}
 	x11-wm/enlightenment:0.17
 	x11-terms/terminology
 	bluetooth? ( =net-wireless/bluez-4* )
+	network? ( net-misc/connman )
 "
 
 PDEPEND=""
