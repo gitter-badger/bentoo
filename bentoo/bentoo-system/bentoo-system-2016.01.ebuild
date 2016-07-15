@@ -40,7 +40,7 @@ RDEPEND="${DEPEND}
 	app-crypt/gnupg
 	app-misc/mc
 	app-misc/tmux
-	!arm? ( app-portage/cpuinfo2cpuflags )
+	!arm? ( app-portage/cpuid2cpuflags )
 	app-portage/eix
 	app-portage/euses
 	app-portage/gentoolkit
