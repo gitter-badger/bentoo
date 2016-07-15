@@ -347,10 +347,6 @@ bentoo-sources_src_prepare() {
 		get_config
 	fi
 
-	ebegin "Cleanup backups after patching"
-		rm_crap
-	eend
-
 	cd "${WORKDIR}"/linux-"${KV_FULL}" || die "${RED}cd ${WORKDIR}/linux-${KV_FULL} failed${NORMAL}"
 	local GENTOOARCH="${ARCH}"
 	unset ARCH
@@ -370,8 +366,12 @@ bentoo-sources_src_prepare() {
 	echo
 	einfo "${RED}$(rand_element "Bentoo is about choise" "Bentoo is about power" "Bentoo Rocks" "Thank you for using Bentoo. :)" "Are you actually trying to read this?" "How many times have you stared at this?" "We are generating the cache right now" "You are paying too much attention." "A theory is better than its explanation." "Phasers locked on target, Captain." "Thrashing is just virtual crashing." "To be is to program." "Real Users hate Real Programmers." "When all else fails, read the instructions." "Functionality breeds Contempt." "The future lies ahead." "3.1415926535897932384626433832795028841971694" "Sometimes insanity is the only alternative." "Inaccuracy saves a world of explanation." "Live long and prosper." "Initiating Self Destruct." "If you only know the power of the Dark Side!" "If you eliminate the impossible, whatever remains, however improbable, must be the truth!" "Enter ye in by the narrow gate: for wide is the gate, and broad is the way, that leadeth to destruction, and many are they that enter in thereby." "知る者は言わず言う者は知らず")${NORMAL}"
 	echo
-	
+
 	eapply_user
+
+    ebegin "Cleanup backups after patching"
+		rm_crap
+	eend
 }
 
 # @FUNCTION: src_compile
