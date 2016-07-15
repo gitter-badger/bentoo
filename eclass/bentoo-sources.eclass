@@ -221,7 +221,7 @@ fi
 rm_crap() {
 	debug-print-function ${FUNCNAME} "$@"
 
-	find "${S}" \( -name \*~ -o -name \.gitignore -o -name \*.orig -o -name \.*.orig -o -name \*.rej -o -name \*.old -o -name \.*.old \) -delete
+	find "${S}" \( -name \*~ -o -name \*.orig -o -name \.*.orig -o -name \*.rej -o -name \*.old -o -name \.*.old \) -delete
 }
 
 # @FUNCTION: rand
