@@ -320,7 +320,7 @@ bentoo-sources_src_unpack() {
 		ipatch push . "${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}/${pname}" "${YELLOW}Update to latest upstream ...${NORMAL}"
 	fi
 
-	use brand && ipatch push . "${FILESDIR}/${PV}/brand"
+	use brand && ipatch push . "${FILESDIR}/${KMV}/brand"
 
 	if [[ $DEBLOB_AVAILABLE == 1 ]] && use deblob; then
 		cp "${PORTAGE_ACTUAL_DISTDIR:-${DISTDIR}}/${DEBLOB_A}" "${T}" || die "${RED}cp ${DEBLOB_A} failed${NORMAL}"
