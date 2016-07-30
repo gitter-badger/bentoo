@@ -6,7 +6,7 @@ EAPI=5
 
 inherit mozilla-addon
 
-MOZ_FILEID="410478"
+MOZ_FILEID="453945"
 DESCRIPTION="Show tabs like a tree."
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/tree-style-tab/"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/${MOZ_FILEID} -> ${P}.xpi"
