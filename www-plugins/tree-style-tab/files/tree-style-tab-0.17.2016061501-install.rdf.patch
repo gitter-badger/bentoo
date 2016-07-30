@@ -1,7 +1,7 @@
 diff -Naur a/install.rdf b/install.rdf
---- a/install.rdf	2016-03-18 06:21:28.505837268 +0500
-+++ b/install.rdf	2016-03-18 06:12:35.000000000 +0500
-@@ -1,255 +1,26 @@
+--- a/install.rdf	2016-06-15 10:30:31.000000000 +0500
++++ b/install.rdf	2016-07-30 09:14:24.000000000 +0500
+@@ -1,268 +1,27 @@
 -﻿<?xml version="1.0" encoding="UTF-8"?>
 -<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
 -         xmlns:NC="http://home.netscape.com/NC-rdf#"
@@ -9,7 +9,7 @@ diff -Naur a/install.rdf b/install.rdf
 -  <RDF:Description RDF:about="urn:mozilla:install-manifest"
 -                   em:id="treestyletab@piro.sakura.ne.jp"
 -                   em:name="Tree Style Tab"
--                   em:version="0.17.2016031101"
+-                   em:version="0.17.2016061501"
 -                   em:creator="YUKI &quot;Piro&quot; Hiroshi"
 -                   em:description="Show tabs like a tree."
 -                   em:homepageURL="http://piro.sakura.ne.jp/xul/_treestyletab.html.en"
@@ -37,6 +37,7 @@ diff -Naur a/install.rdf b/install.rdf
 -          <em:contributor>mnoorenberghe (Firefox 36 support)</em:contributor>
 -          <em:contributor>Xidorn Quan (Firefox 40+ support)</em:contributor>
 -          <em:contributor>J. Ryan Stinnett (bug fix around tearing off of multiple tabs)</em:contributor>
+-          <em:contributor>lv7777</em:contributor>
 -      </RDF:Description>
 -    </em:localized>
 -    <em:localized>
@@ -53,6 +54,7 @@ diff -Naur a/install.rdf b/install.rdf
 -          <em:contributor>mnoorenberghe (Firefox 36 support)</em:contributor>
 -          <em:contributor>Xidorn Quan (Firefox 40+ support)</em:contributor>
 -          <em:contributor>J. Ryan Stinnett (bug fix around tearing off of multiple tabs)</em:contributor>
+-          <em:contributor>lv7777</em:contributor>
 -      </RDF:Description>
 -    </em:localized>
 -    <em:localized>
@@ -69,6 +71,7 @@ diff -Naur a/install.rdf b/install.rdf
 -          <em:contributor>mnoorenberghe (Firefox 36 support)</em:contributor>
 -          <em:contributor>Xidorn Quan (Firefox 40+ support)</em:contributor>
 -          <em:contributor>J. Ryan Stinnett (bug fix around tearing off of multiple tabs)</em:contributor>
+-          <em:contributor>lv7777</em:contributor>
 -          <em:translator>Godai71.Extenzilla (it-IT locale)</em:translator>
 -      </RDF:Description>
 -    </em:localized>
@@ -86,6 +89,7 @@ diff -Naur a/install.rdf b/install.rdf
 -          <em:contributor>mnoorenberghe (Firefox 36 support)</em:contributor>
 -          <em:contributor>Xidorn Quan (Firefox 40+ support)</em:contributor>
 -          <em:contributor>J. Ryan Stinnett (bug fix around tearing off of multiple tabs)</em:contributor>
+-          <em:contributor>lv7777</em:contributor>
 -          <em:translator>Fatiaomao (zh-CN locale)</em:translator>
 -          <em:translator>hzhbest (zh-CN locale)</em:translator>
 -      </RDF:Description>
@@ -104,6 +108,7 @@ diff -Naur a/install.rdf b/install.rdf
 -          <em:contributor>mnoorenberghe (Firefox 36 support)</em:contributor>
 -          <em:contributor>Xidorn Quan (Firefox 40+ support)</em:contributor>
 -          <em:contributor>J. Ryan Stinnett (bug fix around tearing off of multiple tabs)</em:contributor>
+-          <em:contributor>lv7777</em:contributor>
 -          <em:translator>tito (es-ES locale)</em:translator>
 -      </RDF:Description>
 -    </em:localized>
@@ -121,6 +126,7 @@ diff -Naur a/install.rdf b/install.rdf
 -          <em:contributor>mnoorenberghe (Firefox 36 support)</em:contributor>
 -          <em:contributor>Xidorn Quan (Firefox 40+ support)</em:contributor>
 -          <em:contributor>J. Ryan Stinnett (bug fix around tearing off of multiple tabs)</em:contributor>
+-          <em:contributor>lv7777</em:contributor>
 -          <em:translator>Andy Pillip (de-DE locale)</em:translator>
 -          <em:translator>Björn Kautler (de-DE locale)</em:translator>
 -      </RDF:Description>
@@ -139,6 +145,7 @@ diff -Naur a/install.rdf b/install.rdf
 -          <em:contributor>mnoorenberghe (Firefox 36 support)</em:contributor>
 -          <em:contributor>Xidorn Quan (Firefox 40+ support)</em:contributor>
 -          <em:contributor>J. Ryan Stinnett (bug fix around tearing off of multiple tabs)</em:contributor>
+-          <em:contributor>lv7777</em:contributor>
 -          <em:translator>HkYtrewq (zh-TW locale)</em:translator>
 -          <em:translator>Tsprajna (zh-TW locale)</em:translator>
 -          <em:translator>bootleq (zh-TW locale)</em:translator>
@@ -158,6 +165,7 @@ diff -Naur a/install.rdf b/install.rdf
 -          <em:contributor>mnoorenberghe (Firefox 36 support)</em:contributor>
 -          <em:contributor>Xidorn Quan (Firefox 40+ support)</em:contributor>
 -          <em:contributor>J. Ryan Stinnett (bug fix around tearing off of multiple tabs)</em:contributor>
+-          <em:contributor>lv7777</em:contributor>
 -          <em:translator>L'Autour (ru locale)</em:translator>
 -          <em:translator>Infocatcher (ru locale)</em:translator>
 -      </RDF:Description>
@@ -176,6 +184,7 @@ diff -Naur a/install.rdf b/install.rdf
 -          <em:contributor>mnoorenberghe (Firefox 36 support)</em:contributor>
 -          <em:contributor>Xidorn Quan (Firefox 40+ support)</em:contributor>
 -          <em:contributor>J. Ryan Stinnett (bug fix around tearing off of multiple tabs)</em:contributor>
+-          <em:contributor>lv7777</em:contributor>
 -          <em:translator>Leszek(teo)Życzkowski (pl locale)</em:translator>
 -      </RDF:Description>
 -    </em:localized>
@@ -193,6 +202,7 @@ diff -Naur a/install.rdf b/install.rdf
 -          <em:contributor>mnoorenberghe (Firefox 36 support)</em:contributor>
 -          <em:contributor>Xidorn Quan (Firefox 40+ support)</em:contributor>
 -          <em:contributor>J. Ryan Stinnett (bug fix around tearing off of multiple tabs)</em:contributor>
+-          <em:contributor>lv7777</em:contributor>
 -          <em:translator>Laurent Haas (fr-FR locale)</em:translator>
 -          <em:translator>AxlMun (fr-FR locale)</em:translator>
 -      </RDF:Description>
@@ -211,6 +221,7 @@ diff -Naur a/install.rdf b/install.rdf
 -          <em:contributor>mnoorenberghe (Firefox 36 support)</em:contributor>
 -          <em:contributor>Xidorn Quan (Firefox 40+ support)</em:contributor>
 -          <em:contributor>J. Ryan Stinnett (bug fix around tearing off of multiple tabs)</em:contributor>
+-          <em:contributor>lv7777</em:contributor>
 -          <em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
 -      </RDF:Description>
 -    </em:localized>
@@ -228,6 +239,7 @@ diff -Naur a/install.rdf b/install.rdf
 -          <em:contributor>mnoorenberghe (Firefox 36 support)</em:contributor>
 -          <em:contributor>Xidorn Quan (Firefox 40+ support)</em:contributor>
 -          <em:contributor>J. Ryan Stinnett (bug fix around tearing off of multiple tabs)</em:contributor>
+-          <em:contributor>lv7777</em:contributor>
 -          <em:translator>Regmos (da-DK)</em:translator>
 -      </RDF:Description>
 -    </em:localized>
@@ -245,6 +257,7 @@ diff -Naur a/install.rdf b/install.rdf
 -            <em:contributor>mnoorenberghe (Firefox 36 support)</em:contributor>
 -            <em:contributor>Xidorn Quan (Firefox 40+ support)</em:contributor>
 -            <em:contributor>J. Ryan Stinnett (bug fix around tearing off of multiple tabs)</em:contributor>
+-            <em:contributor>lv7777</em:contributor>
 -            <em:translator>Vlastimil Ovčáčík (cs)</em:translator>
 -        </RDF:Description>
 -    </em:localized>
@@ -253,7 +266,7 @@ diff -Naur a/install.rdf b/install.rdf
 -    <em:targetApplication>
 -      <RDF:Description em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
 -                       em:minVersion="38.0"
--                       em:maxVersion="48.0a1" />
+-                       em:maxVersion="50.0a1" />
 -    </em:targetApplication>
 -  </RDF:Description>
 -</RDF:RDF>
@@ -262,7 +275,7 @@ diff -Naur a/install.rdf b/install.rdf
 +  <Description about="urn:mozilla:install-manifest">
 +    <em:id>treestyletab@piro.sakura.ne.jp</em:id>
 +    <em:name>Tree Style Tab</em:name>
-+    <em:version>0.17.2016031101-let-fixed</em:version>
++    <em:version>0.17.2016061501</em:version>
 +    <em:creator>YUKI &quot;Piro&quot; Hiroshi</em:creator>
 +    <em:type>2</em:type>
 +    <em:multiprocessCompatible>true</em:multiprocessCompatible>
@@ -277,10 +290,10 @@ diff -Naur a/install.rdf b/install.rdf
 +     <em:targetApplication>
 +      <Description>
 +        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-+        <em:minVersion>24.0</em:minVersion>
-+        <em:maxVersion>45.0a1</em:maxVersion>
++        <em:minVersion>38.0</em:minVersion>
++        <em:maxVersion>50.0a1</em:maxVersion>
++
 +      </Description>
 +     </em:targetApplication>
 +    </Description>
 +</RDF>
-\ В конце файла нет новой строки
