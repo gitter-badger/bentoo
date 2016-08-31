@@ -12,6 +12,6 @@ IUSE="+vim"
 
 DEPEND=""
 RDEPEND="${DEPEND}
-	app-editors/nano
+	emacs? ( app-editors/emacs )
 	vim? ( bentoo/bentoo-vim )
 	"
