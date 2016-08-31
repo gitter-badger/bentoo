@@ -8,7 +8,7 @@ HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 KEYWORDS="amd64 arm x86"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE="+vim"
+IUSE="emacs +vim"
 
 DEPEND=""
 RDEPEND="${DEPEND}
