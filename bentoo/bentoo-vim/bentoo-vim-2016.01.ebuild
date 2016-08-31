@@ -19,7 +19,7 @@ done
 
 DEPEND=""
 RDEPEND="${DEPEND}
-	app-editors/vim
+	( || ( app-editors/vim app-editors/neovim ) )
 	app-vim/pathogen
 	app-vim/syntastic
 	gnome? ( app-editors/gvim )
