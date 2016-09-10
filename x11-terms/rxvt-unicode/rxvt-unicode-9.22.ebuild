@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI=5
+EAPI="6"
 inherit autotools eutils systemd
 
 DESCRIPTION="rxvt clone with xft and unicode support"
@@ -40,39 +40,38 @@ REQUIRED_USE="vanilla? ( !alt-font-width !buffer-on-clear focused-urgency !secon
 
 src_prepare() {
 	# fix for prefix not installing properly
-	epatch \
-		"${FILESDIR}"/${PN}-9.06-case-insensitive-fs.patch \
-		"${FILESDIR}"/${PN}-9.21-xsubpp.patch
+#	ipatch push . "${FILESDIR}"/${PN}-9.06-case-insensitive-fs.patch
+#	ipatch push . "${FILESDIR}"/${PN}-9.21-xsubpp.patch
 
 	if ! use vanilla; then
 		ewarn "You are going to include unsupported third-party bug fixes/features."
 		ewarn "If you want even more control over patches, then set USE=vanilla"
 		ewarn "and store your patch set in /etc/portage/patches/${CATEGORY}/${PF}/"
 
-		use wcwidth && epatch doc/wcwidth.patch
+		use wcwidth && ipatch push . doc/wcwidth.patch
 
 		# bug #240165
-		use focused-urgency || epatch "${FILESDIR}"/${PN}-9.06-no-urgency-if-focused.diff
+		use focused-urgency || ipatch push . "${FILESDIR}"/${PN}-9.06-no-urgency-if-focused.diff
 
 		# bug #263638
-		epatch "${FILESDIR}"/${PN}-9.06-popups-hangs.patch
+		ipatch push . "${FILESDIR}"/${PN}-9.06-popups-hangs.patch
 
 		# bug #237271
-		epatch "${FILESDIR}"/${PN}-9.05_no-MOTIF-WM-INFO.patch
+		ipatch push . "${FILESDIR}"/${PN}-9.05_no-MOTIF-WM-INFO.patch
 
 		# support for wheel scrolling on secondary screens
-		use secondary-wheel && epatch "${FILESDIR}"/${PN}-9.19-secondary-wheel.patch
+		use secondary-wheel && ipatch push . "${FILESDIR}"/${PN}-9.19-secondary-wheel.patch
 
 		# ctrl-l buffer fix
-		use buffer-on-clear && epatch "${FILESDIR}"/${PN}-9.14-clear.patch
+		use buffer-on-clear && ipatch push . "${FILESDIR}"/${PN}-9.14-clear.patch
 
-		use alt-font-width && epatch "${FILESDIR}"/${PN}-9.06-font-width.patch
+		use alt-font-width && ipatch push . "${FILESDIR}"/${PN}-9.06-font-width.patch
 	fi
 
 	# kill the rxvt-unicode terminfo file - #192083
 	sed -i -e "/rxvt-unicode.terminfo/d" doc/Makefile.in || die "sed failed"
 
-	epatch_user
+	eapply_user
 
 	eautoreconf
 }
