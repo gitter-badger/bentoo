@@ -23,8 +23,6 @@ RDEPEND="
 	sys-devel/gettext
 	sys-apps/util-linux"
 
-#PATCHES=( "${FILESDIR}"/volume_key-0.3.9-fips-crash.patch "${FILESDIR}"/volume_key-0.3.9-config.h.patch )
-
 src_prepare() {
 	ipatch push . "${FILESDIR}"/volume_key-0.3.9-fips-crash.patch
 	ipatch push . "${FILESDIR}"/volume_key-0.3.9-config.h.patch
