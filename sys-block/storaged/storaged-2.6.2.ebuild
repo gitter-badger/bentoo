@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI=5
+EAPI="6"
 inherit eutils autotools multilib
 
 DESCRIPTION="Provides a daemon, tools and libraries to access and manipulate disks, storage devices and technologies"
@@ -15,7 +15,6 @@ else
 	SRC_URI="https://github.com/storaged-project/${PN}/releases/download/${P}/${P}.tar.bz2"
 	KEYWORDS="~amd64"
 fi
-
 
 LICENSE="GPL-2+"
 SLOT="2"
@@ -33,7 +32,7 @@ QA_MULTILIB_PATHS="usr/lib/udisks2/udisks-lvm"
 
 src_prepare() {
 	ipatch push . "${FILESDIR}/storaged-2.6.2-iscsi-sessions.patch"
-	epatch_user
+	eapply_user
 	eautoreconf
 }
 
