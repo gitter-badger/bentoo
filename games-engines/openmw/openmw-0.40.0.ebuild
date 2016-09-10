@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI=6
+EAPI="6"
 inherit gnome2-utils cmake-utils
 
 DESCRIPTION="An open source reimplementation of TES III: Morrowind"
@@ -17,7 +17,7 @@ IUSE="doc devtools +qt5"
 # 0.37.0: >=media-video/ffmpeg-0.9 is required for swresample
 RDEPEND="
 	>=dev-games/openscenegraph-3.3.4[ffmpeg,jpeg,png,qt5,sdl,svg,truetype,zlib]
-	|| ( media-libs/libtxc_dxtn x11-drivers/ati-drivers x11-drivers/nvidia-drivers )
+	media-libs/libtxc_dxtn
 	>=dev-games/mygui-3.2.2
 	>=dev-libs/boost-1.56.0-r1[threads]
 	dev-libs/tinyxml[stl]
