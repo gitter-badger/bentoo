@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
+EAPI="6"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SRC_URI=""
 LICENSE="GPL-2"
@@ -11,6 +12,8 @@ IUSE=""
 
 RDEPEND=""
 DEPEND="${RDEPEND}"
+
+S="${WORKDIR}"
 
 src_unpack () {
         cd "${WORKDIR}"
