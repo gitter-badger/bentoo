@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI=6
+EAPI="6"
 
 PYTHON_COMPAT=( python{2_7,3_5} )
 
