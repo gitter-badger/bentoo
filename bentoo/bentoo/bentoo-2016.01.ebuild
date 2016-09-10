@@ -1,6 +1,6 @@
 # Copyright 1999-2016 The Bentoo Authors. All rights reserved.
 # Distributed under the terms of the GNU General Public License v3 or later
-# $Header: $
+# $Id$
 
 EAPI="6"
 DESCRIPTION="Bentoo meta ebuild to install all apps"
@@ -28,4 +28,3 @@ PDEPEND="
 	xfce? ( bentoo/bentoo-xfce )
 	bentoo/bentoo-system
 "
-

@@ -1,6 +1,6 @@
 # Copyright 1999-2016 The Bentoo Authors. All rights reserved.
 # Distributed under the terms of the GNU General Public License v3 or later
-# $Header: $
+# $Id$
 
 EAPI="6"
 DESCRIPTION="Bentoo display managers meta ebuild"
@@ -16,4 +16,3 @@ RDEPEND="${DEPEND}
 	kde? ( || ( x11-misc/sddm kde-base/kdm )  )
 	X? ( x11-apps/xdm )
 	"
-
