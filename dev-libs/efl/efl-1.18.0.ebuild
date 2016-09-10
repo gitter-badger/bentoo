@@ -78,8 +78,8 @@ RDEPEND="
 	tslib? ( x11-libs/tslib )
 	valgrind? ( dev-util/valgrind )
 	wayland? (
-		>=dev-libs/wayland-1.8.0
-		>=x11-libs/libxkbcommon-0.3.1
+		>=dev-libs/wayland-1.11.0
+		>=x11-libs/libxkbcommon-0.6.0
 		media-libs/mesa[gles2,wayland]
 	)
 	webp? ( media-libs/libwebp )
