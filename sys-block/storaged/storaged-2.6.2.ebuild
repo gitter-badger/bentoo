@@ -22,6 +22,8 @@ IUSE="+lvm +lvmcache iscsi +btrfs +zram lsm +bcache +test"
 
 
 DEPEND="!sys-fs/udisks
+	>=dev-libs/libatasmart-0.19
+	>=sys-block/parted-3
 	iscsi? ( net-libs/libiscsi )
 	lvm? ( sys-fs/lvm2 )
 	dev-libs/volume_key
