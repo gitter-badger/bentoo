@@ -2,12 +2,12 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI=5
+EAPI="6"
 
 case "${PV}" in
 	(*9999*)
 	KEYWORDS=""
-	VCS_ECLASS=git-2
+	inherit git-2
 	EGIT_REPO_URI="git://git.enlightenment.org/core/${PN}.git"
 	EGIT_PROJECT="${PN}.git"
 	case "${PV}" in
@@ -20,7 +20,6 @@ case "${PV}" in
 	SRC_URI="https://download.enlightenment.org/rel/libs/${PN}/${P/_/-}.tar.xz"
 	;;
 esac
-inherit autotools-multilib ${VCS_ECLASS}
 
 RESTRICT="test"
 
@@ -29,22 +28,20 @@ HOMEPAGE="http://trac.enlightenment.org/e/wiki/Elementary"
 
 LICENSE="LGPL-2.1"
 SLOT="0/${PV:0:4}"
-IUSE="X debug doc examples fbcon javascript +nls quicklaunch sdl static-libs
-test wayland"
+IUSE="X debug doc examples fbcon javascript +nls quicklaunch sdl static-libs test wayland"
 
 RDEPEND="
-	>=dev-libs/efl-${PV:0:4}[X?,fbcon?,png,sdl?,wayland?,${MULTILIB_USEDEP}]
+	>=dev-libs/efl-${PV:0:4}[X?,fbcon?,png,sdl?,wayland?]
 	javascript? ( net-libs/nodejs )
-	nls? ( virtual/libintl[${MULTILIB_USEDEP}] )"
+	nls? ( virtual/libintl )"
 DEPEND="${RDEPEND}
 	app-arch/xz-utils
 	doc? ( app-doc/doxygen )
-	test? ( >=dev-libs/check-0.9.5[${MULTILIB_USEDEP}] )"
+	test? ( >=dev-libs/check-0.9.5 )"
 
 S="${WORKDIR}/${P/_/-}"
 
-multilib_src_configure()
-{
+multilib_src_configure() {
 	local -a myeconfargs=(
 		${EXTRA_ELEMENTARY_CONF}
 		$(use_enable X ecore-x)
