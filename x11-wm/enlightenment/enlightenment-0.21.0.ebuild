@@ -2,104 +2,127 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI=5
-PLOCALES="bg ca cs da de el eo es fi fr fr_CH he hu it ja ko nb nl pl pt_BR ru sk sl sv tr zh_CN zh_TW"
+EAPI="6"
 
-case "${PV}" in
-	(*9999*)
-	KEYWORDS=""
-	VCS_ECLASS=git-2
-	EGIT_REPO_URI="git://git.enlightenment.org/core/${PN}.git"
-	EGIT_PROJECT="${PN}.git"
-	case "${PV}" in
-		(*.9999*) EGIT_BRANCH="${PN}-${PV:0:4}";;
-	esac
-	AUTOTOOLS_AUTORECONF=1
-	;;
-	(*)
-	KEYWORDS="~amd64 ~arm ~x86"
-	SRC_URI="https://download.enlightenment.org/rel/apps/${PN}/${P/_/-}.tar.xz"
-	;;
-esac
-inherit l10n autotools-utils ${VCS_ECLASS}
+MY_P=${P/_/-}
 
-DESCRIPTION="Enlightenment DR${PV:2:4} window manager"
-HOMEPAGE="http://www.enlightenment.org/"
+if [[ ${PV} == *9999 ]] ; then
+	EGIT_SUB_PROJECT="core"
+	EGIT_URI_APPEND="${PN}"
+else
+	SRC_URI="https://download.enlightenment.org/rel/apps/${PN}/${MY_P}.tar.xz"
+	EKEY_STATE="snap"
+fi
+
+inherit enlightenment
+
+DESCRIPTION="Enlightenment DR17 window manager"
 
 LICENSE="BSD-2"
-SLOT="0.17/${PV:0:4}"
+SLOT="0.17/${PV%%_*}"
 
-E_MODULES_DEFAULT=(
-	conf-applications conf-bindings conf-dialogs conf-display conf-interaction
-	conf-intl conf-menus conf-paths conf-performance conf-randr conf-shelves
-	conf-theme conf-window-manipulation conf-window-remembers
-
-	appmenu backlight battery bluez4 clock connman contact cpufreq everything
-	fileman fileman-opinfo gadman ibar ibox lokker mixer msgbus music-control
-	notification pager pager16 quickaccess shot start syscon systray tasks
-	teamwork temperature tiling time winlist wireless wizard xkbswitch
+__CONF_MODS=(
+	applications bindings dialogs display
+	interaction intl menus
+	paths performance randr shelves theme
+	window-manipulation window-remembers
 )
-E_MODULES=(
-	access packagkit wl-desktop-shell wl-drm wl-fb wl-x11
+__NORM_MODS=(
+	appmenu backlight bluez4 battery
+	clock conf connman cpufreq everything
+	fileman fileman-opinfo gadman geolocation
+	ibar ibox lokker
+	mixer msgbus music-control notification
+	pager packagekit pager-plain policy-mobile quickaccess
+	shot start syscon systray tasks teamwork temperature tiling time
+	winlist wireless wizard wl-desktop-shell wl-drm wl-text-input
+	wl-weekeyboard wl-wl wl-x11 xkbswitch xwayland
 )
-IUSE="debug doc +eeze egl +nls pam pm-utils static-libs systemd ukit wayland
-	${E_MODULES_DEFAULT[@]/#/+enlightenment_modules_}
-	${E_MODULES[@]/#/enlightenment_modules_}
-"
-REQUIED_USE="!udev? ( eeze )"
+IUSE_E_MODULES=(
+	${__CONF_MODS[@]/#/enlightenment_modules_conf-}
+	${__NORM_MODS[@]/#/enlightenment_modules_}
+)
 
-EFL_VERSION="1.17.0"
-RDEPEND=">=dev-libs/efl-${EFL_VERSION}[X,egl?,wayland?]
-	>=media-libs/elementary-${EFL_VERSION}
-	virtual/udev
-	x11-libs/libxcb
-	x11-libs/xcb-util-keysyms
-	debug? ( dev-util/valgrind )
-	enlightenment_modules_mixer? ( >=media-libs/alsa-lib-1.0.8 )
-	nls? ( virtual/libintl )
+IUSE="pam spell static-libs systemd +udev ukit wayland ${IUSE_E_MODULES[@]/#/+}"
+
+RDEPEND="
 	pam? ( sys-libs/pam )
-	pm-utils? ( sys-power/pm-utils )
 	systemd? ( sys-apps/systemd )
 	wayland? (
-		>=dev-libs/wayland-1.11.0
+		dev-libs/efl[wayland]
+		>=dev-libs/wayland-1.2.0
 		>=x11-libs/pixman-0.31.1
 		>=x11-libs/libxkbcommon-0.3.1
-	)"
-DEPEND="${RDEPEND}
-	doc? ( app-doc/doxygen )"
+	)
+	>=dev-libs/efl-1.17[X]
+	>=media-libs/elementary-1.17
+	x11-libs/xcb-util-keysyms"
+DEPEND="${RDEPEND}"
 
-DOCS=( AUTHORS ChangeLog README )
+S=${WORKDIR}/${MY_P}
 
-AUTOTOOLS_IN_SOURCE_BUILD=1
-S="${WORKDIR}/${P/_/-}"
+#src_prepare() {
+#	epatch_user "${FILESDIR}"/quickstart.diff
+#	enlightenment_src_prepare
+#}
 
-src_configure()
-{
-	local -a myconfargs=(
-		${EXTRA_E_CONF}
-		--disable-device-hal
-		--disable-simple-x11
-		--disable-wayland-only
-		--enable-conf
-		--enable-device-udev # instead of hal
-		--enable-enotify
-		--enable-files
-		--enable-install-enlightenment-menu
-		--enable-install-sysactions
+# Sanity check to make sure module lists are kept up-to-date.
+check_modules() {
+	local detected=$(
+		awk -F'[\\[\\](, ]' '$1 == "AC_E_OPTIONAL_MODULE" { print $3 }' \
+		configure.ac | sed 's:_:-:g' | LC_COLLATE=C sort
+	)
+	local sorted=$(
+		printf '%s\n' ${IUSE_E_MODULES[@]/#enlightenment_modules_} | \
+		LC_COLLATE=C sort
+	)
+	if [[ ${detected} != "${sorted}" ]] ; then
+		local out new old
+		eerror "The ebuild needs to be kept in sync."
+		echo "${sorted}" > ebuild-iuse
+		echo "${detected}" > configure-detected
+		out=$(diff -U 0 ebuild-iuse configure-detected | sed -e '1,2d' -e '/^@@/d')
+		new=$(echo "${out}" | sed -n '/^+/{s:^+::;p}')
+		old=$(echo "${out}" | sed -n '/^-/{s:^-::;p}')
+		eerror "Add these modules: $(echo ${new})"
+		eerror "Drop these modules: $(echo ${old})"
+		die "please update the ebuild"
+	fi
+}
+
+src_configure() {
+	check_modules
+
+	E_ECONF=(
+		--disable-install-sysactions
 		$(use_enable doc)
-		$(use_enable egl wayland-egl)
 		$(use_enable nls)
 		$(use_enable pam)
-		$(use_enable static-libs static)
 		$(use_enable systemd)
+		--enable-device-udev
+		$(use_enable udev mount-eeze)
 		$(use_enable ukit mount-udisks)
-		$(use_enable eeze mount-eeze)
-		$(use_enable wayland wayland-clients)
-		$(usex wayland '--enable-wl-desktop-shell' '')
+		$(use_enable wayland)
 	)
-	local i
-	for i in ${E_MODULES_DEFAULT} ${E_MODULES}; do
-		myeconfargs+=( $(use_enable enlightenment_modules_${i} ${i}) )
+	local u c
+	for u in ${IUSE_E_MODULES[@]} ; do
+		c=${u#enlightenment_modules_}
+		# Disable modules by hand since we default to enabling them all.
+		case ${c} in
+		wl-*|xwayland)
+			if ! use wayland ; then
+				E_ECONF+=( --disable-${c} )
+				continue
+			fi
+			;;
+		esac
+		E_ECONF+=( $(use_enable ${u} ${c}) )
 	done
-	autotools-utils_src_configure
+	enlightenment_src_configure
+}
+
+src_install() {
+	enlightenment_src_install
+	insinto /etc/enlightenment
+	newins "${FILESDIR}"/gentoo-sysactions.conf sysactions.conf
 }
