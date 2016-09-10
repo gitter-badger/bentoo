@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Header: $
 
-EAPI=5
+EAPI="6"
 
 DESCRIPTION="Firefox bookmarks for the Bento ISO only"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
@@ -23,6 +23,7 @@ MOZ_PN="firefox"
 
 src_prepare() {
 	cp "${FILESDIR}/bentoo-bookmarks-${PV}.html" bookmarks.html || die
+	eapply_user
 }
 
 src_compile(){
