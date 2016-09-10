@@ -41,7 +41,7 @@ RDEPEND="
 		>=dev-libs/libinput-0.8
 		media-libs/mesa[gbm]
 		>=x11-libs/libdrm-2.4
-		>=x11-libs/libxkbcommon-0.3.0
+		>=x11-libs/libxkbcommon-0.6.0
 	)
 	fontconfig? ( media-libs/fontconfig )
 	fribidi? ( dev-libs/fribidi )
