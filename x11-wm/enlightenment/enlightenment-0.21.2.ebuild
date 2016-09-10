@@ -1,6 +1,6 @@
 # Copyright 1999-2016 The Bentoo Authors. All rights reserved.
 # Distributed under the terms of the GNU General Public License v3 or later
-# $Header: $
+# $Id$
 
 EAPI="6"
 
@@ -54,8 +54,7 @@ RDEPEND="
 		>=x11-libs/pixman-0.31.1
 		>=x11-libs/libxkbcommon-0.3.1
 	)
-	>=dev-libs/efl-1.17[X]
-	>=media-libs/elementary-1.17
+	>=dev-libs/efl-1.18[X]
 	x11-libs/xcb-util-keysyms"
 DEPEND="${RDEPEND}"
 

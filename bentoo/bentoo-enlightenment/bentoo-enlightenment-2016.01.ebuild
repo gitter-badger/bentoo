@@ -1,6 +1,6 @@
 # Copyright 1999-2016 The Bentoo Authors. All rights reserved.
 # Distributed under the terms of the GNU General Public License v3 or later
-# $Header: $
+# $Id$
 
 EAPI="6"
 KEYWORDS="amd64 arm x86"
@@ -31,4 +31,3 @@ pkg_postinst() {
 	elog "Please remember to look at https://wiki.gentoo.org/wiki/Enlightenment"
 	elog "for information about the project and documentation."
 }
-
