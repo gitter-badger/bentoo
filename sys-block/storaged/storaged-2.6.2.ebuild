@@ -21,10 +21,11 @@ SLOT="2"
 IUSE="+lvm +lvmcache iscsi +btrfs +zram lsm +bcache +test"
 
 
-DEPEND="iscsi? ( net-libs/libiscsi )
-		lvm? ( sys-fs/lvm2 )
-		dev-libs/volume_key
-		sys-libs/libblockdev"
+DEPEND="!sys-fs/udisks
+	iscsi? ( net-libs/libiscsi )
+	lvm? ( sys-fs/lvm2 )
+	dev-libs/volume_key
+	sys-libs/libblockdev"
 
 RDEPEND="${DEPEND}"
 
