@@ -3,6 +3,7 @@
 # $Header: $
 
 
+EAPI="6"
 DESCRIPTION="Bentoo Linux GRUB utilities"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SRC_URI=""
@@ -13,6 +14,8 @@ IUSE=""
 
 RDEPEND=""
 DEPEND="${RDEPEND}"
+
+S="${WORKDIR}"
 
 src_install () {
 	exeinto /usr/sbin
