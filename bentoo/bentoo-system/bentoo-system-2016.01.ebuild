@@ -79,6 +79,7 @@ RDEPEND="${DEPEND}
 	!livecd-stage1? ( video_cards_virtualbox? ( app-emulation/virtualbox-guest-additions ) )
 	sys-libs/gpm
 	!arm? ( sys-power/acpid )
+	!arm? ( sys-power/thermald )
 	sys-power/hibernate-script
 	sys-power/powertop
 	sys-process/htop
