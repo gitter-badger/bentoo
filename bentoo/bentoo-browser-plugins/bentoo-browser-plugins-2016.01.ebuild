@@ -23,6 +23,7 @@ PDEPEND="
 		www-plugins/firebug
 		www-plugins/foxyproxy
 		www-plugins/greasemonkey
+		www-plugins/h264ify
 		www-plugins/hackbar
 		www-plugins/https-everywhere
 		www-plugins/iconic-firefox-menu
