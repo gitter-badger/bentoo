@@ -27,7 +27,8 @@ RDEPEND="
 	)"
 
 src_prepare(){
-	ipatch push . "${FILESDIR}/righttoclick-2.9.6-install.rdf.patch"
+	ipatch push . "${FILESDIR}/righttoclick-${PV}-install.rdf.patch"
+	eapply_user
 }
 
 src_install() {

@@ -1,12 +1,12 @@
 diff -Naur a/install.rdf b/install.rdf
---- a/install.rdf	2016-06-23 04:30:08.000000000 +0500
-+++ b/install.rdf	2016-07-30 09:18:29.000000000 +0500
+--- a/install.rdf	2016-09-25 02:20:56.000000000 +0500
++++ b/install.rdf	2016-09-29 20:53:34.679465114 +0500
 @@ -1,464 +1,64 @@
 -<?xml version="1.0" encoding="utf-8"?>
 -<r:RDF xmlns:r="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.mozilla.org/2004/em-rdf#">
 -    <r:Description about="urn:mozilla:install-manifest">
 -        <id>uBlock0@raymondhill.net</id>
--        <version>1.7.6</version>
+-        <version>1.9.10</version>
 -        <name>uBlock Origin</name>
 -        <description>Finally, an efficient blocker. Easy on CPU and memory.</description>
 -        <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
@@ -38,7 +38,7 @@ diff -Naur a/install.rdf b/install.rdf
 -        <localized><r:Description>
 -            <locale>bn</locale>
 -            <name>uBlock Origin</name>
--            <description>অবশেষে, একটি দক্ষ প্রতিরোধক। সিপিইউ এবং মেমরির জন্য সহজ।</description>
+-            <description>অবশেষে, একটি কার্যকর বিজ্ঞাপন প্রতিরোধক। সিপিইউ এবং মেমরি সহায়ক।</description>
 -            <creator>All uBlock Origin contributors</creator>
 -            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
 -        </r:Description></localized>
@@ -410,17 +410,8 @@ diff -Naur a/install.rdf b/install.rdf
 -            <creator>All uBlock Origin contributors</creator>
 -            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
 -        </r:Description></localized>
-+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
-+    <Description about="urn:mozilla:install-manifest">
-+	<em:creator>All uBlock Origin contributors</em:creator>
-+	<em:id>uBlock0@raymondhill.net</em:id>
-+	<em:name>uBlock Origin</em:name>
-+	<em:description>Finally, an efficient blocker. Easy on CPU and memory.</em:description>
-+	<em:version>1.7.6</em:version>
-+	<em:bootstrap>true</em:bootstrap>
-+	<em:type>2</em:type>
- 
-         <!-- Firefox -->
+-
+-        <!-- Firefox -->
 -        <targetApplication>
 -            <r:Description>
 -                <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
@@ -428,15 +419,8 @@ diff -Naur a/install.rdf b/install.rdf
 -                <maxVersion>*</maxVersion>
 -            </r:Description>
 -        </targetApplication>
-+        <em:targetApplication>
-+            <Description>
-+                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-+                <em:minVersion>24.0</em:minVersion>
-+                <em:maxVersion>*</em:maxVersion>
-+            </Description>
-+        </em:targetApplication>
- 
-         <!-- Fennec -->
+-
+-        <!-- Fennec -->
 -        <targetApplication>
 -            <r:Description>
 -                <id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</id>
@@ -444,14 +428,8 @@ diff -Naur a/install.rdf b/install.rdf
 -                <maxVersion>*</maxVersion>
 -            </r:Description>
 -        </targetApplication>
-+	<Description>
-+                <em:id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</em:id>
-+                <em:minVersion>24.0</em:minVersion>
-+                <em:maxVersion>*</em:maxVersion>
-+            </Description>
-+        </em:targetApplication>
- 
-         <!-- SeaMonkey -->
+-
+-        <!-- SeaMonkey -->
 -        <targetApplication>
 -            <r:Description>
 -                <id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</id>
@@ -459,15 +437,8 @@ diff -Naur a/install.rdf b/install.rdf
 -                <maxVersion>2.40.*</maxVersion>
 -            </r:Description>
 -        </targetApplication>
-+        <em:targetApplication>
-+            <Description>
-+                <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
-+                <em:minVersion>2.21</em:minVersion>
-+                <em:maxVersion>2.39.*</em:maxVersion>
-+            </Description>
-+        </em:targetApplication>
- 
-         <!-- Pale Moon -->
+-
+-        <!-- Pale Moon -->
 -        <targetApplication>
 -            <r:Description>
 -                <id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</id>
@@ -475,15 +446,8 @@ diff -Naur a/install.rdf b/install.rdf
 -                <maxVersion>26.*</maxVersion>
 -            </r:Description>
 -        </targetApplication>
-+        <em:targetApplication>
-+            <Description>
-+                <em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
-+                <em:minVersion>25.0</em:minVersion>
-+                <em:maxVersion>26.*</em:maxVersion>
-+            </Description>
-+        </em:targetApplication>
- 
-         <!-- Conkeror -->
+-
+-        <!-- Conkeror -->
 -        <targetApplication>
 -            <r:Description>
 -                <id>{a79fe89b-6662-4ff4-8e88-09950ad4dfde}</id>
@@ -491,6 +455,63 @@ diff -Naur a/install.rdf b/install.rdf
 -                <maxVersion>9.9</maxVersion>
 -            </r:Description>
 -        </targetApplication>
+-
+-        <!-- Thunderbird -->
+-        <targetApplication>
+-            <r:Description>
+-                <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
+-                <minVersion>31.0</minVersion>
+-                <maxVersion>45.*</maxVersion>
+-            </r:Description>
+-        </targetApplication>
+-    </r:Description>
+-</r:RDF>
++<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
++    <Description about="urn:mozilla:install-manifest">
++       <em:creator>All uBlock Origin contributors</em:creator>
++       <em:id>uBlock0@raymondhill.net</em:id>
++       <em:name>uBlock Origin</em:name>
++       <em:description>Finally, an efficient blocker. Easy on CPU and memory.</em:description>
++       <em:version>1.9.10</em:version>
++       <em:bootstrap>true</em:bootstrap>
++       <em:type>2</em:type>
++ 
++         <!-- Firefox -->
++        <em:targetApplication>
++            <Description>
++                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
++                <em:minVersion>24.0</em:minVersion>
++                <em:maxVersion>*</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++ 
++         <!-- Fennec -->
++       <Description>
++                <em:id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</em:id>
++                <em:minVersion>24.0</em:minVersion>
++                <em:maxVersion>*</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++ 
++         <!-- SeaMonkey -->
++        <em:targetApplication>
++            <Description>
++                <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
++                <em:minVersion>2.21</em:minVersion>
++                <em:maxVersion>2.40.*</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++ 
++         <!-- Pale Moon -->
++        <em:targetApplication>
++            <Description>
++                <em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
++                <em:minVersion>25.0</em:minVersion>
++                <em:maxVersion>26.*</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++ 
++         <!-- Conkeror -->
 +        <em:targetApplication>
 +            <Description>
 +                <em:id>{a79fe89b-6662-4ff4-8e88-09950ad4dfde}</em:id>
@@ -498,17 +519,8 @@ diff -Naur a/install.rdf b/install.rdf
 +                <em:maxVersion>9.9</em:maxVersion>
 +            </Description>
 +        </em:targetApplication>
- 
-         <!-- Thunderbird -->
--        <targetApplication>
--            <r:Description>
--                <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
--                <minVersion>31.0</minVersion>
--                <maxVersion>45.0</maxVersion>
--            </r:Description>
--        </targetApplication>
--    </r:Description>
--</r:RDF>
++ 
++         <!-- Thunderbird -->
 +        <em:targetApplication>
 +            <Description>
 +                <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
