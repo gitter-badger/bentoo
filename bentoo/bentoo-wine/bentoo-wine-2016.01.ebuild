@@ -3,6 +3,7 @@
 # $Id$
 
 EAPI="6"
+inherit eutils
 KEYWORDS="amd64 arm x86"
 DESCRIPTION="Bentoo wine meta ebuild"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
