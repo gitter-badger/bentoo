@@ -84,86 +84,14 @@ DEPEND="app-arch/xz-utils
 	brand? ( media-fonts/iso_latin_1 )"
 RDEPEND="sys-apps/sed"
 
-case "${PR}" in
-	r0)	case "${VERSION}" in
-		2)	extension="xz"
-			case "${PATCHLEVEL}" in
-			4)	kurl="mirror://kernel/linux/kernel/v${KMV}"
-				kversion="${PV}"
-				SKIP_UPDATE=1
-			;;
-			6)	kurl="mirror://kernel/linux/kernel/v${KMV}"
-				kversion="${KSV}"
-			;;
-			esac
-			if [ "${SUBLEVEL}" != "0" ] || [ "${PV}" != "${KMV}" ]; then
-				if [ "${PATCHLEVEL}" = 6 ]; then
-					pversion="${PV}"
-					pname="patch-${pversion}.${extension}"
-					KERNEL_URI="${KERNEL_URI} ${kurl}/longterm/v${KMV}.${SUBLEVEL}/${pname}"
-				fi
-			fi
-		;;
-		3)	extension="xz"
-			kurl="mirror://kernel/linux/kernel/v${VERSION}.0"
-			kversion="${KMV}"
-			if [ "${SUBLEVEL}" != "0" ] || [ "${PV}" != "${KMV}" ]; then
-				pversion="${PV}"
-				pname="patch-${pversion}.${extension}"
-				KERNEL_URI="${KERNEL_URI} ${kurl}/${pname}"
-			fi
-		;;
-		4)	extension="xz"
-			kurl="mirror://kernel/linux/kernel/v${VERSION}.x"
-			kversion="${KMV}"
-			if [ "${SUBLEVEL}" != "0" ] || [ "${PV}" != "${KMV}" ]; then
-				pversion="${PV}"
-				pname="patch-${pversion}.${extension}"
-				KERNEL_URI="${KERNEL_URI} ${kurl}/${pname}"
-			fi
-		;;
-		esac
-	;;
-	*)	case "${VERSION}" in
-		2)	extension="xz"
-			case "${PATCHLEVEL}" in
-			4)	kurl="mirror://kernel/linux/kernel/v${KMV}"
-				kversion="${PV}"
-				SKIP_UPDATE=1
-			;;
-			6)	kurl="mirror://kernel/linux/kernel/v${KMV}"
-				kversion="${KSV}"
-			;;
-			esac
-			if [ "${SUBLEVEL}" != "0" ] || [ "${PV}" != "${KMV}" ]; then
-				if [ "${PATCHLEVEL}" = 6 ]; then
-					pversion="${PV}"
-					pname="patch-${pversion}.${extension}"
-					KERNEL_URI="${KERNEL_URI} ${kurl}/longterm/v${KMV}.${SUBLEVEL}/${pname}"
-				fi
-			fi
-		;;
-		3)	extension="xz"
-			kurl="mirror://kernel/linux/kernel/v${VERSION}.0"
-			kversion="${VERSION}.$((${PATCHLEVEL} - 1))"
-			if [ "${SUBLEVEL}" != "0" ] || [ "${PV}" != "${KMV}" ]; then
-				pversion="${PVR//r/rc}"
-				pname="patch-${pversion}.${extension}"
-				KERNEL_URI="${KERNEL_URI} ${kurl}/testing/${pname}"
-			fi
-		;;
-		4)	extension="xz"
-			kurl="mirror://kernel/linux/kernel/v${VERSION}.x"
-			kversion="${VERSION}.$((${PATCHLEVEL} - 1))"
-			if [ "${SUBLEVEL}" != "0" ] || [ "${PV}" != "${KMV}" ]; then
-				pversion="${PVR//r/rc}"
-				pname="patch-${pversion}.${extension}"
-				KERNEL_URI="${KERNEL_URI} ${kurl}/testing/${pname}"
-			fi
-		;;
-		esac
-	;;
-esac
+extension="xz"
+kurl="mirror://kernel/linux/kernel/v${VERSION}.x"
+kversion="${KMV}"
+if [ "${SUBLEVEL}" != "0" ] || [ "${PV}" != "${KMV}" ]; then
+	pversion="${PV}"
+	pname="patch-${pversion}.${extension}"
+	KERNEL_URI="${KERNEL_URI} ${kurl}/${pname}"
+fi
 
 kname="linux-${kversion}.tar.${extension}"
 KERNEL_URI="${KERNEL_URI} ${kurl}/${kname}"
