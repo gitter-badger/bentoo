@@ -37,8 +37,8 @@ DESCRIPTION="The Swift programming language and debugger"
 HOMEPAGE="https://swift.org"
 
 LICENSE="Apache-2.0"
-SLOT=0
-KEYWORDS="~amd64 ~x86"
+SLOT=2
+KEYWORDS="-*"
 IUSE="experimental lldb"
 
 RDEPEND="dev-db/sqlite
