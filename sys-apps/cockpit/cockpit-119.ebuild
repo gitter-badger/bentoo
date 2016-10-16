@@ -2,19 +2,20 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Id$
 
-EAPI=5
+EAPI="6"
 
 inherit user pam autotools eutils
 
-KEYWORDS="~amd64 ~x86"
-DESCRIPTION="Server Administration Web Interface "
+DESCRIPTION="A user interface for Linux servers"
 HOMEPAGE="http://cockpit-project.org/"
-SRC_URI="https://github.com/cockpit-project/${PN}/releases/download/${PV}/${P}.tar.bz2"
 
 if [[ ${PV} == 9999* ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/cockpit-project/cockpit.git"
 	KEYWORDS=""
+else
+	SRC_URI="https://github.com/cockpit-project/${PN}/releases/download/${PV}/${P}.tar.xz"
+	KEYWORDS="~amd64 ~x86"
 fi
 
 LICENSE="LGPL-2.1+"
@@ -32,9 +33,9 @@ DEPEND="
 	dev-util/gdbus-codegen
 	pcp? ( sys-apps/pcp )
 	net-libs/nodejs[npm]
-	app-admin/sudo"
+	app-admin/sudo
+	doc? ( app-text/xmlto )"
 
-#doc? ( app-doc/xmlto )"
 RDEPEND="${DEPEND}
 	>=virtual/libgudev-230
 	net-libs/glib-networking[ssl]"
@@ -54,23 +55,26 @@ pkg_setup(){
 		einfo
 	fi
 }
+
 src_prepare() {
-	epatch_user
+	eapply_user
 	eautoreconf
 }
 
 src_configure() {
 	local myconf=(
-		$(use_enable maintainer-mode) 
-		$(use_enable debug) 
-		$(use_enable pcp) 
-		$(use_enable doc) 
-		"--with-pamdir=/lib64/security "
-		"--with-cockpit-user=cockpit-ws "
+		$(use_enable maintainer-mode)
+		$(use_enable debug)
+		$(use_enable pcp)
+		$(use_enable doc)
+		"--with-pamdir=/lib64/security"
+		"--with-cockpit-user=cockpit-ws"
 		"--with-cockpit-group=cockpit-ws"
-		"--localstatedir=${ROOT}/var")
+		"--localstatedir=${ROOT}/var"
+		"--with-branding=auto")
 	econf "${myconf[@]}"
 }
+
 src_install(){
 	emake DESTDIR="${D}"  install || die "emake install failed"
 	ewarn "Installing experimetal pam configuration file"
