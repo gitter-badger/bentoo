@@ -79,10 +79,11 @@ IUSE="brand"
 DEPEND="app-arch/xz-utils
 	sys-apps/sed
 	sys-devel/autoconf
+	sys-devel/ipatch
 	sys-devel/make
 	sys-devel/bc
 	brand? ( media-fonts/iso_latin_1 )"
-RDEPEND="sys-apps/sed"
+RDEPEND=""
 
 extension="xz"
 kurl="mirror://kernel/linux/kernel/v${VERSION}.x"
