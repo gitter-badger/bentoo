@@ -24,7 +24,7 @@ RDEPEND="${DEPEND}
 
 	>=app-crypt/gcr-${PV}
 	>=gnome-base/nautilus-${PV}
-	>=gnome-base/gnome-keyring-${PV}
+	>=gnome-base/gnome-keyring-3.20
 
 	>=app-crypt/seahorse-${PV}
 	>=app-editors/gedit-${PV}
