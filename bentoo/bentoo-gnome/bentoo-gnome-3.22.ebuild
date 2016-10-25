@@ -22,15 +22,15 @@ RDEPEND="${DEPEND}
 	>=gnome-base/gnome-settings-daemon-${PV}[cups?]
 	>=gnome-base/gnome-control-center-${PV}[cups?]
 
-	>=app-crypt/gcr-${PV}
+	>=app-crypt/gcr-3.20
 	>=gnome-base/nautilus-${PV}
 	>=gnome-base/gnome-keyring-3.20
 
-	>=app-crypt/seahorse-${PV}
+	>=app-crypt/seahorse-3.20
 	>=app-editors/gedit-${PV}
 	>=app-text/evince-${PV}
 	>=gnome-extra/gnome-contacts-${PV}
-	>=media-gfx/eog-${PV}
+	>=media-gfx/eog-3.20
 	>=media-video/totem-${PV}
 	>=net-im/empathy-3.12
 	>=x11-terms/gnome-terminal-${PV}
@@ -66,9 +66,9 @@ RDEPEND="${DEPEND}
 	extras? (
 		>=gnome-base/gnome-core-libs-${PV}
 
-		>=app-admin/gnome-system-log-20160922
+		>=app-admin/gnome-system-log-3.8.1
 		>=app-arch/file-roller-${PV}
-		>=app-dicts/gnome-dictionary-${PV}
+		>=app-dicts/gnome-dictionary-3.20
 		>=gnome-base/dconf-editor-${PV}
 		>=gnome-extra/gconf-editor-3
 		>=gnome-extra/gnome-calculator-${PV}
@@ -76,7 +76,7 @@ RDEPEND="${DEPEND}
 		>=gnome-extra/gnome-search-tool-3.6.0
 		>=gnome-extra/gnome-system-monitor-${PV}
 		>=gnome-extra/gnome-tweak-tool-${PV}
-		>=gnome-extra/gnome-weather-${PV}
+		>=gnome-extra/gnome-weather-3.20
 		>=gnome-extra/gucharmap-9.0.0
 		>=gnome-extra/nautilus-sendto-3.8.4
 		>=gnome-extra/sushi-3.21.91
