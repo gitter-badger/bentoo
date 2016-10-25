@@ -12,7 +12,7 @@ IUSE="+android mediatek samsung"
 
 DEPEND=""
 RDEPEND="${DEPEND}
-	android? ( =dev-util/android-tools-5.1.1_p18 )
+	android? ( >=dev-util/android-tools-5.1.1_p18 )
 	mediatek? ( app-mobilephone/spflashtool )
 	samsung? ( app-mobilephone/heimdall )
 	"
