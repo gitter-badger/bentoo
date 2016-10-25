@@ -10,8 +10,8 @@ DESCRIPTION="Android platform tools (adb and fastboot)"
 HOMEPAGE="https://developer.android.com/tools/index.html"
 SRC_URI=""
 
-# Now use branch "7.0.0_r1"
-MY_VER="7.0.0_r1"
+# Now use branch "7.0.0_r14"
+MY_VER="7.0.0_r14"
 MY_B="android-${MY_VER}"
 
 # The entire source code is Apache-2.0, except for fastboot which is BSD.
