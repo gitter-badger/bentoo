@@ -8,7 +8,7 @@ HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 KEYWORDS="amd64 arm x86"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE="enlightenment gnome kde mate +mobile +pelican proxie xfce wine cockpit"
+IUSE="enlightenment gnome kde mate +mobile +pelican proxie xfce wine cockpit steam"
 
 DEPEND=""
 
@@ -26,6 +26,7 @@ PDEPEND="
 	mobile? ( bentoo/bentoo-mobile )
 	pelican? ( bentoo/bentoo-pelican )
 	proxie? ( bentoo/bentoo-proxies )
+	steam? ( games-util/steam-launcher )
 	wine? ( bentoo/bentoo-wine )
 	xfce? ( bentoo/bentoo-xfce )
 	bentoo/bentoo-system
