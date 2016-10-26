@@ -30,6 +30,7 @@ PDEPEND="
 		www-plugins/librejs
 		www-plugins/live-http-headers
 		www-plugins/menu-icons-plus
+		www-plugins/mozplugger
 		www-plugins/nimbus-screen-capture
 		www-plugins/noscript
 		www-plugins/password-reuse-visualizer
