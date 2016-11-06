@@ -16,5 +16,5 @@ RDEPEND=""
 
 PDEPEND="
 	binwalk? ( app-misc/binwalk )
-	+iasl? ( sys-power/iasl )
+	iasl? ( sys-power/iasl )
 "
