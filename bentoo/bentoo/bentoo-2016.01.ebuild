@@ -15,6 +15,7 @@ DEPEND=""
 RDEPEND=""
 
 PDEPEND="
+	bentoo/bentoo-acpi
 	bentoo/bentoo-browser
 	bentoo/bentoo-editors
 	bentoo/bentoo-firmware
