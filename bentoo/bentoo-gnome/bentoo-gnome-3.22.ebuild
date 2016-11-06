@@ -47,6 +47,7 @@ RDEPEND="${DEPEND}
 
 	>=x11-wm/mutter-${PV}
 	>=gnome-base/gnome-shell-${PV}[bluetooth?]
+	>=gnome-extra/gnome-shell-frippery-${PV}
 
 	>=x11-themes/gnome-backgrounds-${PV}
 	x11-themes/sound-theme-freedesktop
