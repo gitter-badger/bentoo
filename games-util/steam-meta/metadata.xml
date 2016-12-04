@@ -6,8 +6,8 @@
 		<name>Mario Kicherer</name>
 	</maintainer>
 	<longdescription>
-		This ebuild installs common files for the Steam environment,
-		like bootstrap archive and icons, but not the client itself.
+		This is a meta package that pulls in dependencies
+		for the steam environment.
 	</longdescription>
 	<upstream>
 		<bugs-to>https://github.com/anyc/steam-overlay</bugs-to>
