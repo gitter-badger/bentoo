@@ -1,5 +1,5 @@
-# Copyright 1999-2016 The Bentoo Authors. All rights reserved.
-# Distributed under the terms of the GNU General Public License v3 or later
+# Copyright 1999-2016 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
@@ -14,7 +14,7 @@ HOMEPAGE="http://steampowered.com"
 LICENSE="metapackage"
 
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="flash +pulseaudio steamfonts +steamruntime streaming trayicon video_cards_intel video_cards_nvidia"
 
 # This can help to determine the dependencies:
@@ -134,6 +134,12 @@ pkg_postinst() {
 		ewarn "with:"
 		ewarn "# LD_LIBRARY_PATH=/usr/lib32/apulse steam"
 		ewarn ""
+	fi
+
+	if has_version ">=media-libs/mesa-13.0.0[openssl]"; then
+		ewarn "You have installed \">=mesa-13\" with openssl use flag."
+		ewarn "If you are experiencing crashes please rebuild mesa with"
+		ewarn "the nettle use flag enabled."
 	fi
 
 	ewarn "The steam client and the games are not controlled by"
