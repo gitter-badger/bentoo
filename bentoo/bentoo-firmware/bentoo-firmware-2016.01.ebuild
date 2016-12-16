@@ -13,6 +13,6 @@ IUSE="b43 intel nouveau vdpau"
 DEPEND=""
 RDEPEND="${DEPEND}
 	b43? ( sys-firmware/b43-firmware )
-	intel? ( sys-firmware/intel-ucode )
+	intel? ( sys-apps/iucode_tool sys-firmware/intel-microcode )
 	nouveau? ( vdpau? ( sys-firmware/nouveau-firmware ) )
 	"
