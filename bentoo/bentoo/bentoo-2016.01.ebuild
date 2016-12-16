@@ -19,7 +19,7 @@ PDEPEND="
 	bentoo/bentoo-browser
 	bentoo/bentoo-editors
 	bentoo/bentoo-firmware
-	cockpit? ( sys-apps/cockpit )
+	cockpit? ( sys-apps/cockpit sys-apps/tuned )
 	enlightenment? ( bentoo/bentoo-enlightenment )
 	gnome? ( bentoo/bentoo-gnome )
 	kde? ( bentoo/bentoo-kde )
