@@ -35,7 +35,7 @@ RDEPEND="${DEPEND}
 	kamera? ( <kde-apps/kamera-16.12.50 )
 	kgpg? ( <kde-apps/kgpg-16.12.50 )
 	kdialog? ( <kde-apps/kdialog-16.12.50 )
-	kdepim? ( <kde-apps/kdepim-16.12.50 )
+	kdepim? ( <kde-apps/kdepim-meta-16.12.50 )
 	kmix? ( <kde-apps/kmix-16.12.50 )
 	kpat? ( <kde-apps/kpat-16.12.50 )
 	krusader? ( =kde-misc/krusader-9999 )
