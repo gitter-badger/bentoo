@@ -11,7 +11,7 @@ SLOT="0"
 LICENSE="GPL-3"
 
 IUSE_VIDEO_CARDS="video_cards_nvidia video_cards_virtualbox video_cards_vmware"
-IUSE="livecd livecd-stage1 lvm -optimus pax_kernel +rxvt qemu zfs ${IUSE_VIDEO_CARDS}"
+IUSE="livecd livecd-stage1 lvm -optimus pax_kernel +rxvt +udf qemu zfs ${IUSE_VIDEO_CARDS}"
 
 S="${WORKDIR}"
 
@@ -57,6 +57,7 @@ RDEPEND="${DEPEND}
 	dev-vcs/git-flow
 	media-fonts/iso_latin_1
 	media-gfx/graphviz
+	net-firewall/ipset
 	net-misc/ntp
 	net-p2p/transmission
 	sys-apps/gptfdisk
@@ -72,6 +73,7 @@ RDEPEND="${DEPEND}
 	sys-fs/cryptsetup
 	lvm? ( sys-fs/lvm2 )
 	sys-fs/squashfs-tools
+	udf? ( sys-fs/udftools )
 	livecd? ( sys-kernel/linux-firmware )
 	!arm? ( !livecd-stage1? ( sys-kernel/genkernel-next || ( sys-boot/grub:0 sys-boot/grub-static sys-boot/grub:2 ) ) )
 	!arm? ( sys-kernel/bentoo-sources )
