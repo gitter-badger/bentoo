@@ -1,6 +1,6 @@
 diff -Naur a/etc.BSD/issue.logo b/etc.BSD/issue.logo
---- a/etc.BSD/issue.logo	2007-04-05 17:18:42.000000000 +0600
-+++ b/etc.BSD/issue.logo	2016-04-10 16:18:56.000000000 +0500
+--- a/etc.BSD/issue.logo	2016-09-02 01:55:25.000000000 +0500
++++ b/etc.BSD/issue.logo	2016-06-08 13:15:35.000000000 +0500
 @@ -1,13 +1,12 @@
 -[0;35;40m                                           .
 -[0;35;40m     .vir.                                d$b
@@ -24,9 +24,26 @@ diff -Naur a/etc.BSD/issue.logo b/etc.BSD/issue.logo
 -This is %h (%s %m %r) %d
 +This is \n.\O (\s \m \r) \t
  
+diff -Naur a/etc.BSD/os-release b/etc.BSD/os-release
+--- a/etc.BSD/os-release	2016-09-02 01:55:25.000000000 +0500
++++ b/etc.BSD/os-release	2016-06-08 13:15:34.000000000 +0500
+@@ -1,7 +1,7 @@
+-NAME=Gentoo
+-ID=gentoo
+-PRETTY_NAME="Gentoo/BSD"
++NAME=Bentoo
++ID=bentoo
++PRETTY_NAME="Bentoo/Linux"
+ ANSI_COLOR="1;32"
+-HOME_URL="https://www.gentoo.org/"
+-SUPPORT_URL="https://www.gentoo.org/support/"
+-BUG_REPORT_URL="https://bugs.gentoo.org/"
++HOME_URL="https://bitbucket.org/redeyeteam/"
++SUPPORT_URL="https://bitbucket.org/redeyeteam/bentoo/wiki/"
++BUG_REPORT_URL="https://bitbucket.org/redeyeteam/bentoo/issues?status=new&status=open/"
 diff -Naur a/etc.Linux/issue.logo b/etc.Linux/issue.logo
---- a/etc.Linux/issue.logo	2007-04-05 17:18:42.000000000 +0600
-+++ b/etc.Linux/issue.logo	2016-04-10 16:18:56.000000000 +0500
+--- a/etc.Linux/issue.logo	2016-09-02 01:55:25.000000000 +0500
++++ b/etc.Linux/issue.logo	2016-06-08 13:15:35.000000000 +0500
 @@ -1,12 +1,11 @@
 -[0;35;40m                                           .
 -[0;35;40m     .vir.                                d$b
@@ -48,3 +65,20 @@ diff -Naur a/etc.Linux/issue.logo b/etc.Linux/issue.logo
  [0;37;40m
  
  This is \n.\O (\s \m \r) \t
+diff -Naur a/etc.Linux/os-release b/etc.Linux/os-release
+--- a/etc.Linux/os-release	2016-09-02 01:55:25.000000000 +0500
++++ b/etc.Linux/os-release	2016-06-08 13:15:34.000000000 +0500
+@@ -1,7 +1,7 @@
+-NAME=Gentoo
+-ID=gentoo
+-PRETTY_NAME="Gentoo/Linux"
++NAME=Bentoo
++ID=bentoo
++PRETTY_NAME="Bentoo/Linux"
+ ANSI_COLOR="1;32"
+-HOME_URL="https://www.gentoo.org/"
+-SUPPORT_URL="https://www.gentoo.org/support/"
+-BUG_REPORT_URL="https://bugs.gentoo.org/"
++HOME_URL="https://bitbucket.org/redeyeteam/"
++SUPPORT_URL="https://bitbucket.org/redeyeteam/bentoo/wiki/"
++BUG_REPORT_URL="https://bitbucket.org/redeyeteam/bentoo/issues?status=new&status=open/"
