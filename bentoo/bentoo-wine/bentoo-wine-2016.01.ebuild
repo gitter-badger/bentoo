@@ -16,6 +16,7 @@ S="${WORKDIR}"
 DEPEND=""
 RDEPEND="${DEPEND}
 	app-emulation/wine
+	app-emulation/winetricks
 	"
 
 src_install() {
