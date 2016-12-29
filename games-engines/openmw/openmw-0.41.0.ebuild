@@ -19,7 +19,7 @@ RDEPEND="
 	>=dev-games/openscenegraph-3.3.4[ffmpeg,jpeg,png,qt5,sdl,svg,truetype,zlib]
 	media-libs/libtxc_dxtn
 	>=dev-games/mygui-3.2.2
-	>=dev-libs/boost-1.56.0-r1[threads]
+	>=dev-libs/boost-1.60.0[threads]
 	dev-libs/tinyxml[stl]
 	media-libs/libsdl2[joystick,opengl,X,video]
 	media-libs/openal
