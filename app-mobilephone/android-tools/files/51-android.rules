@@ -1,8 +1,3 @@
-# Place this file into /etc/udev/rules.d/ if you want to autostart adb.service on plug
-#
-# http://developer.android.com/guide/developing/device.html
-# adb/usb_vendors.c
-
 #Fry's Electronics 
 SUBSYSTEM=="usb", ATTR{idVendor}=="0001", TAG+="systemd", ENV{SYSTEMD_WANTS}="adb.service"
 

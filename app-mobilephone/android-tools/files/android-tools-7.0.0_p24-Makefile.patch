@@ -1,0 +1,791 @@
+This patch has been taken from the Void Linux distribution.
+
+https://github.com/voidlinux/void-packages/tree/master/srcpkgs/android-tools/patches/android-tools-musl.patch
+
+diff -Naur a/external/gtest/Makefile b/external/gtest/Makefile
+--- a/external/gtest/Makefile	1970-01-01 05:00:00.000000000 +0500
++++ b/external/gtest/Makefile	2017-01-04 22:19:02.912121861 +0500
+@@ -0,0 +1,36 @@
++SRCS+= \
++	src/gtest-all.cc \
++	src/gtest-filepath.cc \
++	src/gtest-printers.cc \
++	src/gtest-typed-test.cc \
++	src/gtest_main.cc \
++	src/gtest-death-test.cc \
++	src/gtest-port.cc \
++	src/gtest-test-part.cc \
++	src/gtest.cc
++
++
++override CXXFLAGS+= \
++	-I./include \
++	-I.
++
++OBJS= $(SRCS:.cc=.o)
++
++BIN= libgtest.a
++
++all: $(BIN)
++
++$(BIN): $(OBJS)
++	$(AR) rcs $@ $(OBJS)
++
++%.o: %.cc
++	$(CXX) -c $< $(CXXFLAGS) -o $@
++
++.PHONY: clean mrproper
++
++clean:
++	rm -rf $(OBJS)
++
++mrproper: clean
++	rm -rf $(BIN)
++
+diff -Naur a/external/libselinux/Makefile b/external/libselinux/Makefile
+--- a/external/libselinux/Makefile	1970-01-01 05:00:00.000000000 +0500
++++ b/external/libselinux/Makefile	2017-01-04 22:19:02.912121861 +0500
+@@ -0,0 +1,31 @@
++SRCS+= \
++	src/callbacks.c \
++	src/check_context.c \
++	src/freecon.c \
++	src/init.c \
++	src/label.c \
++	src/label_file.c \
++	src/label_android_property.c \
++	src/label_support.c
++
++override CFLAGS+= -I./include
++
++OBJS= $(SRCS:.c=.o)
++
++BIN= libselinux.a
++
++all: $(BIN)
++
++$(BIN): $(OBJS)
++	$(AR) rcs $@ $(OBJS)
++
++%.o: %.c
++	$(CC) -c $< $(CFLAGS) -o $@
++
++.PHONY: clean mrproper
++
++clean:
++	rm -rf $(OBJS)
++
++mrproper: clean
++	rm -rf $(BIN)
+diff -Naur a/Makefile b/Makefile
+--- a/Makefile	1970-01-01 05:00:00.000000000 +0500
++++ b/Makefile	2017-01-04 22:19:02.912121861 +0500
+@@ -0,0 +1,47 @@
++all:
++	$(MAKE) -C system/core/libcutils all
++	$(MAKE) -C external/libselinux all
++	$(MAKE) -C system/core/libziparchive all
++	$(MAKE) -C system/extras/ext4_utils all
++	$(MAKE) -C system/core/libsparse all
++	$(MAKE) -C system/core/libutils all
++	$(MAKE) -C system/core/liblog all
++	$(MAKE) -C system/core/base all
++	$(MAKE) -C external/gtest all
++	$(MAKE) -C system/extras/f2fs_utils all
++	$(MAKE) -C system/core/adb all
++	$(MAKE) -C system/core/fastboot all
++
++install: all
++	$(MAKE) -C system/core/adb install
++	$(MAKE) -C system/core/fastboot install
++
++clean:
++	$(MAKE) -C system/core/libcutils clean
++	$(MAKE) -C external/libselinux clean
++	$(MAKE) -C system/core/libziparchive clean
++	$(MAKE) -C system/extras/ext4_utils clean
++	$(MAKE) -C system/core/libsparse clean
++	$(MAKE) -C system/core/libutils clean
++	$(MAKE) -C system/core/liblog clean
++	$(MAKE) -C system/core/adb libdiagnose_usb
++	$(MAKE) -C system/core/base clean
++	$(MAKE) -C external/gtest clean
++	$(MAKE) -C system/extras/f2fs_utils clean
++	$(MAKE) -C system/core/adb clean
++	$(MAKE) -C system/core/fastboot clean
++
++mrproper:
++	$(MAKE) -C system/core/libcutils mrproper
++	$(MAKE) -C external/libselinux mrproper
++	$(MAKE) -C system/core/libziparchive mrproper
++	$(MAKE) -C system/extras/ext4_utils mrproper
++	$(MAKE) -C system/core/libsparse mrproper
++	$(MAKE) -C system/core/libutils mrproper
++	$(MAKE) -C system/core/liblog mrproper
++	$(MAKE) -C system/core/adb libdiagnose_usb
++	$(MAKE) -C system/core/base mrproper
++	$(MAKE) -C external/gtest mrproper
++	$(MAKE) -C system/extras/f2fs_utils mrproper
++	$(MAKE) -C system/core/adb mrproper
++	$(MAKE) -C system/core/fastboot mrproper
+diff -Naur a/system/core/adb/Makefile b/system/core/adb/Makefile
+--- a/system/core/adb/Makefile	1970-01-01 05:00:00.000000000 +0500
++++ b/system/core/adb/Makefile	2017-01-04 22:19:02.913121849 +0500
+@@ -0,0 +1,97 @@
++adb_version := $(shell git -C . rev-parse --short=12 HEAD 2>/dev/null)-android
++
++SRCS+= \
++	adb_client.cpp \
++	client/main.cpp \
++	console.cpp \
++	commandline.cpp \
++	file_sync_client.cpp \
++	line_printer.cpp \
++	services.cpp \
++	shell_service_protocol.cpp \
++
++LIBADB_SRCS= \
++	adb.cpp \
++	adb_auth.cpp \
++	adb_io.cpp \
++	adb_listeners.cpp \
++	adb_trace.cpp \
++	adb_utils.cpp \
++	fdevent.cpp \
++	sockets.cpp \
++	transport.cpp \
++	transport_local.cpp \
++	transport_usb.cpp \
++	adb_auth_host.cpp \
++	get_my_path_linux.cpp \
++	sysdeps_unix.cpp \
++	usb_linux.cpp \
++
++LIBDIAGNOSE_USB_SRCS= \
++	diagnose_usb.cpp
++
++
++override CXXFLAGS+= \
++	-I. \
++	-I../include \
++	-I../base/include \
++	-D_Nonnull="" \
++	-D_Nullable="" \
++	-D_GNU_SOURCE \
++	-Wall \
++	-Wextra \
++	-Wno-unused-parameter \
++	-Wno-missing-field-initializers \
++	-Wvla \
++	-DADB_REVISION='"$(adb_version)"' \
++	-std=gnu++14 \
++	-DADB_HOST=1 \
++	-fpermissive \
++	-fvisibility=hidden
++
++
++LIBS= \
++	./libadb.a \
++	./libdiagnose_usb.a \
++	../base/libbase.a \
++	../libcutils/libcutils.a \
++	../liblog/liblog.a
++
++override LDFLAGS+= -lssl -lcrypto -lpthread
++
++OBJS= $(SRCS:.cpp=.o)
++LIBADB_OBJS= $(LIBADB_SRCS:.cpp=.o)
++LIBDIAGNOSE_USB_OBJS= $(LIBDIAGNOSE_USB_SRCS:.cpp=.o)
++
++BIN= adb
++
++all: $(BIN)
++
++adb: $(OBJS) libadb libdiagnose_usb
++	$(CXX) -o $@ $(OBJS) $(LIBS) $(LDFLAGS)
++
++
++libadb: libadb.a
++
++libadb.a: $(LIBADB_OBJS)
++	$(AR) rcs $@ $(LIBADB_OBJS)
++
++libdiagnose_usb: libdiagnose_usb.a
++
++libdiagnose_usb.a: $(LIBDIAGNOSE_USB_OBJS)
++	$(AR) rcs $@ $(LIBDIAGNOSE_USB_OBJS)
++
++%.o: %.cpp
++	$(CXX) -c $< $(CXXFLAGS) -o $@
++
++install: adb
++	install -Dm755 adb $(DESTDIR)$(PREFIX)/bin/adb
++
++.PHONY: clean mrproper
++
++clean:
++	rm -rf $(OBJS) $(LIBADB_OBJS) $(LIBDIAGNOSE_USB_OBJS)
++
++mrproper: clean
++	rm -rf $(BIN) *.a
++
+diff -Naur a/system/core/base/errors_unix.cpp b/system/core/base/errors_unix.cpp
+--- a/system/core/base/errors_unix.cpp	2017-01-04 21:57:50.000000000 +0500
++++ b/system/core/base/errors_unix.cpp	2017-01-04 22:19:02.913121849 +0500
+@@ -17,6 +17,7 @@
+ #include "android-base/errors.h"
+ 
+ #include <errno.h>
++#include <cstring>
+ 
+ namespace android {
+ namespace base {
+diff -Naur a/system/core/base/logging.cpp b/system/core/base/logging.cpp
+--- a/system/core/base/logging.cpp	2017-01-04 21:57:50.000000000 +0500
++++ b/system/core/base/logging.cpp	2017-01-04 22:19:02.913121849 +0500
+@@ -33,6 +33,7 @@
+ #include <limits>
+ #include <sstream>
+ #include <string>
++#include <cstring>
+ #include <utility>
+ #include <vector>
+ 
+diff -Naur a/system/core/base/Makefile b/system/core/base/Makefile
+--- a/system/core/base/Makefile	1970-01-01 05:00:00.000000000 +0500
++++ b/system/core/base/Makefile	2017-01-04 22:19:02.914121836 +0500
+@@ -0,0 +1,37 @@
++SRCS+= \
++	file.cpp \
++	logging.cpp \
++	parsenetaddress.cpp \
++	stringprintf.cpp \
++	strings.cpp \
++	test_utils.cpp \
++	errors_unix.cpp
++
++override CXXFLAGS+= \
++	-I./include \
++	-I../include \
++	-D__GLIBC__ \
++	-Wall \
++	-Wextra \
++	-Werror \
++	-std=gnu++14
++
++OBJS= $(SRCS:.cpp=.o)
++
++BIN= libbase.a
++
++all: $(BIN)
++
++$(BIN): $(OBJS)
++	$(AR) rcs $@ $(OBJS)
++
++%.o: %.cpp
++	$(CXX) -c $< $(CXXFLAGS) -o $@
++
++.PHONY: clean mrproper
++
++clean:
++	rm -rf $(OBJS)
++
++mrproper: clean
++	rm -rf $(BIN)
+diff -Naur a/system/core/fastboot/Makefile b/system/core/fastboot/Makefile
+--- a/system/core/fastboot/Makefile	1970-01-01 05:00:00.000000000 +0500
++++ b/system/core/fastboot/Makefile	2017-01-04 22:31:15.722960465 +0500
+@@ -0,0 +1,70 @@
++fastboot_version := $(shell git -C . rev-parse --short=12 HEAD 2>/dev/null)-android
++
++SRCS+= \
++	bootimg_utils.cpp \
++	engine.cpp \
++	fastboot.cpp \
++	fs.cpp\
++	protocol.cpp \
++	socket.cpp \
++	tcp.cpp \
++	udp.cpp \
++	util.cpp \
++	usb_linux.cpp \
++	util_linux.cpp
++
++
++override CXXFLAGS+= \
++	-I../mkbootimg/ \
++	-I../base/include \
++	-I../libsparse/include \
++	-I../include \
++	-I../adb \
++	-I../../../external/gtest/include \
++	-I../../extras/ext4_utils \
++	-I../../extras/f2fs_utils \
++	-Wall \
++	-Wextra \
++	-Werror \
++	-Wunreachable-code \
++	-DFASTBOOT_REVISION='"$(fastboot_version)"' \
++	-std=gnu++14
++
++LIBS= \
++	../libziparchive/libziparchive.a \
++	../../extras/ext4_utils/libext4_utils.a \
++	../libsparse/libsparse.a \
++	../libutils/libutils.a \
++	../liblog/liblog.a \
++	../adb/libdiagnose_usb.a \
++	../base/libbase.a \
++	../libcutils/libcutils.a \
++	../../../external/gtest/libgtest.a \
++	../../extras/f2fs_utils/libf2fs.a \
++	../libcutils/libcutils.a \
++	../../../external/libselinux/libselinux.a
++
++override LDFLAGS+= -lz -lpcre -lpthread
++
++OBJS= $(SRCS:.cpp=.o)
++
++BIN= fastboot
++
++all: $(BIN)
++
++$(BIN): $(OBJS)
++	$(CXX) -o $@ $(OBJS) $(LIBS) $(LDFLAGS)
++
++%.o: %.cpp
++	$(CXX) -c $< $(CXXFLAGS) -o $@
++
++install: fastboot
++	install -Dm755 fastboot $(DESTDIR)$(PREFIX)/bin/fastboot
++
++.PHONY: clean mrproper
++
++clean:
++	rm -rf $(OBJS)
++
++mrproper: clean
++	rm -rf $(BIN)
+diff -Naur a/system/core/include/cutils/atomic.h b/system/core/include/cutils/atomic.h
+--- a/system/core/include/cutils/atomic.h	2017-01-04 21:57:50.000000000 +0500
++++ b/system/core/include/cutils/atomic.h	2017-01-04 22:19:02.914121836 +0500
+@@ -19,7 +19,12 @@
+ 
+ #include <stdint.h>
+ #include <sys/types.h>
++#ifdef __cplusplus
++#include <atomic>
++using namespace std;
++#else
+ #include <stdatomic.h>
++#endif
+ 
+ #ifndef ANDROID_ATOMIC_INLINE
+ #define ANDROID_ATOMIC_INLINE static inline
+@@ -114,6 +119,7 @@
+     return atomic_fetch_or_explicit(a, value, memory_order_release);
+ }
+ 
++#ifndef __cplusplus
+ /*
+  * Perform an atomic load with "acquire" or "release" ordering.
+  *
+@@ -208,6 +214,7 @@
+                                           memory_order_release,
+                                           memory_order_relaxed));
+ }
++#endif
+ 
+ /*
+  * Fence primitives.
+diff -Naur a/system/core/include/log/log.h b/system/core/include/log/log.h
+--- a/system/core/include/log/log.h	2017-01-04 21:57:50.000000000 +0500
++++ b/system/core/include/log/log.h	2017-01-04 22:19:02.915121824 +0500
+@@ -38,6 +38,7 @@
+ #include <log/uio.h>
+ 
+ #ifdef __cplusplus
++#include <cstring>
+ extern "C" {
+ #endif
+ 
+diff -Naur a/system/core/libcutils/fs.c b/system/core/libcutils/fs.c
+--- a/system/core/libcutils/fs.c	2017-01-04 21:57:50.000000000 +0500
++++ b/system/core/libcutils/fs.c	2017-01-04 22:19:02.915121824 +0500
+@@ -79,7 +79,7 @@
+ create:
+     create_result = prepare_as_dir
+         ? TEMP_FAILURE_RETRY(mkdir(path, mode))
+-        : TEMP_FAILURE_RETRY(open(path, O_CREAT | O_CLOEXEC | O_NOFOLLOW | O_RDONLY));
++        : TEMP_FAILURE_RETRY(open(path, O_CREAT | O_CLOEXEC | O_NOFOLLOW | O_RDONLY, mode));
+     if (create_result == -1) {
+         if (errno != EEXIST) {
+             ALOGE("Failed to %s(%s): %s",
+diff -Naur a/system/core/libcutils/Makefile b/system/core/libcutils/Makefile
+--- a/system/core/libcutils/Makefile	1970-01-01 05:00:00.000000000 +0500
++++ b/system/core/libcutils/Makefile	2017-01-04 22:19:02.915121824 +0500
+@@ -0,0 +1,59 @@
++CSRCS+= \
++	config_utils.c \
++	fs_config.c \
++	canned_fs_config.c \
++	hashmap.c \
++	iosched_policy.c \
++	load_file.c \
++	native_handle.c \
++	open_memstream.c \
++	process_name.c \
++	record_stream.c \
++	sched_policy.c \
++	strdup16to8.c \
++	strdup8to16.c \
++	strlcpy.c \
++	threads.c \
++	fs.c \
++	multiuser.c \
++	socket_inaddr_any_server_unix.c \
++	socket_local_client_unix.c \
++	socket_local_server_unix.c \
++	socket_loopback_client_unix.c \
++	socket_loopback_server_unix.c \
++	socket_network_client_unix.c \
++	str_parms.c \
++	ashmem-host.c \
++	trace-host.c \
++	dlmalloc_stubs.c
++
++CXXSRCS+= \
++	sockets_unix.cpp \
++	sockets.cpp
++
++override CFLAGS+= -I../include
++
++override CXXFLAGS+= -I../include
++
++COBJS= $(CSRCS:.c=.o)
++CXXOBJS= $(CXXSRCS:.cpp=.o)
++BIN= libcutils.a
++
++all: $(BIN)
++
++$(BIN): $(COBJS) $(CXXOBJS)
++	$(AR) rcs $@ $(COBJS) $(CXXOBJS)
++
++%.o: %.c
++	$(CC) -c $< $(CFLAGS) -o $@
++
++%.o: %.cpp
++	$(CXX) -c $< $(CXXFLAGS) -o $@
++
++.PHONY: clean mrproper
++
++clean:
++	rm -rf $(COBJS) $(CXXOBJS)
++
++mrproper: clean
++	rm -rf $(BIN)
+diff -Naur a/system/core/liblog/Makefile b/system/core/liblog/Makefile
+--- a/system/core/liblog/Makefile	1970-01-01 05:00:00.000000000 +0500
++++ b/system/core/liblog/Makefile	2017-01-04 22:19:02.915121824 +0500
+@@ -0,0 +1,39 @@
++SRCS+= \
++	log_event_list.c \
++	log_event_write.c \
++	logger_write.c \
++	config_write.c \
++	logger_name.c \
++	logger_lock.c \
++	fake_log_device.c \
++	fake_writer.c \
++	event_tag_map.c
++
++
++override CFLAGS+= \
++	-I../include \
++	-DLIBLOG_LOG_TAG=1005 \
++	-DSNET_EVENT_LOG_TAG=1397638484 \
++	-DFAKE_LOG_DEVICE=1 \
++	-Werror \
++	-fvisibility=hidden
++
++OBJS= $(SRCS:.c=.o)
++
++BIN= liblog.a
++
++all: $(BIN)
++
++$(BIN): $(OBJS)
++	$(AR) rcs $@ $(OBJS)
++
++%.o: %.c
++	$(CC) -c $< $(CFLAGS) -o $@
++
++.PHONY: clean mrproper
++
++clean:
++	rm -rf $(OBJS)
++
++mrproper: clean
++	rm -rf $(BIN)
+diff -Naur a/system/core/libpackagelistparser/Makefile b/system/core/libpackagelistparser/Makefile
+--- a/system/core/libpackagelistparser/Makefile	1970-01-01 05:00:00.000000000 +0500
++++ b/system/core/libpackagelistparser/Makefile	2017-01-04 22:19:02.916121811 +0500
+@@ -0,0 +1,20 @@
++SRCS+= \
++	packagelistparser.c
++
++override CFLAGS+= -I../include
++override CFLAGS+= -I./include
++
++OBJS= $(SRCS:.c=.o)
++
++BIN= libpackagelistparser.a
++
++all: $(BIN)
++
++$(BIN): $(OBJS)
++	$(AR) rcs $@ $(OBJS)
++
++%.o: %.c
++	$(CC) -c $< $(CFLAGS) -o $@
++
++clean:
++	rm -rf *.o
+diff -Naur a/system/core/libsparse/Makefile b/system/core/libsparse/Makefile
+--- a/system/core/libsparse/Makefile	1970-01-01 05:00:00.000000000 +0500
++++ b/system/core/libsparse/Makefile	2017-01-04 22:19:02.916121811 +0500
+@@ -0,0 +1,31 @@
++SRCS+= \
++	backed_block.c \
++	output_file.c \
++	sparse.c \
++	sparse_crc32.c \
++	sparse_err.c \
++	sparse_read.c
++
++override CFLAGS+= \
++	-I./include \
++	-Werror
++
++OBJS= $(SRCS:.c=.o)
++
++BIN= libsparse.a
++
++all: $(BIN)
++
++$(BIN): $(OBJS)
++	$(AR) rcs $@ $(OBJS)
++
++%.o: %.c
++	$(CC) -c $< $(CFLAGS) -o $@
++
++.PHONY: clean mrproper
++
++clean:
++	rm -rf $(OBJS)
++
++mrproper: clean
++	rm -rf $(BIN)
+diff -Naur a/system/core/libutils/Makefile b/system/core/libutils/Makefile
+--- a/system/core/libutils/Makefile	1970-01-01 05:00:00.000000000 +0500
++++ b/system/core/libutils/Makefile	2017-01-04 22:24:10.702273955 +0500
+@@ -0,0 +1,50 @@
++SRCS+= \
++	CallStack.cpp \
++	FileMap.cpp \
++	JenkinsHash.cpp \
++	LinearTransform.cpp \
++	Log.cpp \
++	NativeHandle.cpp \
++	Printer.cpp \
++	PropertyMap.cpp \
++	RefBase.cpp \
++	SharedBuffer.cpp \
++	Static.cpp \
++	StopWatch.cpp \
++	String8.cpp \
++	String16.cpp \
++	SystemClock.cpp \
++	Threads.cpp \
++	Timers.cpp \
++	Tokenizer.cpp \
++	Unicode.cpp \
++	VectorImpl.cpp \
++	misc.cpp \
++	Looper.cpp \
++	ProcessCallStack.cpp
++
++override CXXFLAGS+= \
++	-I../include \
++	-I../../../external/safe-iop/include \
++	-DLIBUTILS_NATIVE=1 \
++	-std=gnu++14
++
++OBJS= $(SRCS:.cpp=.o)
++
++BIN= libutils.a
++
++all: $(BIN)
++
++$(BIN): $(OBJS)
++	$(AR) rcs $@ $(OBJS)
++
++%.o: %.cpp
++	$(CXX) -c $< $(CXXFLAGS) -o $@
++
++.PHONY: clean mrproper
++
++clean:
++	rm -rf $(OBJS)
++
++mrproper: clean
++	rm -rf $(BIN)
+diff -Naur a/system/core/libziparchive/Makefile b/system/core/libziparchive/Makefile
+--- a/system/core/libziparchive/Makefile	1970-01-01 05:00:00.000000000 +0500
++++ b/system/core/libziparchive/Makefile	2017-01-04 22:19:02.916121811 +0500
+@@ -0,0 +1,34 @@
++SRCS+= \
++	zip_archive.cc \
++	zip_archive_stream_entry.cc \
++	zip_writer.cc \
++
++override CXXFLAGS+= \
++	-I./include \
++	-I../include \
++	-I../base/include \
++	-DZLIB_CONST \
++	-Werror \
++	-fno-strict-aliasing \
++	-std=gnu++14 \
++	-Wall
++
++OBJS= $(SRCS:.cc=.o)
++
++BIN= libziparchive.a
++
++all: $(BIN)
++
++$(BIN): $(OBJS)
++	$(AR) rcs $@ $(OBJS)
++
++%.o: %.c
++	$(CXX) -c $< $(CXXFLAGS) -o $@
++
++.PHONY: clean mrproper
++
++clean:
++	rm -rf $(OBJS)
++
++mrproper: clean
++	rm -rf $(BIN)
+diff -Naur a/system/core/libziparchive/zip_writer.cc b/system/core/libziparchive/zip_writer.cc
+--- a/system/core/libziparchive/zip_writer.cc	2017-01-04 21:57:50.000000000 +0500
++++ b/system/core/libziparchive/zip_writer.cc	2017-01-04 22:19:02.917121799 +0500
+@@ -24,6 +24,7 @@
+ 
+ #include <cassert>
+ #include <cstdio>
++#include <cstring>
+ #include <memory>
+ #include <vector>
+ #include <zlib.h>
+diff -Naur a/system/extras/ext4_utils/Makefile b/system/extras/ext4_utils/Makefile
+--- a/system/extras/ext4_utils/Makefile	1970-01-01 05:00:00.000000000 +0500
++++ b/system/extras/ext4_utils/Makefile	2017-01-04 22:20:12.669249777 +0500
+@@ -0,0 +1,38 @@
++SRCS+= \
++	make_ext4fs.c \
++	ext4fixup.c \
++	ext4_utils.c \
++	allocate.c \
++	contents.c \
++	extent.c \
++	indirect.c \
++	sha1.c \
++	wipe.c \
++	crc16.c \
++	ext4_sb.c
++
++override CFLAGS+= \
++	-I../../core/libsparse/include \
++	-I../../core/include \
++	-I../../../external/libselinux/include \
++	-fno-strict-aliasing
++
++OBJS= $(SRCS:.c=.o)
++
++BIN= libext4_utils.a
++
++all: $(BIN)
++
++$(BIN): $(OBJS)
++	$(AR) rcs $@ $(OBJS)
++
++%.o: %.c
++	$(CC) -c $< $(CFLAGS) -o $@
++
++.PHONY: clean mrproper
++
++clean:
++	rm -rf $(OBJS)
++
++mrproper: clean
++	rm -rf $(BIN)
+diff -Naur a/system/extras/f2fs_utils/f2fs_utils.c b/system/extras/f2fs_utils/f2fs_utils.c
+--- a/system/extras/f2fs_utils/f2fs_utils.c	2017-01-04 21:57:54.000000000 +0500
++++ b/system/extras/f2fs_utils/f2fs_utils.c	2017-01-04 22:19:02.917121799 +0500
+@@ -53,7 +53,7 @@
+ 	config.fd = -1;
+ 	if (f2fs_sparse_file) {
+ 		sparse_file_destroy(f2fs_sparse_file);
+-		f2fs_sparse_file = NULL;
++		f2fs_sparse_file = 0;
+ 	}
+ }
+ 
+@@ -73,6 +73,6 @@
+ 	sparse_file_write(f2fs_sparse_file, fd, /*gzip*/0, /*sparse*/1, /*crc*/0);
+ 	sparse_file_destroy(f2fs_sparse_file);
+ 	flush_sparse_buffs();
+-	f2fs_sparse_file = NULL;
++	f2fs_sparse_file = 0;
+ 	return 0;
+ }
+diff -Naur a/system/extras/f2fs_utils/Makefile b/system/extras/f2fs_utils/Makefile
+--- a/system/extras/f2fs_utils/Makefile	1970-01-01 05:00:00.000000000 +0500
++++ b/system/extras/f2fs_utils/Makefile	2017-01-04 22:26:56.155205508 +0500
+@@ -0,0 +1,34 @@
++SRCS+= \
++	f2fs_utils.c \
++	f2fs_ioutils.c \
++	f2fs_dlutils.c
++
++
++override CFLAGS+= \
++	-I../../../external/f2fs-tools/include \
++	-I../../../external/f2fs-tools/mkfs \
++	-I../../core/libsparse/include \
++	-I../../../external/libselinux/include \
++	-Wno-unused-parameter
++
++OBJS= $(SRCS:.c=.o)
++
++BIN= libf2fs.a
++
++all: $(BIN)
++
++$(BIN): $(OBJS)
++	$(AR) rcs $@ $(OBJS)
++
++%.o: %.c
++	$(CC) -c $< $(CFLAGS) -o $@
++
++.PHONY: clean mrproper
++
++clean:
++	rm -rf $(OBJS)
++
++mrproper: clean
++	rm -rf $(BIN)
++
++
