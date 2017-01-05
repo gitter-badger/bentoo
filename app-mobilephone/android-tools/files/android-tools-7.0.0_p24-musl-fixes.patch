@@ -1,0 +1,156 @@
+This patch has been taken from the Void Linux distribution.
+
+https://github.com/voidlinux/void-packages/tree/master/srcpkgs/android-tools/patches/android-tools-musl.patch
+
+diff -Naur a/system/core/adb/diagnose_usb.cpp b/system/core/adb/diagnose_usb.cpp
+--- a/system/core/adb/diagnose_usb.cpp	2017-01-04 20:41:36.702209543 +0500
++++ b/system/core/adb/diagnose_usb.cpp	2017-01-04 20:45:32.924256361 +0500
+@@ -32,28 +32,7 @@
+ // Returns a message describing any potential problems we find with udev, or nullptr if we can't
+ // find plugdev information (i.e. udev is not installed).
+ static const char* GetUdevProblem() {
+-#if defined(__linux__)
+-    errno = 0;
+-    group* plugdev_group = getgrnam("plugdev");
+-
+-    if (plugdev_group == nullptr) {
+-        if (errno != 0) {
+-            perror("failed to read plugdev group info");
+-        }
+-        // We can't give any generally useful advice here, just let the caller print the help URL.
+-        return nullptr;
+-    }
+-
+-    // getgroups(2) indicates that the group_member() may not check the egid so we check it
+-    // additionally just to be sure.
+-    if (group_member(plugdev_group->gr_gid) || getegid() == plugdev_group->gr_gid) {
+-        // The user is in plugdev so the problem is likely with the udev rules.
+-        return "verify udev rules";
+-    }
+-    return "udev requires plugdev group membership";
+-#else
+     return nullptr;
+-#endif
+ }
+ 
+ // Short help text must be a single line, and will look something like:
+diff -Naur a/system/core/adb/sysdeps.h b/system/core/adb/sysdeps.h
+--- a/system/core/adb/sysdeps.h	2017-01-04 20:41:36.731209180 +0500
++++ b/system/core/adb/sysdeps.h	2017-01-04 20:45:32.923256373 +0500
+@@ -736,18 +736,7 @@
+ #ifdef __APPLE__
+     return pthread_setname_np(name.c_str());
+ #else
+-    const char *s = name.c_str();
+-
+-    // pthread_setname_np fails rather than truncating long strings.
+-    const int max_task_comm_len = 16; // including the null terminator
+-    if (name.length() > (max_task_comm_len - 1)) {
+-        char buf[max_task_comm_len];
+-        strncpy(buf, name.c_str(), sizeof(buf) - 1);
+-        buf[sizeof(buf) - 1] = '\0';
+-        s = buf;
+-    }
+-
+-    return pthread_setname_np(pthread_self(), s) ;
++    return 0;
+ #endif
+ }
+ 
+diff -Naur a/system/core/base/file.cpp b/system/core/base/file.cpp
+--- a/system/core/base/file.cpp	2017-01-04 20:41:36.749208955 +0500
++++ b/system/core/base/file.cpp	2017-01-04 20:45:32.923256373 +0500
+@@ -111,7 +111,7 @@
+ 
+ bool WriteStringToFile(const std::string& content, const std::string& path) {
+   int flags = O_WRONLY | O_CREAT | O_TRUNC | O_CLOEXEC | O_NOFOLLOW | O_BINARY;
+-  int fd = TEMP_FAILURE_RETRY(open(path.c_str(), flags, DEFFILEMODE));
++  int fd = TEMP_FAILURE_RETRY(open(path.c_str(), flags, (S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH)));
+   if (fd == -1) {
+     return false;
+   }
+diff -Naur a/system/core/fastboot/socket.cpp b/system/core/fastboot/socket.cpp
+--- a/system/core/fastboot/socket.cpp	2017-01-04 20:41:36.810208192 +0500
++++ b/system/core/fastboot/socket.cpp	2017-01-04 20:45:32.925256348 +0500
+@@ -31,6 +31,8 @@
+ #include <android-base/errors.h>
+ #include <android-base/stringprintf.h>
+ 
++#include <sys/select.h>
++
+ Socket::Socket(cutils_socket_t sock) : sock_(sock) {}
+ 
+ Socket::~Socket() {
+diff -Naur a/system/core/include/private/android_filesystem_config.h b/system/core/include/private/android_filesystem_config.h
+--- a/system/core/include/private/android_filesystem_config.h	2017-01-04 20:41:36.874207392 +0500
++++ b/system/core/include/private/android_filesystem_config.h	2017-01-04 20:45:32.923256373 +0500
+@@ -22,7 +22,6 @@
+ #ifndef _ANDROID_FILESYSTEM_CONFIG_H_
+ #define _ANDROID_FILESYSTEM_CONFIG_H_
+ 
+-#include <sys/cdefs.h>
+ #include <sys/types.h>
+ #include <stdint.h>
+ 
+@@ -241,7 +240,10 @@
+ 
+ /* Rules for directories and files has moved to system/code/libcutils/fs_config.c */
+ 
+-__BEGIN_DECLS
++#ifdef __cplusplus
++extern "C" {
++#endif
++
+ 
+ /*
+  * Used in:
+@@ -258,7 +260,9 @@
+ 
+ ssize_t fs_config_generate(char *buffer, size_t length, const struct fs_path_config *pc);
+ 
+-__END_DECLS
++#ifdef __cplusplus
++}
++#endif
+ 
+ #endif
+ #endif
+diff -Naur a/system/core/include/ziparchive/zip_archive.h b/system/core/include/ziparchive/zip_archive.h
+--- a/system/core/include/ziparchive/zip_archive.h	2017-01-04 20:41:36.897207105 +0500
++++ b/system/core/include/ziparchive/zip_archive.h	2017-01-04 20:45:32.923256373 +0500
+@@ -22,11 +22,12 @@
+ 
+ #include <stdint.h>
+ #include <string.h>
+-#include <sys/cdefs.h>
+ #include <sys/types.h>
+ #include <utils/Compat.h>
+ 
+-__BEGIN_DECLS
++#ifdef __cplusplus
++extern "C" {
++#endif
+ 
+ /* Zip compression methods we support */
+ enum {
+@@ -215,6 +216,8 @@
+ 
+ const char* ErrorCodeString(int32_t error_code);
+ 
+-__END_DECLS
++#ifdef __cplusplus
++}
++#endif
+ 
+ #endif  // LIBZIPARCHIVE_ZIPARCHIVE_H_
+diff -Naur a/system/core/liblog/log_portability.h b/system/core/liblog/log_portability.h
+--- a/system/core/liblog/log_portability.h	2017-01-04 20:41:36.956206367 +0500
++++ b/system/core/liblog/log_portability.h	2017-01-04 20:45:32.923256373 +0500
+@@ -17,7 +17,6 @@
+ #ifndef _LIBLOG_PORTABILITY_H__
+ #define _LIBLOG_PORTABILITY_H__
+ 
+-#include <sys/cdefs.h>
+ #include <unistd.h>
+ 
+ /* Helpful private sys/cdefs.h like definitions */
