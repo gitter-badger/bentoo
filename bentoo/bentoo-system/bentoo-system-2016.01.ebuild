@@ -26,6 +26,7 @@ PDEPEND="${PDEPEND}
 		!livecd-stage1? ( sys-apps/usermode-utilities ) )
 "
 
+#    bentoo/bentoo-mpv
 RDEPEND="${DEPEND}
 	app-admin/checksec
 	app-admin/logrotate
@@ -48,7 +49,6 @@ RDEPEND="${DEPEND}
 	app-portage/portage-utils
 	app-text/tree
 	bentoo/bentoo-bash
-	bentoo/bentoo-mpv
 	bentoo/bentoo-irssi
 	bentoo/bentoo-syslog-ng
 	bentoo/bentoo-version
@@ -57,6 +57,7 @@ RDEPEND="${DEPEND}
 	dev-vcs/git-flow
 	media-fonts/iso_latin_1
 	media-gfx/graphviz
+	media-video/mpv
 	net-firewall/ipset
 	net-misc/ntp
 	net-p2p/transmission
