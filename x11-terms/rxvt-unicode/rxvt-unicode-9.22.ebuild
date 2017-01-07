@@ -66,6 +66,9 @@ src_prepare() {
 		use buffer-on-clear && ipatch push . "${FILESDIR}"/${PN}-9.14-clear.patch
 
 		use alt-font-width && ipatch push . "${FILESDIR}"/${PN}-9.06-font-width.patch
+
+		ipatch push . "${FILESDIR}"/${PN}-9.21-Fix-hard-coded-wrong-path-to-xsubpp.patch
+		ipatch push . "${FILESDIR}"/${PN}-0001-Prefer-XDG_RUNTIME_DIR-over-the-HOME.patch
 	fi
 
 	# kill the rxvt-unicode terminfo file - #192083
@@ -113,7 +116,9 @@ src_install() {
 	domenu "${FILESDIR}/urxvt-tabbed.desktop"
 	domenu "${FILESDIR}/urxvtc.desktop"
 
-	systemd_dounit "${FILESDIR}"/urxvtd@.service
+    systemd_dounit "${FILESDIR}"/urxvtd@.service
+	systemd_douserunit "${FILESDIR}"/urxvtd.service
+	systemd_douserunit "${FILESDIR}"/urxvtd.socket
 }
 
 pkg_postinst() {
