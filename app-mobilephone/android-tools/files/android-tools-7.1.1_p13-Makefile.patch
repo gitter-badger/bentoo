@@ -160,6 +160,7 @@ diff -Naur a/system/core/adb/Makefile b/system/core/adb/Makefile
 +	get_my_path_linux.cpp \
 +	sysdeps_unix.cpp \
 +	usb_linux.cpp \
++	bugreport.cpp \
 +
 +LIBDIAGNOSE_USB_SRCS= \
 +	diagnose_usb.cpp

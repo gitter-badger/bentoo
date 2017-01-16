@@ -10,7 +10,7 @@ DESCRIPTION="Android platform tools (adb and fastboot)"
 HOMEPAGE="https://sites.google.com/a/android.com/tools/"
 SRC_URI=""
 
-# Now use branch "android-7.0.0_r24"
+# Now use branch "android-7.1.1_r13"
 MY_VER="${PV/p/r}"
 MY_B="android-${MY_VER}"
 
