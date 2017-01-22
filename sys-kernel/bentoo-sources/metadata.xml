@@ -2,13 +2,17 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <herd>kernel</herd>
-  <maintainer>
-    <email>sudormrfhalt@gmail.com</email>
-    <name>Andrey Ovcharov</name>
+  <maintainer type="person">
+	<email>sudormrfhalt@gmail.com</email>
+	<name>Andrey Ovcharov</name>
+  </maintainer>
+  <maintainer type="person">
+	<email>yurark96@gmail.com</email>
+	<name>Yuriy Ilinykh</name>
   </maintainer>
   <use>
-    <flag name='brand'>Enable Bentoo specific branding.</flag>
-    <flag name='deblob'>Remove binary blobs from kernel sources to provide libre license compliance.</flag>
+	<flag name='brand'>Enable Bentoo specific branding.</flag>
+	<flag name='deblob'>Remove binary blobs from kernel sources to provide libre license compliance.</flag>
   </use>
   <upstream>
     <remote-id type="cpe">cpe:/o:linux:linux_kernel</remote-id>
