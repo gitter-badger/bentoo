@@ -33,6 +33,8 @@ src_prepare() {
 	sed -i -e "s:armitage.jar:/usr/$(get_libdir)/${MY_PN}/${MY_PN}.jar:" teamserver
 
 	sed -i -e "s:armitage.jar:/usr/$(get_libdir)/${MY_PN}/${MY_PN}.jar:" armitage
+
+	eapply_user
 }
 
 src_install() {
