@@ -459,7 +459,9 @@ diff -Naur a/system/core/libcutils/Makefile b/system/core/libcutils/Makefile
 +
 +override CFLAGS+= -I../include
 +
-+override CXXFLAGS+= -I../include
++override CXXFLAGS+= \
++	-I../include \
++	-std=gnu++14
 +
 +COBJS= $(CSRCS:.c=.o)
 +CXXOBJS= $(CXXSRCS:.cpp=.o)
