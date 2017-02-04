@@ -16,14 +16,8 @@ KEYWORDS="~amd64 ~arm ~x86"
 
 IUSE=""
 DEPEND=""
-GCC_VER="4.9.4"
-PYTHON_VER="2.7"
 # Listing default packages for the current release
-RDEPEND="virtual/service-manager
-	app-eselect/eselect-python
-	dev-lang/python:${PYTHON_VER}
-	sys-devel/gcc:${GCC_VER}
-	sys-devel/gcc-config"
+RDEPEND="virtual/service-manager"
 
 src_unpack () {
 	echo "Bentoo Linux ${ARCH} ${PV}" > "${T}/bentoo-release"
@@ -45,10 +39,6 @@ src_install () {
 }
 
 pkg_postinst() {
-	# Setup Python ${PYTHON_VER}
-	eselect python set python${PYTHON_VER}
-	# No need to set the GCC profile here, since it's done in base-gcc
-
 	# Improve systemd support
 	if [[ ! -L /etc/mtab ]] && [[ -e /proc/self/mounts ]]; then
 		rm -f /etc/mtab

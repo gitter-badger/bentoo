@@ -49,6 +49,7 @@ RDEPEND="${DEPEND}
 	app-portage/portage-utils
 	app-text/tree
 	bentoo/bentoo-bash
+	bentoo/bentoo-build-tools
 	bentoo/bentoo-irssi
 	bentoo/bentoo-syslog-ng
 	bentoo/bentoo-version
