@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~arm ~x86"
 
 IUSE=""
 DEPEND=""
-GCC_VER="4.9.3"
+GCC_VER="4.9.4"
 PYTHON_VER="2.7"
 # Listing default packages for the current release
 RDEPEND="virtual/service-manager
