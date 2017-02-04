@@ -438,8 +438,6 @@ diff -Naur a/system/core/libcutils/Makefile b/system/core/libcutils/Makefile
 +	process_name.c \
 +	record_stream.c \
 +	sched_policy.c \
-+	strdup16to8.c \
-+	strdup8to16.c \
 +	strlcpy.c \
 +	threads.c \
 +	fs.c \
