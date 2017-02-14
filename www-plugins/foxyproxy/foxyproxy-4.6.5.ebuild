@@ -6,10 +6,10 @@ EAPI="6"
 
 inherit mozilla-addon
 
-MOZ_FILEID="3829"
-DESCRIPTION="View HTTP headers of a page and while browsing"
-HOMEPAGE="http://livehttpheaders.mozdev.org/ https://addons.mozilla.org/en-GB/firefox/addon/live-http-headers/"
-SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
+MOZ_FILEID="2464"
+DESCRIPTION="A set of proxy management tools for firefox"
+HOMEPAGE="http://getfoxyproxy.org https://addons.mozilla.org/en-GB/firefox/addon/foxyproxy-standard/"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/foxyproxy-standard/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="GPL-2"
 SLOT="0"

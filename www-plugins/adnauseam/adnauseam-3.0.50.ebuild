@@ -6,9 +6,9 @@ EAPI="6"
 
 inherit mozilla-addon
 
-MOZ_FILEID="607454"
-DESCRIPTION="uBlock Origin - An efficient blocker for Firefox. Fast and lean."
-HOMEPAGE="https://github.com/gorhill/uBlock https://addons.mozilla.org/en-GB/firefox/addon/ublock-origin/"
+MOZ_FILEID="585454"
+DESCRIPTION="Fight back against advertising surveillance."
+HOMEPAGE="https://adnauseam.io https://addons.mozilla.org/en-GB/firefox/addon/adnauseam/"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
 LICENSE="GPL-3"
@@ -29,7 +29,7 @@ RDEPEND="
 src_prepare(){
 	# the install rdf seems really 'old', with restriction on FF <10.0 ... but it works as well
 	# also see: bug https://bugs.gentoo.org/show_bug.cgi?id=515192
-	ipatch push . "${FILESDIR}/ublock-origin-${PV}-install.rdf.patch"
+	ipatch push . "${FILESDIR}/adnauseam-${PV}-install.rdf.patch"
 	eapply_user
 }
 

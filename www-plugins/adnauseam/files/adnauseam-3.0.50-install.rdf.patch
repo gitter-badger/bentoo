@@ -1,0 +1,186 @@
+diff -Naur a/install.rdf b/install.rdf
+--- a/install.rdf	2017-01-11 19:33:34.000000000 +0500
++++ b/install.rdf	2017-02-14 20:24:26.630351735 +0500
+@@ -1,117 +1,65 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<r:RDF xmlns:r="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.mozilla.org/2004/em-rdf#">
+-    <r:Description about="urn:mozilla:install-manifest">
+-        <id>adnauseam@rednoise.org</id>
+-        <version>3.0.50</version>
+-        <name>AdNauseam</name>
+-        <description>Fight back against advertising surveillance</description>
+-        <homepageURL>http://adnauseam.io</homepageURL>
+-        <creator>Daniel C. Howe</creator>
+-        <type>2</type>
+-        <bootstrap>true</bootstrap>
+-        <multiprocessCompatible>true</multiprocessCompatible>
+-        <optionsType>2</optionsType>
+-
+-        <localized><r:Description>
+-            <locale>cs</locale>
+-            <name>AdNauseam</name>
+-            <description>Bojovat proti reklamám které vás sledují</description>
+-            <creator>Daniel C. Howe</creator>
+-            <homepageURL>http://adnauseam.io</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>de</locale>
+-            <name>AdNauseam</name>
+-            <description>Wehren Sie sich gegen Werbungs Überwachung</description>
+-            <creator>Daniel C. Howe</creator>
+-            <homepageURL>http://adnauseam.io</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>id</locale>
+-            <name>AdNauseam</name>
+-            <description>Lawan pemantauan iklan</description>
+-            <creator>Daniel C. Howe</creator>
+-            <homepageURL>http://adnauseam.io</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>sv</locale>
+-            <name>AdNauseam</name>
+-            <description>Slå tillbaka mot övervakningsreklam</description>
+-            <creator>Daniel C. Howe</creator>
+-            <homepageURL>http://adnauseam.io</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>zh-CN</locale>
+-            <name>AdNauseam</name>
+-            <description>一款被设计为对抗来自广告网络追踪的扩展</description>
+-            <creator>Daniel C. Howe</creator>
+-            <homepageURL>http://adnauseam.io</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>zh-TW</locale>
+-            <name>AdNauseam</name>
+-            <description>一款被設計為對抗來自廣告網絡追蹤的擴展</description>
+-            <creator>Daniel C. Howe</creator>
+-            <homepageURL>http://adnauseam.io</homepageURL>
+-        </r:Description></localized>
+-
+-        <!-- Firefox -->
+-        <targetApplication>
+-            <r:Description>
+-                <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
+-                <minVersion>24.0</minVersion>
+-                <maxVersion>*</maxVersion>
+-            </r:Description>
+-        </targetApplication>
+-
+-        <!-- Fennec -->
+-        <targetApplication>
+-            <r:Description>
+-                <id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</id>
+-                <minVersion>24.0</minVersion>
+-                <maxVersion>*</maxVersion>
+-            </r:Description>
+-        </targetApplication>
+-
+-        <!-- SeaMonkey -->
+-        <targetApplication>
+-            <r:Description>
+-                <id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</id>
+-                <minVersion>2.21</minVersion>
+-                <maxVersion>2.40.*</maxVersion>
+-            </r:Description>
+-        </targetApplication>
+-
+-        <!-- Pale Moon -->
+-        <targetApplication>
+-            <r:Description>
+-                <id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</id>
+-                <minVersion>25.0</minVersion>
+-                <maxVersion>26.*</maxVersion>
+-            </r:Description>
+-        </targetApplication>
+-
+-        <!-- Conkeror -->
+-        <targetApplication>
+-            <r:Description>
+-                <id>{a79fe89b-6662-4ff4-8e88-09950ad4dfde}</id>
+-                <minVersion>0.1</minVersion>
+-                <maxVersion>9.9</maxVersion>
+-            </r:Description>
+-        </targetApplication>
+-
+-        <!-- Thunderbird -->
+-        <targetApplication>
+-            <r:Description>
+-                <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
+-                <minVersion>31.0</minVersion>
+-                <maxVersion>45.*</maxVersion>
+-            </r:Description>
+-        </targetApplication>
+-    </r:Description>
+-</r:RDF>
++<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
++    <Description about="urn:mozilla:install-manifest">
++       <em:creator>Daniel C. Howe</em:creator>
++       <em:id>adnauseam@rednoise.org</em:id>
++       <em:name>AdNauseam</em:name>
++       <em:description>Fight back against advertising surveillance.</em:description>
++       <em:version>3.0.50</em:version>
++	<em:homepageURL>http://adnauseam.io</em:homepageURL>
++       <em:bootstrap>true</em:bootstrap>
++       <em:type>2</em:type>
++
++         <!-- Firefox -->
++        <em:targetApplication>
++            <Description>
++                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
++                <em:minVersion>24.0</em:minVersion>
++                <em:maxVersion>*</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++
++         <!-- Fennec -->
++       <Description>
++                <em:id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</em:id>
++                <em:minVersion>24.0</em:minVersion>
++                <em:maxVersion>*</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++
++         <!-- SeaMonkey -->
++        <em:targetApplication>
++            <Description>
++                <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
++                <em:minVersion>2.21</em:minVersion>
++                <em:maxVersion>2.40.*</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++
++         <!-- Pale Moon -->
++        <em:targetApplication>
++            <Description>
++                <em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
++                <em:minVersion>25.0</em:minVersion>
++                <em:maxVersion>26.*</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++
++         <!-- Conkeror -->
++        <em:targetApplication>
++            <Description>
++                <em:id>{a79fe89b-6662-4ff4-8e88-09950ad4dfde}</em:id>
++                <em:minVersion>0.1</em:minVersion>
++                <em:maxVersion>9.9</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++
++         <!-- Thunderbird -->
++        <em:targetApplication>
++            <Description>
++                <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
++                <em:minVersion>31.0</em:minVersion>
++                <em:maxVersion>45.0</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++    </Description>
++</RDF>
