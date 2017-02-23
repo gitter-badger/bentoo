@@ -26,7 +26,6 @@ PDEPEND="
 		www-plugins/menu-icons-plus
 		www-plugins/noscript
 		www-plugins/password-reuse-visualizer
-		www-plugins/privacy-badger
 		www-plugins/pwgen
 		www-plugins/random-agent-spoofer
 		www-plugins/s3download-statusbar
