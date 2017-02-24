@@ -16,7 +16,6 @@ PDEPEND="
 		www-plugins/chrome-binary-plugins
 	)
 	firefox? (
-		www-plugins/adnauseam
 		www-plugins/classic-theme-restorer
 		www-plugins/firebug
 		www-plugins/foxyproxy
@@ -36,6 +35,7 @@ PDEPEND="
 		www-plugins/show-password-field
 		www-plugins/status-4-evar
 		www-plugins/tree-style-tab
+		www-plugins/ublock-origin
 		www-plugins/visual-hashing
 		www-plugins/worldip
 		www-plugins/mozplugger
