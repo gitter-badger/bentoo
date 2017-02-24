@@ -1,0 +1,523 @@
+diff -Naur a/install.rdf b/install.rdf
+--- a/install.rdf	2017-02-06 01:28:59.000000000 +0500
++++ b/install.rdf	2017-02-24 09:53:06.574983213 +0500
+@@ -1,455 +1,64 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<r:RDF xmlns:r="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.mozilla.org/2004/em-rdf#">
+-    <r:Description about="urn:mozilla:install-manifest">
+-        <id>uBlock0@raymondhill.net</id>
+-        <version>1.11.0</version>
+-        <name>uBlock Origin</name>
+-        <description>Finally, an efficient blocker. Easy on CPU and memory.</description>
+-        <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        <creator>All uBlock Origin contributors</creator>
+-        <developer>Deathamns</developer>
+-        <developer>Alex Vallat</developer>
+-        <developer>Manuel Reimer</developer>
+-        <type>2</type>
+-        <bootstrap>true</bootstrap>
+-        <multiprocessCompatible>true</multiprocessCompatible>
+-        <optionsType>2</optionsType>
+-
+-        <localized><r:Description>
+-            <locale>ar</locale>
+-            <name>uBlock Origin</name>
+-            <description>وأخيراً, مانع اعلانات كفوء. خفيف على المعالج و الذاكرة.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>bg</locale>
+-            <name>uBlock Origin</name>
+-            <description>Най-накрая, ефективен рекламен блокер с малки изисквания за процесор и памет.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>bn</locale>
+-            <name>uBlock Origin</name>
+-            <description>অবশেষে, একটি কার্যকর বিজ্ঞাপন প্রতিরোধক। সিপিইউ এবং মেমরি সহায়ক।</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>ca</locale>
+-            <name>uBlock Origin</name>
+-            <description>Finalment, un blocador eficient que utilitza pocs recursos de memòria i processador.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>cs</locale>
+-            <name>uBlock Origin</name>
+-            <description>Konečně efektivní blokovač, který nezatěžuje CPU a paměť.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>cv</locale>
+-            <name>uBlock Origin</name>
+-            <description>Тинех Интернет тишкерӳҫӗ валли хӑвӑрт та витӗмлӗ чаркӑч пур.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>da</locale>
+-            <name>uBlock Origin</name>
+-            <description>Endelig en effektiv blocker til Chromium-baserede browsere. Lavt CPU- og hukommelsesbrug.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>de</locale>
+-            <name>uBlock Origin</name>
+-            <description>Endlich ein effizienter Blocker. Prozessor-freundlich und bescheiden beim Speicherbedarf.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>el</locale>
+-            <name>uBlock Origin</name>
+-            <description>Επιτέλους, ένας αποτελεσματικός blocker. Ελαφρύς για τον επεξεργαστή και τη μνήμη.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>eo</locale>
+-            <name>uBlock Origin</name>
+-            <description>Finfine rendimenta reklamoblokilo. Afabla por ĉefprocesoro kaj memoro.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>es</locale>
+-            <name>uBlock Origin</name>
+-            <description>Por fin, un bloqueador eficiente con uso mínimo de procesador y memoria.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>et</locale>
+-            <name>uBlock Origin</name>
+-            <description>Lõpuks on valminud tõhus blokeerija. Protsessori- ja mälusõbralik.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>eu</locale>
+-            <name>uBlock Origin</name>
+-            <description>Behingoz, blokeatzaile eraginkor bat. PUZ eta memorian arina.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>fa</locale>
+-            <name>uBlock Origin</name>
+-            <description>بالاخره، یک بلاکر کارآمد. کم حجم بر روی پردازنده و حافظه.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>fi</locale>
+-            <name>uBlock Origin</name>
+-            <description>Viimeinkin tehokas ja kevyt mainosten estäjä.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>fil</locale>
+-            <name>uBlock Origin</name>
+-            <description>Sa wakas! Isang magaling na blocker para sa Chromium-based browsers. Magaan sa CPU at memory.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>fr</locale>
+-            <name>uBlock Origin</name>
+-            <description>Un bloqueur de nuisances efficace, qui ménagera votre processeur et votre mémoire vive.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>fy</locale>
+-            <name>uBlock Origin</name>
+-            <description>Einlik, in effisjinte adblocker. Brûkt hast gjin prosessorkrêft of ûnthâld.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>gl</locale>
+-            <name>uBlock Origin</name>
+-            <description>Ó fin, un bloqueador eficiente que non chupa toda a memoria e o procesador.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>he</locale>
+-            <name>uBlock Origin</name>
+-            <description>סוף סוף, חוסם יעיל. קל על המעבד והזיכרון.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>hi</locale>
+-            <name>uBlock Origin</name>
+-            <description>आख़िरकार, क्रोमियम-बेस्ड ब्राउज़रों के लिए एक कुशल अवरोधक। CPU और स्मृति पर आसान।</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>hr</locale>
+-            <name>uBlock Origin</name>
+-            <description>Konačno, efikasan blokator. Lak na CPU i memoriji.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>hu</locale>
+-            <name>uBlock Origin</name>
+-            <description>Végre egy hatékony reklám- és követésblokkoló böngészőkhöz, amely kíméletes a processzorral és a memóriával.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>id</locale>
+-            <name>uBlock Origin</name>
+-            <description>Akhirnya, pemblokir iklan yang efisien. Ringan penggunaan CPU dan memori.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>it</locale>
+-            <name>uBlock Origin</name>
+-            <description>Finalmente, un blocker efficiente. Leggero sulla CPU e sulla memoria.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>ja</locale>
+-            <name>uBlock Origin</name>
+-            <description>高効率ブロッカーが遂に登場。CPUとメモリーの負担を抑えます。</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>ko</locale>
+-            <name>uBlock Origin</name>
+-            <description>이 부가 기능은 효율적인 차단기입니다. CPU와 메모리에 주는 부담이 적습니다.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>lt</locale>
+-            <name>uBlock Origin</name>
+-            <description>Pagaliau, efektyvus blokatorius, neapkraunantis nei procesoriaus, nei darbinės atminties.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>lv</locale>
+-            <name>uBlock Origin</name>
+-            <description>Beidzot, efektīvs bloķētājs. Nepārslogo procesoru un atmiņu.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>mr</locale>
+-            <name>uBlock Origin</name>
+-            <description>शेवटी, एक कार्यक्षम ब्लॉकर क्रोमियम आधारित ब्राउझरांसाठी. सीपीयू आणि मेमरी वर सोपे जातो.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>nb</locale>
+-            <name>uBlock Origin</name>
+-            <description>Endelig en effektiv blokkeringsutvidelse. Lavt CPU- og minnebruk.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>nl</locale>
+-            <name>uBlock Origin</name>
+-            <description>Eindelijk, een efficiënte adblocker. Gebruikt weinig processorkracht en geheugen.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>pl</locale>
+-            <name>uBlock Origin</name>
+-            <description>Nareszcie skuteczne blokowanie reklam, niskie użycie procesora i pamięci.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>pt-BR</locale>
+-            <name>uBlock Origin</name>
+-            <description>Finalmente, um bloqueador eficiente. Com baixo uso de memória e CPU.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>pt-PT</locale>
+-            <name>uBlock Origin</name>
+-            <description>Finalmente, um bloqueador eficiente. Leve na CPU e memória.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>ro</locale>
+-            <name>uBlock Origin</name>
+-            <description>În sfârșit, un blocant eficient. Are un impact mic asupra procesorului și memoriei.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>ru</locale>
+-            <name>uBlock Origin</name>
+-            <description>Наконец-то, быстрый и эффективный блокировщик для браузеров.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>sk</locale>
+-            <name>uBlock Origin</name>
+-            <description>Konečne efektívny blokovač, ktorý nezaťažuje CPU a pamäť.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>sl</locale>
+-            <name>uBlock Origin</name>
+-            <description>Končno, učinkovita, procesorju in pomnilniku prijazna razširitev za blokiranje oglasov.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>sq</locale>
+-            <name>uBlock Origin</name>
+-            <description>Më në fund, një bllokues efikas që nuk e rëndon procesorin dhe memorjen.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>sr</locale>
+-            <name>uBlock Origin</name>
+-            <description>Коначно, ефикасан блокатор. Ниски процесорски и меморијски захтеви.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>sv</locale>
+-            <name>uBlock Origin</name>
+-            <description>Äntligen en effektiv blockerare! Snäll mot processor och minne.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>ta</locale>
+-            <name>uBlock Origin</name>
+-            <description>இறுதியாக, ஒரு திறமையான விளம்பரத் தடுப்பான். கணினியின் மையச் செயற்பகுதியின் மேலும் நினைவகத்தின் மேலும் இலகுவானது.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>te</locale>
+-            <name>uBlock Origin</name>
+-            <description>మొత్తానికి RAM ఇంకా CPU పై తేలికయిన, ఒక సమర్థవంతమైన నిరోధిని.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>tr</locale>
+-            <name>uBlock Origin</name>
+-            <description>Sonunda, etkili bir engelleyici. İşlemci ve belleği yormaz.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>uk</locale>
+-            <name>uBlock Origin</name>
+-            <description>Ефективний блокувальник реклами таки з’явився. Не навантажує процесор та пам'ять.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>vi</locale>
+-            <name>uBlock Origin</name>
+-            <description>Cuối cùng, đã có một công cụ chặn quảng cáo hiệu quả, tiêu tốn ít CPU và bộ nhớ.</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>zh-CN</locale>
+-            <name>uBlock Origin</name>
+-            <description>一款高效的网络请求过滤工具，占用极低的内存和 CPU。</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <localized><r:Description>
+-            <locale>zh-TW</locale>
+-            <name>uBlock Origin</name>
+-            <description>終於出現了，一個高效率的阻擋器，使用不多的 CPU 及記憶體資源。</description>
+-            <creator>All uBlock Origin contributors</creator>
+-            <homepageURL>https://github.com/gorhill/uBlock</homepageURL>
+-        </r:Description></localized>
+-
+-        <!-- Firefox -->
+-        <targetApplication>
+-            <r:Description>
+-                <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
+-                <minVersion>24.0</minVersion>
+-                <maxVersion>*</maxVersion>
+-            </r:Description>
+-        </targetApplication>
+-
+-        <!-- Fennec -->
+-        <targetApplication>
+-            <r:Description>
+-                <id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</id>
+-                <minVersion>24.0</minVersion>
+-                <maxVersion>*</maxVersion>
+-            </r:Description>
+-        </targetApplication>
+-
+-        <!-- SeaMonkey -->
+-        <targetApplication>
+-            <r:Description>
+-                <id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</id>
+-                <minVersion>2.21</minVersion>
+-                <maxVersion>2.40.*</maxVersion>
+-            </r:Description>
+-        </targetApplication>
+-
+-        <!-- Pale Moon -->
+-        <targetApplication>
+-            <r:Description>
+-                <id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</id>
+-                <minVersion>25.0</minVersion>
+-                <maxVersion>26.*</maxVersion>
+-            </r:Description>
+-        </targetApplication>
+-
+-        <!-- Thunderbird -->
+-        <targetApplication>
+-            <r:Description>
+-                <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
+-                <minVersion>31.0</minVersion>
+-                <maxVersion>45.*</maxVersion>
+-            </r:Description>
+-        </targetApplication>
+-    </r:Description>
+-</r:RDF>
++<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:em="http://www.mozilla.org/2004/em-rdf#">
++    <Description about="urn:mozilla:install-manifest">
++       <em:creator>All uBlock Origin contributors</em:creator>
++       <em:id>uBlock0@raymondhill.net</em:id>
++       <em:name>uBlock Origin</em:name>
++       <em:description>Finally, an efficient blocker. Easy on CPU and memory.</em:description>
++       <em:version>1.11.0</em:version>
++       <em:bootstrap>true</em:bootstrap>
++       <em:type>2</em:type>
++ 
++         <!-- Firefox -->
++        <em:targetApplication>
++            <Description>
++                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
++                <em:minVersion>24.0</em:minVersion>
++                <em:maxVersion>*</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++ 
++         <!-- Fennec -->
++       <Description>
++                <em:id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</em:id>
++                <em:minVersion>24.0</em:minVersion>
++                <em:maxVersion>*</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++
++         <!-- SeaMonkey -->
++        <em:targetApplication>
++            <Description>
++                <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
++                <em:minVersion>2.21</em:minVersion>
++                <em:maxVersion>2.40.*</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++ 
++         <!-- Pale Moon -->
++        <em:targetApplication>
++            <Description>
++                <em:id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</em:id>
++                <em:minVersion>25.0</em:minVersion>
++                <em:maxVersion>26.*</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++ 
++         <!-- Conkeror -->
++        <em:targetApplication>
++            <Description>
++                <em:id>{a79fe89b-6662-4ff4-8e88-09950ad4dfde}</em:id>
++                <em:minVersion>0.1</em:minVersion>
++                <em:maxVersion>9.9</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++ 
++         <!-- Thunderbird -->
++        <em:targetApplication>
++            <Description>
++                <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
++                <em:minVersion>31.0</em:minVersion>
++                <em:maxVersion>45.0</em:maxVersion>
++            </Description>
++        </em:targetApplication>
++    </Description>
++</RDF>
