@@ -1,4 +1,4 @@
-# Copyright 1999-2017 The Bentoo Authors. All rights reserved.
+# Copyright 1999-2016 The Bentoo Authors. All rights reserved.
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Id$
 
@@ -7,8 +7,8 @@ EAPI="6"
 inherit eutils autotools
 
 DESCRIPTION="library for manipulating and storing storage volume encryption keys"
-HOMEPAGE="https://fedorahosted.org/volume_key/"
-SRC_URI="https://fedorahosted.org/releases/v/o/${PN}/${P}.tar.xz"
+HOMEPAGE="https://pagure.io/volume_key/"
+SRC_URI="https://releases.pagure.org/${PN}/${P}.tar.xz"
 
 LICENSE="GPL-2+"
 SLOT="0"

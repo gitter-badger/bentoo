@@ -18,7 +18,7 @@ fi
 
 LICENSE="GPL-2+"
 SLOT="2"
-IUSE="+lvm +lvmcache iscsi +btrfs +zram lsm +bcache +test"
+IUSE="+lvm +lvmcache iscsi +btrfs +zram lsm bcache +test"
 
 
 DEPEND="!sys-fs/udisks
@@ -26,6 +26,7 @@ DEPEND="!sys-fs/udisks
 	>=sys-block/parted-3
 	iscsi? ( net-libs/libiscsi )
 	lvm? ( sys-fs/lvm2 )
+	lsm? ( sys-libs/libstoragemgmt )
 	dev-libs/volume_key
 	sys-libs/libblockdev"
 
@@ -34,7 +35,7 @@ RDEPEND="${DEPEND}"
 QA_MULTILIB_PATHS="usr/lib/udisks2/udisks-lvm"
 
 src_prepare() {
-	ipatch push . "${FILESDIR}/storaged-2.6.2-iscsi-sessions.patch"
+#	ipatch push . "${FILESDIR}/storaged-2.6.2-iscsi-sessions.patch"
 	eapply_user
 	eautoreconf
 }
@@ -47,6 +48,7 @@ src_configure() {
 		$(use_enable btrfs)
 		$(use_enable zram)
 		$(use_enable lsm)
+		$(use_enable bcache)
 		$(use_enable "test" dummy)
 	)
 	export CFLAGS=" -std=gnu11 "
