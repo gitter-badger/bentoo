@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI="6"
-PYTHON_COMPAT=( python3_4 )
+PYTHON_COMPAT=( python3_4 python3_5 python3_6 )
 inherit python-single-r1 autotools eutils
 
 DESCRIPTION="A library for manipulating block devices."
@@ -23,7 +23,7 @@ LICENSE="LGPL-2.1+"
 SLOT="1"
 IUSE="+doc +introspection"
 
-DEPEND=""
+DEPEND="${PYTHON_DEPS}"
 
 RDEPEND="${DEPEND}
 	doc? ( >=dev-util/gtk-doc-1 )
@@ -41,7 +41,7 @@ RDEPEND="${DEPEND}
 	>=virtual/libudev-215"
 
 src_prepare() {
-#	ipatch push . "${FILESDIR}/libblockdev-1.9-cast_numbers.patch"
+	ipatch push . "${FILESDIR}/libblockdev-2.4-prefix.patch"
 	eapply_user
 	eautoreconf
 }

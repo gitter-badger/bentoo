@@ -1,0 +1,21 @@
+--- a/configure.ac	2017-01-11 21:02:32.000000000 +0800
++++ b/configure.ac	2017-03-02 01:25:29.000000000 +0800
+@@ -52,7 +52,7 @@
+ 
+ AC_SUBST([PYTHON_EXEC_PREFIX], ['${exec_prefix}'])
+       PYTHON_EXECDIR=`python -c "import distutils.sysconfig; \
+-                                print(distutils.sysconfig.get_python_lib(1,0,prefix='${exec_prefix}'))"`
++                                print(distutils.sysconfig.get_python_lib(1,0,prefix='${PYTHON_EXEC_PREFIX}'))"`
+       AC_SUBST(pyexecdir, $PYTHON_EXECDIR)
+ 
+ AC_ARG_WITH([python3],
+@@ -69,7 +69,7 @@
+       fi],
+     [AC_SUBST([PYTHON3_EXEC_PREFIX], ['${exec_prefix}'])
+       PYTHON3_EXECDIR=`$python3 -c "import distutils.sysconfig; \
+-                                print(distutils.sysconfig.get_python_lib(1,0,prefix='${exec_prefix}'))"`
++                                print(distutils.sysconfig.get_python_lib(1,0,prefix='${PYTHON3_EXEC_PREFIX}'))"`
+       AC_SUBST(py3execdir, $PYTHON3_EXECDIR)
+       AC_SUBST(WITH_PYTHON3, 1)])
+ fi
+
