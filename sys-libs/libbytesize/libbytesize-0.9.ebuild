@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI="6"
-PYTHON_COMPAT=( python3_4  )
+PYTHON_COMPAT=( python3_4 python3_5 python3_6 )
 inherit python-single-r1 autotools eutils
 
 DESCRIPTION="A tiny library providing a C \"class\" for working with arbitrary big sizes in bytes"
@@ -23,7 +23,7 @@ LICENSE="LGPL-2.1+"
 SLOT="1"
 IUSE="doc"
 
-DEPEND=""
+DEPEND="${PYTHON_DEPS}"
 
 RDEPEND="${DEPEND}
 	dev-libs/gmp
@@ -33,6 +33,7 @@ RDEPEND="${DEPEND}
 	doc? ( >=dev-util/gtk-doc-1 )"
 
 src_prepare() {
+	ipatch push . "${FILESDIR}/libbytesize-0.9-prefix.patch"
 	eapply_user
 	eautoreconf
 }
