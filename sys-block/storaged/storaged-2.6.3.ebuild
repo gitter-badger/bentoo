@@ -42,6 +42,7 @@ src_prepare() {
 
 src_configure() {
 	local myconf=(
+		--enable-fhs-media
 		$(use_enable lvm lvm2 )
 		$(use_enable lvmcache)
 		$(use_enable iscsi)
