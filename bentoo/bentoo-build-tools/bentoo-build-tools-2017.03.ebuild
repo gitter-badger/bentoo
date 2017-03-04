@@ -17,6 +17,7 @@ RDEPEND="app-arch/bzip2
 	dev-lang/perl
 	dev-lang/python:${PYTHON_VER}
 	app-eselect/eselect-python
+	sys-devel/autoconf-archive
 	sys-devel/autoconf
 	sys-devel/autogen
 	sys-devel/automake
