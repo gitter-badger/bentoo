@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Id$
 
-BENTOO_SOURCE_REVISION=""
+EAPI="6"
 inherit bentoo-kernel savedconfig
 
 DESCRIPTION="Bentoo Linux kernel modules"
