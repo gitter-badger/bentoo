@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Id$
 
-EAPI=5
+EAPI="6"
 
 # Tell linux-info where to find the kernel source/build
 KERNEL_DIR="${SYSROOT}/usr/src/linux"

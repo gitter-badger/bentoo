@@ -5,12 +5,15 @@
 # @ECLASS-VARIABLE: BENTOO_SOURCE_REVISION
 # @DESCRIPTION:
 # Revision of the source ebuild, e.g. -r1. default is ""
-: ${BENTOO_SOURCE_REVISION:=}
+: ${BENTOO_SOURCE_REVISION:=""}
 
 BENTOO_SOURCE_VERSION="${PV}${BENTOO_SOURCE_REVISION}"
 BENTOO_SOURCE_NAME="linux-${PV}-bentoo${BENTOO_SOURCE_REVISION}"
 
-[[ ${EAPI} != "5" ]] && die "Only EAPI=5 is supported"
+case ${EAPI:-0} in
+	[012345])
+		die "EAPI ${EAPI:-0} is not supported"
+esac
 
 inherit linux-info toolchain-funcs
 
@@ -23,7 +26,7 @@ IUSE=""
 DEPEND="=sys-kernel/bentoo-sources-${BENTOO_SOURCE_VERSION}"
 
 # Do not analyze or strip installed files
-RESTRICT="binchecks strip"
+RESTRICT="mirror binchecks strip"
 
 # The build tools are OK and shouldn't trip up multilib-strict.
 QA_MULTILIB_PATHS="lib/modules/.*/build/scripts/.*"
@@ -210,6 +213,12 @@ bentoo-kernel_src_unpack() {
 	ln -s "${KERNEL_DIR}"/* "${S}/source/" || die
 }
 
+bentoo-kernel_src_prepare() {
+	debug-print-function ${FUNCNAME} "$@"
+
+	eapply_user
+}
+
 bentoo-kernel_src_configure() {
 	# Use default for any options not explitly set in defconfig
 	kmake olddefconfig
@@ -218,4 +227,4 @@ bentoo-kernel_src_configure() {
 	kmake savedefconfig
 }
 
-EXPORT_FUNCTIONS pkg_pretend pkg_setup src_unpack src_configure
+EXPORT_FUNCTIONS pkg_pretend pkg_setup src_unpack src_prepare src_configure
