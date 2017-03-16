@@ -10,7 +10,7 @@ KBUILD_OUTPUT="${SYSROOT}/var/cache/portage/sys-kernel/bentoo-kernel"
 inherit linux-info
 
 if [[ ${PV} == 9999 ]]; then
-	inherit git-2
+	inherit git-r3
 	SRC_URI=""
 	EGIT_REPO_URI="git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git"
 	KEYWORDS=""
