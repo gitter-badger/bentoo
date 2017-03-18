@@ -14,5 +14,5 @@ DEPEND=""
 
 RDEPEND="${DEPEND}
 	privoxy? ( net-proxy/privoxy )
-	tor? ( net-misc/tor )
+	tor? ( net-vpn/tor )
 	"
