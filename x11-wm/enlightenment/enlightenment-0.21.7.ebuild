@@ -17,10 +17,10 @@ fi
 inherit enlightenment
 
 DESCRIPTION="Enlightenment DR17 window manager"
+KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-interix ~x86-solaris ~x64-solaris"
 
 LICENSE="BSD-2"
 SLOT="0.17/${PV%%_*}"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~x86-macos ~x86-interix ~x86-solaris ~x64-solaris"
 
 __CONF_MODS=(
 	applications bindings dialogs display
@@ -35,8 +35,8 @@ __NORM_MODS=(
 	ibar ibox lokker
 	mixer msgbus music-control notification
 	pager packagekit pager-plain policy-mobile quickaccess
-	shot start syscon systray tasks teamwork temperature tiling time
-	winlist wireless wizard wl-desktop-shell wl-drm wl-text-input
+	shot start syscon systray tasks teamwork temperature tiling
+	time winlist wireless wizard wl-desktop-shell wl-drm wl-text-input
 	wl-weekeyboard wl-wl wl-x11 xkbswitch xwayland
 )
 IUSE_E_MODULES=(
@@ -44,19 +44,23 @@ IUSE_E_MODULES=(
 	${__NORM_MODS[@]/#/enlightenment_modules_}
 )
 
-IUSE="pam spell static-libs systemd +udev ukit wayland ${IUSE_E_MODULES[@]/#/+}"
+IUSE="pam spell static-libs systemd egl +eeze +udev ukit wayland ${IUSE_E_MODULES[@]/#/+}"
 
 RDEPEND="
 	pam? ( sys-libs/pam )
 	systemd? ( sys-apps/systemd )
 	wayland? (
 		dev-libs/efl[wayland]
-		>=dev-libs/wayland-1.2.0
+		>=dev-libs/wayland-1.10.0
 		>=x11-libs/pixman-0.31.1
 		>=x11-libs/libxkbcommon-0.3.1
 	)
-	>=dev-libs/efl-1.18[X]
-	x11-libs/xcb-util-keysyms"
+	>=dev-libs/efl-1.18.1[X,egl?,wayland?]
+	virtual/udev
+	x11-libs/libxcb
+	x11-libs/xcb-util-keysyms
+"
+
 DEPEND="${RDEPEND}"
 
 S=${WORKDIR}/${MY_P}
@@ -94,17 +98,18 @@ src_configure() {
 	check_modules
 
 	E_ECONF=(
-		--disable-install-sysactions
+		#--disable-install-sysactions
 		$(use_enable doc)
 		$(use_enable nls)
+		$(use_enable egl wayland-egl)
 		$(use_enable pam)
 		$(use_enable systemd)
 		--enable-device-udev
 		$(use_enable udev mount-eeze)
 		$(use_enable ukit mount-udisks)
+
 		$(use_enable wayland)
-        --enable-xwayland
-        --enable-wayland-egl        
+        --enable-xwayland    
 	)
 	local u c
 	for u in ${IUSE_E_MODULES[@]} ; do
