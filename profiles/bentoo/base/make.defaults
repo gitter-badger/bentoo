@@ -37,7 +37,7 @@ PORTAGE_IO_NICENESS="ionice -c 3 -p \${PID}"
 
 RUBY_TARGETS="ruby20 ruby21"
 
-USE="${USE} X abi_x86_32 adns caps curl jack lm_sensors lua lzma perl pulseaudio python sqlite xattr xinerama"
+USE="${USE} X abi_x86_32 adns caps curl lm_sensors lua lzma perl pulseaudio python sqlite xattr xinerama"
 
 PORTAGE_BZIP2_COMMAND="lbzip2"
 
