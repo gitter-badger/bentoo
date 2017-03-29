@@ -1,0 +1,16 @@
+http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libedit/chartype.h.diff?r1=1.14&r2=1.15
+
+diff --git a/libedit-20150325-3.1/src/chartype.h b/libedit-20150325-3.1/src/chartype.h
+index 0beee17..d037363 100644
+--- a/libedit-20150325-3.1/src/chartype.h
++++ b/libedit-20150325-3.1/src/chartype.h
+@@ -44,7 +44,7 @@
+  * supports non-BMP code points without requiring UTF-16, but nothing
+  * seems to actually advertise this properly, despite Unicode 3.1 having
+  * been around since 2001... */
+-#if !defined(__NetBSD__) && !defined(__sun) && !(defined(__APPLE__) && defined(__MACH__)) && !defined(__OpenBSD__)
++#if !defined(__NetBSD__) && !defined(__sun) && !(defined(__APPLE__) && defined(__MACH__)) && !defined(__OpenBSD__) && !defined(__FreeBSD__)
+ #ifndef __STDC_ISO_10646__
+ /* In many places it is assumed that the first 127 code points are ASCII
+  * compatible, so ensure wchar_t indeed does ISO 10646 and not some other
+
