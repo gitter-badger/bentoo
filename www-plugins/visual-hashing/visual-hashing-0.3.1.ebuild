@@ -7,7 +7,7 @@ EAPI="6"
 inherit mozilla-addon
 
 MOZ_FILEID="354376"
-DESCRIPTION="Changes the background of password entry fields to a four-color visual hash. Use this add-on and, over time, you'll remember your visual hash and stop mistyping your passwords!"
+DESCRIPTION="Changes the background of password entry fields to a four-color visual hash."
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/visual-hashing"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 

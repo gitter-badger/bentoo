@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription lang="en">
+	</longdescription>
+	<use>
+		<flag name="cockpit"></flag>
+		<flag name="enlightenment"></flag>
+		<flag name="exploit"></flag>
+		<flag name="gnome"></flag>
+		<flag name="kde"></flag>
+		<flag name="mate"></flag>
+		<flag name="mobile"></flag>
+		<flag name="pelican"></flag>
+		<flag name="proxie"></flag>
+		<flag name="steam"></flag>
+		<flag name="xfce"></flag>
+		<flag name="wine"></flag>
+	</use>
+</pkgmetadata>

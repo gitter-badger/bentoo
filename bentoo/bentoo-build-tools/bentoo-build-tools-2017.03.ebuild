@@ -4,7 +4,7 @@
 
 EAPI="6"
 
-DESCRIPTION="Tools for building C and C++ programs. Some of these tools will be required to build programs with Portage, but not listed amongst build dependencies"
+DESCRIPTION="Tools for building C and C++ programs."
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 KEYWORDS="amd64 arm x86"
 SLOT="0"

@@ -3,6 +3,8 @@
 # $Id$
 
 EAPI="6"
+
+DESCRIPTION="Configures your GPU when autodetection fails do to it"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SRC_URI=""
 LICENSE="GPL-2"

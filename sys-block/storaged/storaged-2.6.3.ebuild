@@ -5,7 +5,7 @@
 EAPI="6"
 inherit eutils autotools multilib
 
-DESCRIPTION="Provides a daemon, tools and libraries to access and manipulate disks, storage devices and technologies"
+DESCRIPTION="Daemon providing interfaces to work with storage devices"
 HOMEPAGE="http://storaged-project.github.io/"
 if [[ ${PV} == 9999* ]] ; then
 	inherit git-r3

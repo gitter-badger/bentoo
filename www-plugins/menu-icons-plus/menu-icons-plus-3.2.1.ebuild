@@ -7,7 +7,7 @@ EAPI="6"
 inherit mozilla-addon
 
 MOZ_FILEID="8266"
-DESCRIPTION="Adds icons to your Firefox menus. Choose from the built-in icon sets or import your own."
+DESCRIPTION="Adds icons to your Firefox menus."
 HOMEPAGE="http://www.codedawn.com/menu-icons-plus.php https://addons.mozilla.org/en-GB/firefox/addon/menu-icons-plus/"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 

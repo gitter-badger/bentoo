@@ -5,7 +5,7 @@
 EAPI="6"
 DESCRIPTION="Bentoo proxy meta ebuild"
 HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
-LICENSE="GPL"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 arm x86"
 IUSE="privoxy tor"

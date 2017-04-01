@@ -7,7 +7,7 @@ EAPI="6"
 inherit mozilla-addon
 
 MOZ_FILEID="473878"
-DESCRIPTION="Allows the use of various browser profiles (including useragent ,platform, oscpu, accept headers and other options), which it can randomly switch between after a chosen period of time has expired."
+DESCRIPTION="Allows the use of various browser profiles."
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/random-agent-spoofer/"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 

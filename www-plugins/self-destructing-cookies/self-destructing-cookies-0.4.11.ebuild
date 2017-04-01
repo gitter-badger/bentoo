@@ -7,7 +7,7 @@ EAPI="6"
 inherit mozilla-addon
 
 MOZ_FILEID="415846"
-DESCRIPTION="Fix the web. Gets rid of a site's cookies and LocalStorage as soon as you close its tabs. Protects against trackers and zombie-cookies. Trustworthy services can be whitelisted."
+DESCRIPTION="Protects against trackers and zombie-cookies."
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/self-destructing-cookies"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
