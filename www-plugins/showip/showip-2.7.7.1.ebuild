@@ -7,7 +7,7 @@ EAPI="6"
 inherit mozilla-addon
 
 MOZ_FILEID="293038"
-DESCRIPTION="Firefox extensions which shows the IP address(es) of the current page in the status bar."
+DESCRIPTION="Shows the IP address(es) of the current page in the status bar."
 HOMEPAGE="http://code.google.com/p/firefox-showip https://addons.mozilla.org/en-GB/firefox/addon/showip/"
 SRC_URI="http://addons.mozilla.org/downloads/file/${MOZ_FILEID} -> ${P}.xpi"
 

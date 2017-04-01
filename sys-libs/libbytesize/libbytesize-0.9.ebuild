@@ -6,7 +6,7 @@ EAPI="6"
 PYTHON_COMPAT=( python3_4 python3_5 python3_6 )
 inherit python-single-r1 autotools eutils
 
-DESCRIPTION="A tiny library providing a C \"class\" for working with arbitrary big sizes in bytes"
+DESCRIPTION="A tiny library providing a C class for working with arbitrary big sizes in bytes"
 HOMEPAGE="https://github.com/rhinstaller/libbytesize"
 if [[ ${PV} == 9999* ]] ; then
 	inherit git-r3

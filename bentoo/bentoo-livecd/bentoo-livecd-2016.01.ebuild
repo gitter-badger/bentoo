@@ -5,7 +5,7 @@
 EAPI="6"
 
 DESCRIPTION="things needed by bentoo for livecd only"
-HOMEPAGE=""
+HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 SRC_URI=""
 
 LICENSE=""

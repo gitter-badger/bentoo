@@ -7,7 +7,7 @@ EAPI="6"
 inherit mozilla-addon
 
 MOZ_FILEID="358602"
-DESCRIPTION="This add-on displays a force directed graph visualization (using d3.js) of your passwords and the sites you use them on. Activate by clicking on the blue padlock in the add-on bar."
+DESCRIPTION="Displays a force directed graph visualization of your passwords."
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/password-reuse-visualizer/"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 

@@ -7,7 +7,7 @@ EAPI="6"
 inherit mozilla-addon
 
 MOZ_FILEID="229918"
-DESCRIPTION="Encrypt the web! HTTPS Everywhere is a Firefox extension that encrypts your communications."
+DESCRIPTION="Encrypt the web!"
 HOMEPAGE="https://www.eff.org/HTTPS-EVERYWHERE https://addons.mozilla.org/en-GB/firefox/addon/https-everywhere/"
 SRC_URI="http://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID} -> ${P}.xpi"
 

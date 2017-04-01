@@ -7,7 +7,7 @@ EAPI="6"
 inherit mozilla-addon
 
 MOZ_FILEID="472577"
-DESCRIPTION="Squared tabs, appmenu, add-on bar, small button view and many more 'old' features for Firefox 29+ (Windows / MacOSX / Linux)."
+DESCRIPTION="'Old' features for Firefox 29+."
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/classicthemerestorer/"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 

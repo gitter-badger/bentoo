@@ -3,9 +3,8 @@
 # $Id$
 
 EAPI="6"
-DESCRIPTION="Collection of firefox extensions for application security auditing and assessment."
-# HOMEPAGE="http://www.security-database.com/toolswatch/FireCAT-Firefox-Catalog-of,302.html https://prism-break.org/en/categories/gnu-linux/#web-browser-addons "
-HOMEPAGE="http://www.firecat.fr/"
+DESCRIPTION="Browser plugins"
+HOMEPAGE="https://bitbucket.org/redeyeteam/bentoo"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 arm x86"

@@ -7,7 +7,7 @@ EAPI="6"
 inherit mozilla-addon
 
 MOZ_FILEID="12441"
-DESCRIPTION="For Sysadmins / Network Engineers / and why not everybody who needs a quick password generator.. simple, yet efficient."
+DESCRIPTION="Quick password generator.. simple, yet efficient."
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/pwgen-password-generator"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 

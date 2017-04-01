@@ -7,7 +7,7 @@ EAPI="6"
 inherit mozilla-addon
 
 MOZ_FILEID="748"
-DESCRIPTION="Customize the way a web page displays or behaves, by using small bits of JavaScript."
+DESCRIPTION="Customize the way a web page displays or behaves."
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/greasemonkey"
 SRC_URI="https://addons.mozilla.org/firefox/downloads/latest/${MOZ_FILEID}/addon-${MOZ_FILEID}-latest.xpi -> ${P}.xpi"
 
