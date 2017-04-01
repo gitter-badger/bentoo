@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v3 or later
 # $Id$
 
+EAPI="6"
 
 inherit eutils toolchain-funcs versionator base multilib-minimal
 
