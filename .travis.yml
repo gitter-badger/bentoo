@@ -1,37 +1,60 @@
-#
-# Run repoman via travis
-# See https://github.com/mrueg/repoman-travis
-#
+# Initial idea of repoman checks: https://github.com/mrueg/repoman-travis
+
+# use "Trusty" as "Precise" has bash 4.2 only, which doesn't support nameref vars
+sudo: required
+dist: trusty
 language: python
 python:
-    - pypy
+    - "3.4" # repoman seems to be fastest with python-3.4
+#addons:
+#    apt:
+#        sources:
+#            - debian-sid
+#        packages:
+#            - shellcheck
+
+git:
+    depth: 1
+branches:
+    only:
+        - master
+        - dev
+        - /^ci\//
+
+## env config and env-based matrix
 env:
-    - PORTAGE_VER="2.3.5"
+    global:
+        ## configurable variables
+        - OVERLAY_NAME='bentoo'
+    matrix:
+        - PORTAGE_VER="2.3.3" REPOMAN_VER="2.3.1"
+#        - SHELLCHECK=1
+## final touches to the matrix
+matrix:
+    fast_finish: true
+#    allow_failures:
+#            - env: SHELLCHECK=1
+
+cache:
+    pip: true
+    directories:
+        - ${VIRTUAL_ENV}/lib/python${TRAVIS_PYTHON_VERSION}/site-packages/
+before_cache:
+    - rm -v -f ${HOME}/.cache/pip/log/debug.log
+
+# -----------------------------------------------------------------------------
+
 before_install:
-    - sudo apt-get -qq update
-    - pip install lxml
-before_script:
-    - sudo chmod a+rwX /etc/passwd /etc/group /etc /usr
-    - mkdir -p travis-overlay /etc/portage /usr/portage/distfiles
-    - mv !(travis-overlay) travis-overlay/
-    - mv .git travis-overlay/
-    - wget "https://raw.githubusercontent.com/mrueg/repoman-travis/master/.travis.yml" -O .travis.yml.upstream
-    - wget "https://raw.githubusercontent.com/mrueg/repoman-travis/master/spinner.sh"
-    - wget -qO - "https://github.com/gentoo/portage/archive/portage-${PORTAGE_VER}.tar.gz" | tar xz
-    - cd portage-portage-${PORTAGE_VER}
-    - wget -qO - "https://gist.github.com/init6/240c2a8b37ae08033584781b46755434/raw/bf256da73daebf829590b0052acd26b69e409df0/repoman-${PORTAGE_VER}-bentoo-fix.patch" -O repoman-${PORTAGE_VER}-bentoo-fix.patch
-    - patch -p1 < repoman-${PORTAGE_VER}-bentoo-fix.patch
-    - cd ..
-    - wget -qO - "https://github.com/gentoo-mirror/gentoo/archive/master.tar.gz" | tar xz -C /usr/portage --strip-components=1
-    - chmod a+rwx spinner.sh
-    - echo "portage:x:250:250:portage:/var/tmp/portage:/bin/false" >> /etc/passwd
-    - echo "portage::250:portage,travis" >> /etc/group
-    - wget "https://www.gentoo.org/dtd/metadata.dtd" -O /usr/portage/distfiles/metadata.dtd
-    - ln -s portage-portage-${PORTAGE_VER}/cnf/repos.conf /etc/portage/repos.conf
-    - ln -s /usr/portage/profiles/default/linux/amd64/13.0 /etc/portage/make.profile
-    - SIZE=$(stat -c %s .travis.yml.upstream)
-    - if ! cmp -n $SIZE -s .travis.yml .travis.yml.upstream; then echo -e "\e[31m !!! .travis.yml outdated! Update available https://github.com/mrueg/repoman-travis \e[0m" > /tmp/update ; fi
-    - cd travis-overlay
+    - source .travis/setup_environment.sh
+
+install:
+    - .travis/run_install.sh
+
 script:
-    - ./../spinner.sh "python ../portage-portage-${PORTAGE_VER}/repoman/bin/repoman full -d"
-# You can append own scripts after this line
+    - .travis/run_tests.sh
+
+# after_success:
+#     - cd "${TRAVIS_BUILD_DIR}"
+#     - .travis/setup_git.sh
+
+# -----------------------------------------------------------------------------
