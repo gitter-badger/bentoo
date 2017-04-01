@@ -12,7 +12,7 @@ SRC_URI="
 	x86? ( http://spflashtool.com/download/SP_Flash_Tool_Linux_32Bit_v${PV}.zip )
 	amd64? ( http://spflashtool.com/download/SP_Flash_Tool_exe_Linux_64Bit_v${PV}.zip )"
 
-LICENSE=""
+LICENSE="Freeware"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+udev-rules +system-qt"

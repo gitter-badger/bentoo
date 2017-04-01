@@ -22,7 +22,7 @@ LICENSE="LGPL-2.1+"
 SLOT="0"
 IUSE="+debug test +pcp doc"
 
-REQUIRED_USE="maintainer-mode debug"
+REQUIRED_USE="debug"
 
 DEPEND="
 	>=net-libs/libssh-0.6[server]
