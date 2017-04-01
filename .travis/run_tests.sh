@@ -4,7 +4,7 @@ source "$(dirname "${BASH_SOURCE[0]}")/travis-functions.sh" || exit 1
 
 run_repoman() {
     echo "\$ repoman full"
-    "$(dirname "${BASH_SOURCE[0]}")/../_tools/repoman.sh" --xmlparse --without-mask 
+    "$(dirname "${BASH_SOURCE[0]}")/../scripts/repoman.sh" --xmlparse --without-mask
 }
 
 run_shellcheck() {
