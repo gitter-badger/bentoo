@@ -9,19 +9,21 @@ MY_P=${P/_/-}
 if [[ "${PV}" == "9999" ]] ; then
 	EGIT_SUB_PROJECT="core"
 	EGIT_URI_APPEND="${PN}"
+	KEYWORDS="~amd64 ~arm ~x86"
 elif [[ *"${PV}" == *"_pre"* ]] ; then
 	MY_P=${P%%_*}
 	SRC_URI="https://download.enlightenment.org/pre-releases/${MY_P}.tar.xz"
 	EKEY_STATE="snap"
+	KEYWORDS="~amd64 ~arm ~x86"
 else
 	SRC_URI="https://download.enlightenment.org/rel/libs/${PN}/${MY_P}.tar.xz"
 	EKEY_STATE="release"
+	KEYWORDS="amd64 arm x86"
 fi
 
 inherit enlightenment pax-utils
 
 DESCRIPTION="Enlightenment Foundation Libraries all-in-one package"
-
 LICENSE="BSD-2 GPL-2 LGPL-2.1 ZLIB"
 IUSE="+bmp debug drm +eet egl fbcon +fontconfig fribidi gif gles glib gnutls gstreamer harfbuzz +ico ibus jpeg2k libressl neon oldlua opengl ssl physics pixman +png +ppm postscript +psd pulseaudio rawphoto scim sdl sound +svg systemd tga tiff tslib v4l valgrind wayland webp X xim xine xpm"
 

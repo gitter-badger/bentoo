@@ -11,12 +11,11 @@ HOMEPAGE="https://github.com/rhinstaller/libbytesize"
 if [[ ${PV} == 9999* ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/rhinstaller/libbytesize.git"
-	KEYWORDS=""
+	KEYWORDS="~amd64 ~arm ~x86"
 else
 	SRC_URI="https://github.com/rhinstaller/${PN}/archive/${P}.tar.gz -> ${P}.tar.gz"
 	S="${WORKDIR}/${PN}-${P}"
-#	KEYWORDS="~amd64"
-	KEYWORDS=""
+	KEYWORDS="amd64 arm x86"
 fi
 
 LICENSE="LGPL-2.1+"

@@ -18,10 +18,10 @@ RDEPEND="${DEPEND}
 	x11-wm/enlightenment:0.17
 	x11-terms/terminology
 	bluetooth? ( =net-wireless/bluez-4* )
-        network? (
-                net-misc/connman
-                >=net-misc/econnman-1.1
-        )
+	network? (
+		net-misc/connman
+		>=net-misc/econnman-1.1
+	)
 "
 
 PDEPEND=""

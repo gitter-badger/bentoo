@@ -58,7 +58,7 @@ src_install() {
 	insopts -m 0644
 	doins -r *
 	fperms 755 ${dest}/flash_tool ${dest}/libflashtool.so ${dest}/bin/assistant plugins/*/*.so
-	newbin ${FILESDIR}/launcher.sh spflashtool
+	newbin "${FILESDIR}/launcher.sh" spflashtool
 }
 
 pkg_postinst(){

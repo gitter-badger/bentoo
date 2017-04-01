@@ -20,7 +20,7 @@ fi
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
-IUSE="+debug test +maintainer-mode +pcp doc"
+IUSE="+debug test +pcp doc"
 
 REQUIRED_USE="maintainer-mode debug"
 
@@ -63,7 +63,6 @@ src_prepare() {
 
 src_configure() {
 	local myconf=(
-		$(use_enable maintainer-mode)
 		$(use_enable debug)
 		$(use_enable pcp)
 		$(use_enable doc)
