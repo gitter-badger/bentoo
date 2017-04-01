@@ -5,4 +5,10 @@
 		<email>sudormrfhalt@gmail.com</email>
 		<name>Andrey Ovcharov</name>
 	</maintainer>
+	<use>
+		<flag name='b43'>Install sys-firmware/b43-firmware</flag>
+		<flag name='intel'>Install sys-firmware/intel-microcode</flag>
+		<flag name='nouveau'>Install sys-firmware/nouveau-firmware</flag>
+		<flag name='vdpau'>Install sys-firmware/nouveau-firmware</flag>
+	</use>
 </pkgmetadata>

@@ -5,4 +5,21 @@
 		<email>sudormrfhalt@gmail.com</email>
 		<name>Andrey Ovcharov</name>
 	</maintainer>
+	<use>
+		<flag name='addons'>Install kde-plasma/kdeplasma-addons</flag>
+		<flag name='filelight'>Install kde-apps/filelight</flag>
+		<flag name='kamera'>Install kde-apps/kamera</flag>
+		<flag name='kgpg'>Install kde-apps/kgpg</flag>
+		<flag name='kdialog'>Install kde-apps/kdialog</flag>
+		<flag name='kdepim'>Install kde-apps/kdepim-meta</flag>
+		<flag name='kmix'>Install kde-apps/kmix</flag>
+		<flag name='kpat'>Install kde-apps/kpat</flag>
+		<flag name='krusader'>Install kde-misc/krusader</flag>
+		<flag name='ksystemlog'>Install kde-apps/ksystemlog</flag>
+		<flag name='kwalletmanager'>Install kde-apps/kwalletmanager</flag>
+		<flag name='kwalletpam'>Install kde-plasma/kwallet-pam</flag>
+		<flag name='okular'>Install kde-apps/okular</flag>
+		<flag name='telepathy'>Install kde-apps/plasma-telepathy-meta</flag>
+		<flag name='touchpad'>Install touchpad cfg for plasma-desktop</flag>
+	</use>
 </pkgmetadata>

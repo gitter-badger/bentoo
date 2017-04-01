@@ -5,4 +5,7 @@
 		<email>sudormrfhalt@gmail.com</email>
 		<name>Andrey Ovcharov</name>
 	</maintainer>
+	<use>
+		<flag name=''>Install </flag>
+	</use>
 </pkgmetadata>

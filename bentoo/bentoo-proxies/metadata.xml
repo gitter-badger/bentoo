@@ -5,4 +5,8 @@
 		<email>sudormrfhalt@gmail.com</email>
 		<name>Andrey Ovcharov</name>
 	</maintainer>
+	<use>
+		<flag name='privoxy'>Install net-proxy/privoxy</flag>
+		<flag name='tor'>Install net-vpn/tor</flag>
+	</use>
 </pkgmetadata>

@@ -5,4 +5,8 @@
 		<email>sudormrfhalt@gmail.com</email>
 		<name>Andrey Ovcharov</name>
 	</maintainer>
+	<use>
+		<flag name='binwalk'>Install app-misc/binwalk</flag>
+		<flag name='iasl'>Install sys-power/iasl</flag>
+	</use>
 </pkgmetadata>

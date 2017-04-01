@@ -5,4 +5,9 @@
 		<email>sudormrfhalt@gmail.com</email>
 		<name>Andrey Ovcharov</name>
 	</maintainer>
+	<use>
+		<flag name='gnome'>Install gnome-base/gdm</flag>
+		<flag name='kde'>Install x11-misc/sddm or kde-base/kdm</flag>
+		<flag name='X'>Install x11-apps/xdm</flag>
+	</use>
 </pkgmetadata>

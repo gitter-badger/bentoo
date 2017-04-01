@@ -4,17 +4,17 @@
 	<longdescription lang="en">
 	</longdescription>
 	<use>
-		<flag name="cockpit"></flag>
-		<flag name="enlightenment"></flag>
-		<flag name="exploit"></flag>
-		<flag name="gnome"></flag>
-		<flag name="kde"></flag>
-		<flag name="mate"></flag>
-		<flag name="mobile"></flag>
-		<flag name="pelican"></flag>
-		<flag name="proxie"></flag>
-		<flag name="steam"></flag>
-		<flag name="xfce"></flag>
-		<flag name="wine"></flag>
-	</use>
+		<flag name="cockpit">Install sys-apps/cockpit</flag>
+		<flag name="enlightenment">Install bentoo/bentoo-enlightenment</flag>
+		<flag name="exploit">Install bentoo/bentoo-exploit</flag>
+		<flag name="gnome">Install bentoo/bentoo-gnome</flag>
+		<flag name="kde">Install bentoo/bentoo-kde</flag>
+		<flag name="mate">Install bentoo/bentoo-mate</flag>
+		<flag name="mobile">Install bentoo/bentoo-mobile</flag>
+		<flag name="pelican">Install bentoo/bentoo-pelican</flag>
+		<flag name="proxie">Install bentoo/bentoo-proxies</flag>
+		<flag name="steam">Install games-util/steam-launcher</flag>
+		<flag name="xfce">Install bentoo/bentoo-wine</flag>
+		<flag name="wine">Install bentoo/bentoo-xfce</flag>
+ 	</use>
 </pkgmetadata>

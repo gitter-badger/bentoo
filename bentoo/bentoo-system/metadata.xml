@@ -5,4 +5,14 @@
 		<email>sudormrfhalt@gmail.com</email>
 		<name>Andrey Ovcharov</name>
 	</maintainer>
+	<use>
+		<flag name='livecd-stage1'>Install sys-kernel/linux-firmware</flag>
+		<flag name='lvm'>Install sys-fs/lvm2</flag>
+		<flag name='optimus'>Install x11-misc/bumblebee</flag>
+		<flag name='pax_kernel'>Enable building under a PaX enabled kernel</flag>
+		<flag name='rxvt'>Install bentoo/bentoo-rxvt</flag>
+		<flag name='udf'>Install sys-fs/udftools</flag>
+		<flag name='qemu'>Install app-emulation/virt-manager</flag>
+		<flag name='zfs'>Install sys-fs/zfs</flag>
+	</use>
 </pkgmetadata>

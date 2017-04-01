@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>sudormrfhalt@gmail.com</email>
+		<name>Andrey Ovcharov</name>
+	</maintainer>
+	<use>
+		<flag name='lvm'>Install sys-fs/lvm2</flag>
+		<flag name='lsm'>Install sys-libs/libstoragemgmt </flag>
+		<flag name='lvmcache'>lvmcache support</flag>
+		<flag name='iscsi'>Install net-libs/libiscsi</flag>
+		<flag name='btrfs'>btrfs support</flag>
+		<flag name='zram'>zram support</flag>
+		<flag name='bcache'>bcache support</flag>
+	</use>
+</pkgmetadata>

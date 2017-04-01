@@ -5,4 +5,8 @@
 		<email>sudormrfhalt@gmail.com</email>
 		<name>Andrey Ovcharov</name>
 	</maintainer>
+	<use>
+		<flag name='bluetooth'>Install net-wireless/bluez</flag>
+		<flag name='network'>Install net-misc/connman and net-misc/econnman</flag>
+	</use>
 </pkgmetadata>
