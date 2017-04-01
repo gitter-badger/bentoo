@@ -5,4 +5,8 @@
 		<email>sudormrfhalt@gmail.com</email>
 		<name>Andrey Ovcharov</name>
 	</maintainer>
+	<use>
+		<flag name='emacs'>Install app-editors/emacs</flag>
+		<flag name='vim'>Install bentoo/bentoo-vim</flag>
+	</use>
 </pkgmetadata>

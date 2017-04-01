@@ -5,4 +5,22 @@
 		<email>sudormrfhalt@gmail.com</email>
 		<name>Andrey Ovcharov</name>
 	</maintainer>
+	<use>
+		<flag name='bijiben'>Install app-misc/bijiben</flag>
+		<flag name='boxes'>Install gnome-extra/gnome-boxes</flag>
+		<flag name='builder'>Install gnome-extra/gnome-builder</flag>
+		<flag name='california'>Install gnome-extra/california</flag>
+		<flag name='classic'>Install gnome-extra/gnome-shell-extensions</flag>
+		<flag name='extras'>Install gnome extras</flag>
+		<flag name='evolution'>Install mail-client/evolution</flag>
+		<flag name='fonts'>Install gnome fonts</flag>
+		<flag name='games'>Install gnome games</flag>
+		<flag name='share'>Install gnome-extra/gnome-user-share</flag>
+		<flag name='shotwell'>Install media-gfx/shotwell</flag>
+		<flag name='tracker'>Install app-misc/tracker</flag>
+		<flag name='handbrake'>Install media-video/handbrake</flag>
+		<flag name='flashback'>Install gnome-base/gnome-flashback</flag>
+		<flag name='geary'>Install mail-client/geary</flag>
+		<flag name='todo'>Install gnome-extra/gnome-todo</flag>
+	</use>
 </pkgmetadata>

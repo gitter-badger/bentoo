@@ -5,4 +5,9 @@
 		<email>sudormrfhalt@gmail.com</email>
 		<name>Andrey Ovcharov</name>
 	</maintainer>
+	<use>
+		<flag name='chromium'>Install www-plugins/chrome-binary-plugins</flag>
+		<flag name='firefox'>Install bentoo www-plugins/* collection</flag>
+		<flag name='kde'>Install kde-apps/konq-plugins</flag>
+	</use>
 </pkgmetadata>

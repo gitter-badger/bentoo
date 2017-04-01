@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>sudormrfhalt@gmail.com</email>
+		<name>Andrey Ovcharov</name>
+	</maintainer>
+    <use>
+		<flag name='symlink_all_targets'>All stuff support</flag>
+		<flag name='target_firefox'>firefox support</flag>
+		<flag name='target_thunderbird'>thunderbird support</flag>
+		<flag name='target_seamonkey'>seamonkey support</flag>
+		<flag name='target_firefox-bin'>firefox-bin support</flag>
+		<flag name='target_thunderbird-bin'>thunderbird-bin support</flag>
+		<flag name='target_seamonkey-bin'>seamonkey-bin support</flag>
+	</use>
+</pkgmetadata>

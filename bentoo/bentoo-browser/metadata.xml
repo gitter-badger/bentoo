@@ -5,4 +5,11 @@
 		<email>sudormrfhalt@gmail.com</email>
 		<name>Andrey Ovcharov</name>
 	</maintainer>
+    <use>
+		<flag name='chromium'>Install www-client/chromium</flag>
+		<flag name='firefox'>Install www-client/firefox</flag>
+		<flag name='gnome'>Install www-client/epiphany</flag>
+		<flag name='qupzilla'>Install www-client/qupzilla</flag>
+		<flag name='kde'>Install kde-apps/konqueror</flag>
+	</use>
 </pkgmetadata>

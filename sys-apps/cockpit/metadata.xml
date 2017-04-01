@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<longdescription lang="en">
-
-	</longdescription>
-	<maintainer>
-		<email>jyo.garcia@yahoo.com</email>
-		<name>J. García</name>
+	<maintainer type="person">
+		<email>sudormrfhalt@gmail.com</email>
+		<name>Andrey Ovcharov</name>
 	</maintainer>
-	<use>
-		<flag name="maintainer-mode">Enables maintaner mode</flag>
-		<flag name="debug">Enables debug information </flag>
+    <use>
+		<flag name='pcp'>Install sys-apps/pcp</flag>
 	</use>
 </pkgmetadata>

@@ -5,4 +5,11 @@
 		<email>sudormrfhalt@gmail.com</email>
 		<name>Andrey Ovcharov</name>
 	</maintainer>
+	<use>
+		<flag name='keyboard'>Install cfg file for keyboard support</flag>
+		<flag name='mouse'>Install cfg file for mouse support</flag>
+		<flag name='synaptics'>Install cfg file for synaptics support</flag>
+		<flag name='nouveau'>Install cfg file for nouveau support</flag>
+		<flag name='nvidia'>Install cfg file for nvidia support</flag>
+	</use>
 </pkgmetadata>
