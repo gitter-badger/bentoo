@@ -4,7 +4,7 @@
 
 EAPI="6"
 
-inherit eutils toolchain-funcs versionator base multilib-minimal
+inherit eutils toolchain-funcs versionator multilib-minimal
 
 MY_PV=$(get_major_version)-$(get_after_major_version)
 MY_P=${PN}-${MY_PV}
