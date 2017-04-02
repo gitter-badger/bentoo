@@ -56,10 +56,13 @@ RDEPEND="${DEPEND}
 	dev-util/dialog
 	dev-vcs/git
 	dev-vcs/git-flow
+	mail-filter/procmail
+	mail-client/mutt
 	media-fonts/iso_latin_1
 	media-gfx/graphviz
 	media-video/mpv
 	net-firewall/ipset
+	net-mail/getmail
 	net-misc/ntp
 	net-p2p/transmission
 	sys-apps/gptfdisk
